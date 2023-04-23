@@ -8,9 +8,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="HotelBooking.csproj" />
-    <None Include="HotelBooking.csproj.user" />
-  </ItemGroup>
-
 </Project>
