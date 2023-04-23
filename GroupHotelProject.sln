@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Form1", "Form1\Form1.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibrary", "MyLibrary\MyLibrary.csproj", "{2087E522-CC1C-4ACE-A3A0-265095900FB0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelBooking", "..\PRN211\HotelBooking\HotelBooking\HotelBooking.csproj", "{5A813B28-4ED8-42AB-AC5A-98A57EBD8C86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2087E522-CC1C-4ACE-A3A0-265095900FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2087E522-CC1C-4ACE-A3A0-265095900FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2087E522-CC1C-4ACE-A3A0-265095900FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A813B28-4ED8-42AB-AC5A-98A57EBD8C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A813B28-4ED8-42AB-AC5A-98A57EBD8C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A813B28-4ED8-42AB-AC5A-98A57EBD8C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A813B28-4ED8-42AB-AC5A-98A57EBD8C86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
