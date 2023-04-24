@@ -22,15 +22,22 @@ namespace HotelBooking
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            String email = userRepository.GetDefaultAccount(true).Email;
-            String password = userRepository.GetDefaultAccount(true).Password;
-            if(txtEmail.Text.Equals(email) && txtPassword.Text.Equals(password)) {
-                MessageBox.Show("Login Successfully");
+            string emailAdmin = userRepository.GetDefaultAccount(true).Email;
+            string passwordAdmin = userRepository.GetDefaultAccount(true).Password;
+
+            string emailManager = userRepository.GetDefaultAccount(false).Email;
+            string passwordManager = userRepository.GetDefaultAccount(false).Password;
+            if(txtEmail.Text.Equals(emailAdmin) && txtPassword.Text.Equals(passwordAdmin)) {
+                AddHotel addHotel = new AddHotel();
+                addHotel.Show();
             }
-            else
+            else if(txtEmail.Text.Equals(emailManager) && txtPassword.Text.Equals(passwordManager))
             {
-                MessageBox.Show("Login Failed");
+                HotelManager hotelManager = new HotelManager();
+                hotelManager.Show();
             }
+            this.Hide();
+
         }
     }
 }
