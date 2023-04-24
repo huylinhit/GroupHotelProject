@@ -35,7 +35,56 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    list = db.Bookings.ToList();
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        //for admin view
+        public IEnumerable<Booking> GetBookingsByHotelID(int hotelID)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(b => b.Room.RoomType.HotelId == hotelID)
+                                      .OrderByDescending(b => b.BookingId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        //for manager view
+        public IEnumerable<Booking> GetBookingsByManagerID(int managerID)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(b => b.Room.RoomType.Hotel.ManagerId == managerID)
+                                      .OrderByDescending(b => b.BookingId);
                 }
             }
             catch (Exception ex)
@@ -53,6 +102,11 @@ namespace MyLibrary.DAOs
                 i = db.Bookings.SingleOrDefault(p => p.BookingId == id);
             }
             return i;
+        }
+
+        public int GetNewBookingID()
+        {
+            return GetBookings().Count()+1;
         }
 
         //for user booking history
@@ -96,7 +150,8 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    item.Status = "active";
+                    item.Status = "pending";
+                    item.BookingId= GetNewBookingID();
                     db.Bookings.Add(item);
                     db.SaveChanges();
                 }
@@ -113,7 +168,7 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    item.Status = "inactive";
+                    item.Status = "removed";
                     db.Entry<Booking>(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -131,7 +186,7 @@ namespace MyLibrary.DAOs
                 using (var db = new HotelProjectContext())
                 {
                     var item = db.Bookings.SingleOrDefault(p => p.BookingId == id);
-                    item.Status = "inactive";
+                    item.Status = "removed";
                     db.Entry<Booking>(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -157,5 +212,24 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
         }
+        public void UpdateBookingStatusByBookingID(int id, string status)
+        {
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    Booking item = GetBookingByID(id);
+                    item.Status = status;
+                    db.Entry<Booking>(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
     }
 }
