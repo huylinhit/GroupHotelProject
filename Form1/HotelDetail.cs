@@ -17,6 +17,8 @@ namespace HotelBooking
             InitializeComponent();
         }
 
+        public int SelectedRoomTypeID { get; set; }
+        
         private void HotelDetail_Load(object sender, EventArgs e)
         {
 
