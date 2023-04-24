@@ -109,6 +109,7 @@ namespace HotelBooking
                         BindingSource bds = new BindingSource();
                         lblSelectedRoomTypeID.DataBindings.Add("Text", bds, "RoomTypeID");
                         bds.DataSource = list;
+                        dgvHotel.DataSource= bds;
                     }
                     else
                     {

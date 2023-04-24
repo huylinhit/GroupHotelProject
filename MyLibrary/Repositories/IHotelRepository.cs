@@ -15,10 +15,7 @@ namespace MyLibrary.Repositories
         void UpdateHotel(Hotel hotel);
         void DeleteHotel(int id);
 
-<<<<<<< HEAD
         IEnumerable<Hotel> SearchHotelByNameOrAddress(string search);
-=======
         public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest, HotelProjectContext db);
->>>>>>> Khoi-giveInfo
     }
 }
