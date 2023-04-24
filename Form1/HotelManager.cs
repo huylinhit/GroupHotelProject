@@ -118,7 +118,7 @@ namespace HotelBooking
                 roomRepository.DeleteRoom(room.RoomId);
                 LoadRoomList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Cannot Delete a product");
             }

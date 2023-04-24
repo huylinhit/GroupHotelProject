@@ -73,6 +73,7 @@
             button7 = new Button();
             button8 = new Button();
             dataGridView2 = new DataGridView();
+            button1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
@@ -93,6 +94,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(txtHotelID);
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(txtAvailable);
@@ -510,6 +512,16 @@
             dataGridView2.Size = new Size(1142, 780);
             dataGridView2.TabIndex = 23;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(28, 803);
+            button1.Name = "button1";
+            button1.Size = new Size(389, 78);
+            button1.TabIndex = 23;
+            button1.Text = "Room Type Management";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // HotelManager
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -576,5 +588,6 @@
         private Label label13;
         private TextBox txtRoomType;
         private Label label15;
+        private Button button1;
     }
 }
