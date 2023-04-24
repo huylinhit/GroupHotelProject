@@ -1,4 +1,5 @@
-﻿using MyLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MyLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,25 @@ namespace MyLibrary.DAOs
                 }
             }
         }
-
+        public IEnumerable<Room> GetRoomsByHotelID(int id)
+        {
+            IEnumerable<Room> list = new List<Room>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Rooms.
+                        Include(r => r.RoomType).
+                        ThenInclude(roomtype => roomtype.Hotel).
+                        Where(room => room.RoomType.HotelId == id).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
         public IEnumerable<Room> GetRooms()
         {
             IEnumerable<Room> list = new List<Room>();
