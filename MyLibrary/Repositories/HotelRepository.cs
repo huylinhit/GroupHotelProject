@@ -19,5 +19,6 @@ namespace MyLibrary.Repositories
         public IEnumerable<Hotel> GetHotels() => HotelDAO.Instance.GetHotels();
 
         public void UpdateHotel(Hotel hotel) => HotelDAO.Instance.UpdateHotel(hotel);
+        public IEnumerable<Hotel> SearchHotelByNameOrAddress(string search) => HotelDAO.Instance.SearchHotelByNameOrAddress(search);
     }
 }

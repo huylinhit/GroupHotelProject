@@ -19,6 +19,9 @@ namespace HotelBooking
         IHotelRepository hotelRepository = new HotelRepository();
         BindingSource source;
 
+        private bool isSearch = false;
+
+        private IEnumerable<Hotel> searchHotelsList;
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -106,26 +109,51 @@ namespace HotelBooking
         }
         public void LoadHotelsList()
         {
-            var _hotels = hotelRepository.GetHotels();
+            var hotelsList = hotelRepository.GetHotels();
+
             try
             {
+
                 source = new BindingSource();
-                source.DataSource = _hotels.Select(o => new MyViewModel(o)
+
+                if (isSearch)
                 {
-                    HotelId = o.HotelId,
-                    ManagerID = (int)o.ManagerId,
-                    HotelName = o.HotelName,
-                    Address = o.Address,
-                    Phone = o.Phone,
-                    Email = o.Email,
-                    ContactPerson = o.ContactPerson,
-                    ContactPersonEmail = o.ContactPersonEmail,
-                    ContactPersonPhone = o.ContactPersonPhone,
-                    CancellationPolicy = o.CancellationPolicy,
-                    Currency = o.Currency,
+                    source.DataSource = searchHotelsList.Select(o => new MyViewModel(o)
+                        {
+                            HotelId = o.HotelId,
+                            ManagerID = (int)o.ManagerId,
+                            HotelName = o.HotelName,
+                            Address = o.Address,
+                            Phone = o.Phone,
+                            Email = o.Email,
+                            ContactPerson = o.ContactPerson,
+                            ContactPersonEmail = o.ContactPersonEmail,
+                            ContactPersonPhone = o.ContactPersonPhone,
+                            CancellationPolicy = o.CancellationPolicy,
+                            Currency = o.Currency,
+                        }).ToList();
+
+                    isSearch = false;
+                }
+                else 
+                {
+                    source.DataSource = hotelsList.Select(o => new MyViewModel(o)
+                    {
+                        HotelId = o.HotelId,
+                        ManagerID = (int)o.ManagerId,
+                        HotelName = o.HotelName,
+                        Address = o.Address,
+                        Phone = o.Phone,
+                        Email = o.Email,
+                        ContactPerson = o.ContactPerson,
+                        ContactPersonEmail = o.ContactPersonEmail,
+                        ContactPersonPhone = o.ContactPersonPhone,
+                        CancellationPolicy = o.CancellationPolicy,
+                        Currency = o.Currency,
+                    }).ToList();
+                }
 
 
-                }).ToList();
 
                 txtHotelID.DataBindings.Clear();
                 txtManagerID.DataBindings.Clear();
@@ -156,7 +184,7 @@ namespace HotelBooking
                 dgvHotels.DataSource = source;
 
 
-                if (_hotels.Count() == 0)
+                if (hotelsList.Count() == 0)
                 {
                     btnDelete.Enabled = false;
                     Clear();
@@ -177,7 +205,7 @@ namespace HotelBooking
         private void AddHotel_Load(object sender, EventArgs e)
         {
             LoadHotelsList();
-
+            SetDefaultSearch();
             dgvHotels.CellDoubleClick += DgvHotels_CellDoubleClick;
         }
 
@@ -240,6 +268,28 @@ namespace HotelBooking
             {
                 LoadHotelsList();
                 source.Position = source.Count - 1;
+            }
+        }
+
+        public void SetDefaultSearch()
+        {
+            txtSearch.PlaceholderText = "Search Hotel Name Or Address";
+        }
+        private void cboHotelName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string search = txtSearch.Text.Trim();
+                isSearch = true;
+                searchHotelsList = hotelRepository.SearchHotelByNameOrAddress(search);
+                LoadHotelsList();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

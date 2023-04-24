@@ -148,5 +148,25 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
         }
+
+        public IEnumerable<Hotel> SearchHotelByNameOrAddress(string search)
+        {
+            IEnumerable<Hotel> result = null;
+            try
+            {
+                using(var db = new HotelProjectContext())
+                {
+                    result = db.Hotels.Where(
+                        item => item.HotelName.ToLower().Contains(search.ToLower().Trim())
+                     || item.Address.ToLower().Contains(search.ToLower().Trim())
+                        ).ToList();
+                }
+
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
     }
 }
