@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Repositories
 {
-    public interface IHotelInterface
+    public interface IHotelRepository
     {
         IEnumerable<Hotel> GetHotels();
         Hotel GetHotelById(int id);
