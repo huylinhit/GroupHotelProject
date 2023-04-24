@@ -212,6 +212,7 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
         }
+
         public void UpdateBookingStatusByBookingID(int id, string status)
         {
             try
