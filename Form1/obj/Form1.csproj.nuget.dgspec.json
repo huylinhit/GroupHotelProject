@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\FPT\\GroupHotelProject\\Form1\\Form1.csproj": {}
   },
   "projects": {
@@ -12,9 +13,27 @@
         "projectPath": "C:\\FPT\\GroupHotelProject\\Form1\\Form1.csproj",
         "packagesPath": "C:\\Users\\nvm\\.nuget\\packages\\",
         "outputPath": "C:\\FPT\\GroupHotelProject\\Form1\\obj\\",
+=======
+    "D:\\code\\PRN211\\GroupHotelProject\\Form1\\Form1.csproj": {}
+  },
+  "projects": {
+    "D:\\code\\PRN211\\GroupHotelProject\\Form1\\Form1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\code\\PRN211\\GroupHotelProject\\Form1\\Form1.csproj",
+        "projectName": "Form1",
+        "projectPath": "D:\\code\\PRN211\\GroupHotelProject\\Form1\\Form1.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\PRN211\\GroupHotelProject\\Form1\\obj\\",
+>>>>>>> bookingRepo
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\nvm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> bookingRepo
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +41,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

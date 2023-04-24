@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "348X6TZNfj9OTo0MfTzX2/u+l4tjTW32GoqNJLib6f5xEF7+5FpVvkNvHjllBQPw/zx/cnLwP8Pn/4+jPs0orA==",
   "success": true,
   "projectFilePath": "C:\\FPT\\GroupHotelProject\\Form1\\Form1.csproj",
@@ -53,5 +54,11 @@
     "C:\\Users\\nvm\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\nvm\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "ozaNkV08SLEM3GIFdugnYuJ+Xm/aVmGCMRPfI9uELdytnyWm/DIaAsXjgkjLpUrxUUgZc3zwGiBj+MhuVLUzRA==",
+  "success": true,
+  "projectFilePath": "D:\\code\\PRN211\\GroupHotelProject\\Form1\\Form1.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> bookingRepo
   "logs": []
 }
