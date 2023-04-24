@@ -45,6 +45,45 @@ namespace MyLibrary.DAOs
             return list;
         }
 
+        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest, HotelProjectContext db)
+        {
+
+            IEnumerable<HotelViewModel> list = new List<HotelViewModel>();
+            try
+            {   
+                    list =
+                        from h in db.Hotels
+                        join rt in db.RoomTypes on h.HotelId equals rt.HotelId
+                        join r in db.Rooms on rt.RoomTypeId equals r.RoomTypeId
+                        where !db.Bookings.Any(b => b.RoomId == r.RoomId &&
+                                                    (b.Status.Equals("pending") || b.Status.Equals("confirmed")) &&
+                                                    ((checkIn >= b.CheckInDate && checkIn < b.CheckOutDate) ||
+                                                        (checkOut > b.CheckInDate && checkOut <= b.CheckOutDate)))
+                                && rt.Capacity >= guest
+                                && h.Status.Equals("active")
+                                && (search == null || search.Trim().Equals(string.Empty) || h.Address.Contains(search))
+                        select new HotelViewModel
+                        {
+                            HotelID = h.HotelId,
+                            Name = h.HotelName,
+                            Address = h.Address,
+                            RoomTypeName = rt.RoomTypeName,
+                            RoomDescription = rt.Description,
+                            Price = rt.Price ?? 1,
+                            BedCount = rt.BedCount ?? 1,
+                            Capacity = rt.Capacity ?? 1,
+                            Currency = h.Currency
+                        };
+                
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
         public Hotel? GetHotelByID(int id)
         {
             Hotel? i = null;
@@ -136,8 +175,7 @@ namespace MyLibrary.DAOs
 
         public void UpdateHotel(Hotel item)
         {
-            try
-            {
+            try {
                 using (var db = new HotelProjectContext())
                 {
                     db.Entry<Hotel>(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
@@ -148,6 +186,26 @@ namespace MyLibrary.DAOs
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public IEnumerable<Hotel> SearchHotelByNameOrAddress(string search)
+        {
+            IEnumerable<Hotel> result = null;
+            try
+            {
+                using(var db = new HotelProjectContext())
+                {
+                    result = db.Hotels.Where(
+                        item => item.HotelName.ToLower().Contains(search.ToLower().Trim())
+                     || item.Address.ToLower().Contains(search.ToLower().Trim())
+                        ).ToList();
+                }
+
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
     }
 }

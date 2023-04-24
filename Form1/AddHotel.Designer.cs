@@ -52,7 +52,6 @@
             btnDelete = new Button();
             btnAdd = new Button();
             btnLoad = new Button();
-            cboHotelName = new ComboBox();
             txtSearch = new TextBox();
             btnSearch = new Button();
             saveFileDialog1 = new SaveFileDialog();
@@ -283,6 +282,7 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnLoad
             // 
@@ -295,32 +295,24 @@
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += btnLoad_Click;
             // 
-            // cboHotelName
-            // 
-            cboHotelName.FormattingEnabled = true;
-            cboHotelName.Location = new Point(336, 41);
-            cboHotelName.Margin = new Padding(2);
-            cboHotelName.Name = "cboHotelName";
-            cboHotelName.Size = new Size(91, 28);
-            cboHotelName.TabIndex = 4;
-            // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(429, 41);
+            txtSearch.Location = new Point(336, 35);
             txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(118, 27);
+            txtSearch.Size = new Size(264, 27);
             txtSearch.TabIndex = 5;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(550, 38);
+            btnSearch.Location = new Point(604, 35);
             btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(92, 29);
             btnSearch.TabIndex = 3;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label11
             // 
@@ -361,7 +353,6 @@
             Controls.Add(txtManagerID);
             Controls.Add(label12);
             Controls.Add(txtSearch);
-            Controls.Add(cboHotelName);
             Controls.Add(btnSearch);
             Controls.Add(btnLoad);
             Controls.Add(btnAdd);
@@ -423,7 +414,6 @@
         private Button btnDelete;
         private Button btnAdd;
         private Button btnLoad;
-        private ComboBox cboHotelName;
         private TextBox txtSearch;
         private Button btnSearch;
         private SaveFileDialog saveFileDialog1;
