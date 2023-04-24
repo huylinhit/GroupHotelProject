@@ -30,24 +30,23 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             comboBox2 = new ComboBox();
             comboBox1 = new ComboBox();
             button3 = new Button();
-            button2 = new Button();
+            btnDelete = new Button();
             button1 = new Button();
-            dataGridView1 = new DataGridView();
+            dgvBookings = new DataGridView();
             label2 = new Label();
             panel1 = new Panel();
             textBox1 = new TextBox();
-            textBox8 = new TextBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
+            txtAddress = new TextBox();
+            txtPhone = new TextBox();
+            txtPassword = new TextBox();
+            txtEmail = new TextBox();
+            txtLastName = new TextBox();
+            txtFirstName = new TextBox();
             label1 = new Label();
-            textBox2 = new TextBox();
+            txtUserID = new TextBox();
             label13 = new Label();
             label12 = new Label();
             label11 = new Label();
@@ -56,9 +55,10 @@
             label8 = new Label();
             label7 = new Label();
             textBox9 = new TextBox();
+            tabPage2 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,9 +68,10 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1792, 969);
+            tabControl1.Size = new Size(1103, 606);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -78,105 +79,103 @@
             tabPage1.Controls.Add(comboBox2);
             tabPage1.Controls.Add(comboBox1);
             tabPage1.Controls.Add(button3);
-            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(btnDelete);
             tabPage1.Controls.Add(button1);
-            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Controls.Add(dgvBookings);
             tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(panel1);
             tabPage1.Controls.Add(textBox9);
-            tabPage1.Location = new Point(8, 46);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1776, 915);
+            tabPage1.Padding = new Padding(2);
+            tabPage1.Size = new Size(1095, 573);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Booking Management";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(8, 46);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1776, 915);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(1616, 6);
+            comboBox2.Location = new Point(994, 4);
+            comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(156, 40);
+            comboBox2.Size = new Size(98, 28);
             comboBox2.TabIndex = 24;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(599, 7);
+            comboBox1.Location = new Point(369, 4);
+            comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(156, 40);
+            comboBox1.Size = new Size(98, 28);
             comboBox1.TabIndex = 25;
             // 
             // button3
             // 
-            button3.Location = new Point(995, 7);
+            button3.Location = new Point(612, 4);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
-            button3.Size = new Size(150, 40);
+            button3.Size = new Size(92, 25);
             button3.TabIndex = 21;
             button3.Text = "Search";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDelete
             // 
-            button2.Location = new Point(287, 716);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 22;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(177, 448);
+            btnDelete.Margin = new Padding(2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(92, 29);
+            btnDelete.TabIndex = 22;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(443, 716);
+            button1.Location = new Point(273, 448);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(150, 46);
+            button1.Size = new Size(92, 29);
             button1.TabIndex = 23;
             button1.Text = "Close";
             button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvBookings
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(599, 53);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1173, 862);
-            dataGridView1.TabIndex = 20;
+            dgvBookings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBookings.Location = new Point(369, 33);
+            dgvBookings.Margin = new Padding(2);
+            dgvBookings.Name = "dgvBookings";
+            dgvBookings.RowHeadersWidth = 82;
+            dgvBookings.RowTemplate.Height = 41;
+            dgvBookings.Size = new Size(722, 539);
+            dgvBookings.TabIndex = 20;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(4, 0);
+            label2.Location = new Point(2, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(385, 50);
+            label2.Size = new Size(252, 32);
             label2.TabIndex = 19;
             label2.Text = "Booking Management";
             // 
             // panel1
             // 
             panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox8);
-            panel1.Controls.Add(textBox7);
-            panel1.Controls.Add(textBox6);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(txtAddress);
+            panel1.Controls.Add(txtPhone);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(txtEmail);
+            panel1.Controls.Add(txtLastName);
+            panel1.Controls.Add(txtFirstName);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(txtUserID);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(label11);
@@ -184,158 +183,189 @@
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
-            panel1.Location = new Point(4, 53);
+            panel1.Location = new Point(2, 33);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(589, 618);
+            panel1.Size = new Size(362, 386);
             panel1.TabIndex = 18;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(243, 550);
+            textBox1.Location = new Point(150, 344);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(315, 39);
+            textBox1.Size = new Size(195, 27);
             textBox1.TabIndex = 11;
             // 
-            // textBox8
+            // txtAddress
             // 
-            textBox8.Location = new Point(243, 474);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(315, 39);
-            textBox8.TabIndex = 11;
+            txtAddress.Location = new Point(150, 296);
+            txtAddress.Margin = new Padding(2);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(195, 27);
+            txtAddress.TabIndex = 11;
             // 
-            // textBox7
+            // txtPhone
             // 
-            textBox7.Location = new Point(243, 400);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(315, 39);
-            textBox7.TabIndex = 12;
+            txtPhone.Location = new Point(150, 250);
+            txtPhone.Margin = new Padding(2);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(195, 27);
+            txtPhone.TabIndex = 12;
             // 
-            // textBox6
+            // txtPassword
             // 
-            textBox6.Location = new Point(243, 324);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(315, 39);
-            textBox6.TabIndex = 13;
+            txtPassword.Location = new Point(150, 202);
+            txtPassword.Margin = new Padding(2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(195, 27);
+            txtPassword.TabIndex = 13;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.Location = new Point(243, 249);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(315, 39);
-            textBox5.TabIndex = 14;
+            txtEmail.Location = new Point(150, 156);
+            txtEmail.Margin = new Padding(2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(195, 27);
+            txtEmail.TabIndex = 14;
             // 
-            // textBox4
+            // txtLastName
             // 
-            textBox4.Location = new Point(243, 178);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(315, 39);
-            textBox4.TabIndex = 15;
+            txtLastName.Location = new Point(150, 111);
+            txtLastName.Margin = new Padding(2);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(195, 27);
+            txtLastName.TabIndex = 15;
             // 
-            // textBox3
+            // txtFirstName
             // 
-            textBox3.Location = new Point(243, 104);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(315, 39);
-            textBox3.TabIndex = 16;
+            txtFirstName.Location = new Point(150, 65);
+            txtFirstName.Margin = new Padding(2);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(195, 27);
+            txtFirstName.TabIndex = 16;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 557);
+            label1.Location = new Point(15, 348);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(82, 32);
+            label1.Size = new Size(50, 20);
             label1.TabIndex = 4;
             label1.Text = "Phone";
             // 
-            // textBox2
+            // txtUserID
             // 
-            textBox2.Location = new Point(243, 32);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(315, 39);
-            textBox2.TabIndex = 17;
+            txtUserID.Location = new Point(150, 20);
+            txtUserID.Margin = new Padding(2);
+            txtUserID.Name = "txtUserID";
+            txtUserID.Size = new Size(195, 27);
+            txtUserID.TabIndex = 17;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(24, 481);
+            label13.Location = new Point(15, 301);
+            label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
-            label13.Size = new Size(98, 32);
+            label13.Size = new Size(62, 20);
             label13.TabIndex = 4;
             label13.Text = "Address";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(24, 407);
+            label12.Location = new Point(15, 254);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(82, 32);
+            label12.Size = new Size(50, 20);
             label12.TabIndex = 5;
             label12.Text = "Phone";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(24, 331);
+            label11.Location = new Point(15, 207);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(111, 32);
+            label11.Size = new Size(70, 20);
             label11.TabIndex = 6;
             label11.Text = "Password";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(24, 256);
+            label10.Location = new Point(15, 160);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(71, 32);
+            label10.Size = new Size(46, 20);
             label10.TabIndex = 7;
             label10.Text = "Email";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(24, 185);
+            label9.Location = new Point(15, 116);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(126, 32);
+            label9.Size = new Size(79, 20);
             label9.TabIndex = 8;
             label9.Text = "Last Name";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(24, 107);
+            label8.Location = new Point(15, 67);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(129, 32);
+            label8.Size = new Size(80, 20);
             label8.TabIndex = 9;
             label8.Text = "First Name";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(24, 35);
+            label7.Location = new Point(15, 22);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(91, 32);
+            label7.Size = new Size(57, 20);
             label7.TabIndex = 10;
             label7.Text = "User ID";
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(761, 7);
+            textBox9.Location = new Point(468, 4);
+            textBox9.Margin = new Padding(2);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(228, 39);
+            textBox9.Size = new Size(142, 27);
             textBox9.TabIndex = 26;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Margin = new Padding(2);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(2);
+            tabPage2.Size = new Size(1095, 573);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // BookingManagement
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1792, 969);
+            ClientSize = new Size(1103, 606);
             Controls.Add(tabControl1);
+            Margin = new Padding(2);
             Name = "BookingManagement";
             Text = "BookingManagement";
+            Load += BookingManagement_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookings).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -348,20 +378,20 @@
         private ComboBox comboBox2;
         private ComboBox comboBox1;
         private Button button3;
-        private Button button2;
+        private Button btnDelete;
         private Button button1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvBookings;
         private Label label2;
         private Panel panel1;
         private TextBox textBox1;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox txtAddress;
+        private TextBox txtPhone;
+        private TextBox txtPassword;
+        private TextBox txtEmail;
+        private TextBox txtLastName;
+        private TextBox txtFirstName;
         private Label label1;
-        private TextBox textBox2;
+        private TextBox txtUserID;
         private Label label13;
         private Label label12;
         private Label label11;
