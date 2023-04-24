@@ -12,3 +12,18 @@ C:\Users\Nguyen Huy Linh\Desktop\TeamWorkProject\GroupHotelProject\MyLibrary\obj
 C:\Users\Nguyen Huy Linh\Desktop\TeamWorkProject\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.pdb
 C:\Users\Nguyen Huy Linh\Desktop\TeamWorkProject\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.genruntimeconfig.cache
 C:\Users\Nguyen Huy Linh\Desktop\TeamWorkProject\GroupHotelProject\MyLibrary\obj\Debug\net6.0\ref\MyLibrary.dll
+C:\FPT\GroupHotelProject\MyLibrary\bin\Debug\net6.0\MyLibrary.deps.json
+C:\FPT\GroupHotelProject\MyLibrary\bin\Debug\net6.0\MyLibrary.runtimeconfig.json
+C:\FPT\GroupHotelProject\MyLibrary\bin\Debug\net6.0\MyLibrary.dll
+C:\FPT\GroupHotelProject\MyLibrary\bin\Debug\net6.0\MyLibrary.pdb
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.csproj.AssemblyReference.cache
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.AssemblyInfoInputs.cache
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.AssemblyInfo.cs
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.csproj.CoreCompileInputs.cache
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.dll
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\refint\MyLibrary.dll
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.pdb
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\MyLibrary.genruntimeconfig.cache
+C:\FPT\GroupHotelProject\MyLibrary\obj\Debug\net6.0\ref\MyLibrary.dll
+C:\FPT\GroupHotelProject\MyLibrary\bin\Debug\net6.0\appsettings.json

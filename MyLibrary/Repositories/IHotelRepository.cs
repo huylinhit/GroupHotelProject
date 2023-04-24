@@ -14,6 +14,5 @@ namespace MyLibrary.Repositories
         void AddHotel(Hotel hotel);
         void UpdateHotel(Hotel hotel);
         void DeleteHotel(int id);
-
     }
 }
