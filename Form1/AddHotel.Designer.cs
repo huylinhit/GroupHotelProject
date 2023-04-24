@@ -283,6 +283,7 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnLoad
             // 

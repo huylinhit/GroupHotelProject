@@ -136,8 +136,7 @@ namespace MyLibrary.DAOs
 
         public void UpdateHotel(Hotel item)
         {
-            try
-            {
+            try {
                 using (var db = new HotelProjectContext())
                 {
                     db.Entry<Hotel>(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;

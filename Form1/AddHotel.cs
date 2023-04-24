@@ -1,4 +1,5 @@
-﻿using MyLibrary.Models;
+﻿using Form1;
+using MyLibrary.Models;
 using MyLibrary.Repositories;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -175,6 +177,28 @@ namespace HotelBooking
         private void AddHotel_Load(object sender, EventArgs e)
         {
             LoadHotelsList();
+
+            dgvHotels.CellDoubleClick += DgvHotels_CellDoubleClick;
+        }
+
+        private void DgvHotels_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            var _hotel = GetHotelObject();
+
+            AddHotelDetail addHotelDetail = new AddHotelDetail()
+            {
+                Text = "Update Hotel",
+                InsertOrUpdate = true,
+                HotelObject = _hotel,
+                hotelRepository = hotelRepository
+            };
+
+            if (addHotelDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadHotelsList();
+                source.Position = source.Count - 1;
+            }
+
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -185,21 +209,38 @@ namespace HotelBooking
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int _hotelID = int.Parse(txtHotelID.Text);
-
-            DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (_confirm == DialogResult.OK)
+            try
             {
-                hotelRepository.DeleteHotel(_hotelID);
-                MessageBox.Show("Delete Successfully");
+                DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (_confirm == DialogResult.OK)
+                {
+                    hotelRepository.DeleteHotel(_hotelID);
+                    MessageBox.Show("Delete Successfully");
+                }
+                LoadHotelsList();
             }
-            else
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
+        }
 
-            LoadHotelsList();
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddHotelDetail addHotelDetail = new AddHotelDetail()
+            {
+                Text = "Add New Hotel",
+                InsertOrUpdate = false,
+                hotelRepository = hotelRepository,
+            };
+
+            if (addHotelDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadHotelsList();
+                source.Position = source.Count - 1;
+            }
         }
     }
 }
