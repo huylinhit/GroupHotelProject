@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvHotels = new DataGridView();
             label1 = new Label();
             txtHotelID = new TextBox();
             label2 = new Label();
@@ -40,7 +40,7 @@
             label5 = new Label();
             txtEmail = new TextBox();
             label6 = new Label();
-            txtContacPersonPhone = new TextBox();
+            txtContactPersonName = new TextBox();
             label7 = new Label();
             txtContactPersonPhone = new TextBox();
             label8 = new Label();
@@ -59,19 +59,19 @@
             label11 = new Label();
             txtManagerID = new TextBox();
             label12 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHotels).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvHotels
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(336, 71);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(703, 488);
-            dataGridView1.TabIndex = 0;
+            dgvHotels.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHotels.Location = new Point(336, 71);
+            dgvHotels.Margin = new Padding(2);
+            dgvHotels.Name = "dgvHotels";
+            dgvHotels.RowHeadersWidth = 82;
+            dgvHotels.RowTemplate.Height = 41;
+            dgvHotels.Size = new Size(703, 488);
+            dgvHotels.TabIndex = 0;
             // 
             // label1
             // 
@@ -173,13 +173,13 @@
             label6.TabIndex = 1;
             label6.Text = "Contact Person";
             // 
-            // txtContacPersonPhone
+            // txtContactPersonName
             // 
-            txtContacPersonPhone.Location = new Point(175, 342);
-            txtContacPersonPhone.Margin = new Padding(2);
-            txtContacPersonPhone.Name = "txtContacPersonPhone";
-            txtContacPersonPhone.Size = new Size(135, 27);
-            txtContacPersonPhone.TabIndex = 2;
+            txtContactPersonName.Location = new Point(175, 342);
+            txtContactPersonName.Margin = new Padding(2);
+            txtContactPersonName.Name = "txtContactPersonName";
+            txtContactPersonName.Size = new Size(135, 27);
+            txtContactPersonName.TabIndex = 2;
             // 
             // label7
             // 
@@ -282,6 +282,7 @@
             btnLoad.TabIndex = 3;
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
             // cboHotelName
             // 
@@ -361,7 +362,7 @@
             Controls.Add(label8);
             Controls.Add(txtContactPersonPhone);
             Controls.Add(label7);
-            Controls.Add(txtContacPersonPhone);
+            Controls.Add(txtContactPersonName);
             Controls.Add(label6);
             Controls.Add(txtEmail);
             Controls.Add(label5);
@@ -374,18 +375,19 @@
             Controls.Add(txtHotelID);
             Controls.Add(label11);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvHotels);
             Margin = new Padding(2);
             Name = "AddHotel";
             Text = "AddHotel";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += AddHotel_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvHotels).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvHotels;
         private Label label1;
         private TextBox txtHotelID;
         private Label label2;
@@ -397,7 +399,7 @@
         private Label label5;
         private TextBox txtEmail;
         private Label label6;
-        private TextBox txtContacPersonPhone;
+        private TextBox txtContactPersonName;
         private Label label7;
         private TextBox txtContactPersonPhone;
         private Label label8;

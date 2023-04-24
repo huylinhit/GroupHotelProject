@@ -35,7 +35,7 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    list = db.Hotels.ToList();
+                    list = db.Hotels.Where(item => item.Status.Equals("active")).ToList();
                 }
             }
             catch (Exception ex)
