@@ -88,6 +88,7 @@
             txtHotelID.Location = new Point(175, 88);
             txtHotelID.Margin = new Padding(2);
             txtHotelID.Name = "txtHotelID";
+            txtHotelID.ReadOnly = true;
             txtHotelID.Size = new Size(135, 27);
             txtHotelID.TabIndex = 2;
             // 
@@ -106,6 +107,7 @@
             txtHotelName.Location = new Point(175, 165);
             txtHotelName.Margin = new Padding(2);
             txtHotelName.Name = "txtHotelName";
+            txtHotelName.ReadOnly = true;
             txtHotelName.Size = new Size(135, 27);
             txtHotelName.TabIndex = 2;
             // 
@@ -124,6 +126,7 @@
             txtAddress.Location = new Point(175, 208);
             txtAddress.Margin = new Padding(2);
             txtAddress.Name = "txtAddress";
+            txtAddress.ReadOnly = true;
             txtAddress.Size = new Size(135, 27);
             txtAddress.TabIndex = 2;
             // 
@@ -142,6 +145,7 @@
             txtPhone.Location = new Point(175, 253);
             txtPhone.Margin = new Padding(2);
             txtPhone.Name = "txtPhone";
+            txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(135, 27);
             txtPhone.TabIndex = 2;
             // 
@@ -160,6 +164,7 @@
             txtEmail.Location = new Point(175, 297);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(135, 27);
             txtEmail.TabIndex = 2;
             // 
@@ -178,6 +183,7 @@
             txtContactPersonName.Location = new Point(175, 342);
             txtContactPersonName.Margin = new Padding(2);
             txtContactPersonName.Name = "txtContactPersonName";
+            txtContactPersonName.ReadOnly = true;
             txtContactPersonName.Size = new Size(135, 27);
             txtContactPersonName.TabIndex = 2;
             // 
@@ -196,6 +202,7 @@
             txtContactPersonPhone.Location = new Point(175, 385);
             txtContactPersonPhone.Margin = new Padding(2);
             txtContactPersonPhone.Name = "txtContactPersonPhone";
+            txtContactPersonPhone.ReadOnly = true;
             txtContactPersonPhone.Size = new Size(135, 27);
             txtContactPersonPhone.TabIndex = 2;
             // 
@@ -214,6 +221,7 @@
             txtContactPersonEmail.Location = new Point(175, 427);
             txtContactPersonEmail.Margin = new Padding(2);
             txtContactPersonEmail.Name = "txtContactPersonEmail";
+            txtContactPersonEmail.ReadOnly = true;
             txtContactPersonEmail.Size = new Size(135, 27);
             txtContactPersonEmail.TabIndex = 2;
             // 
@@ -232,6 +240,7 @@
             txtCancellationPolicy.Location = new Point(175, 471);
             txtCancellationPolicy.Margin = new Padding(2);
             txtCancellationPolicy.Name = "txtCancellationPolicy";
+            txtCancellationPolicy.ReadOnly = true;
             txtCancellationPolicy.Size = new Size(135, 27);
             txtCancellationPolicy.TabIndex = 2;
             // 
@@ -250,6 +259,7 @@
             txtCurrency.Location = new Point(175, 514);
             txtCurrency.Margin = new Padding(2);
             txtCurrency.Name = "txtCurrency";
+            txtCurrency.ReadOnly = true;
             txtCurrency.Size = new Size(135, 27);
             txtCurrency.TabIndex = 2;
             // 
@@ -262,6 +272,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -328,6 +339,7 @@
             txtManagerID.Location = new Point(175, 126);
             txtManagerID.Margin = new Padding(2);
             txtManagerID.Name = "txtManagerID";
+            txtManagerID.ReadOnly = true;
             txtManagerID.Size = new Size(135, 27);
             txtManagerID.TabIndex = 7;
             // 

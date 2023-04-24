@@ -19,7 +19,7 @@ namespace HotelBooking
 
         class MyViewModel
         {
-            public int HotelId { get; set; }    
+            public int HotelId { get; set; }
             public int ManagerID { get; set; }
             public string HotelName { get; set; }
             public string Address { get; set; }
@@ -52,6 +52,40 @@ namespace HotelBooking
         public AddHotel()
         {
             InitializeComponent();
+        }
+
+        public Hotel GetHotelObject()
+        {
+            Hotel _hotel = null;
+            string status = "active";
+
+            try
+            {
+                _hotel = new Hotel()
+                {
+                    HotelId = int.Parse(txtHotelID.Text),
+                    ManagerId = int.Parse(txtManagerID.Text),
+                    HotelName = txtHotelName.Text,
+                    Address = txtAddress.Text,
+                    Phone = txtPhone.Text,
+                    Email = txtEmail.Text,
+                    ContactPerson = txtContactPersonName.Text,
+                    ContactPersonEmail = txtContactPersonEmail.Text,
+                    ContactPersonPhone = txtContactPersonPhone.Text,
+                    CancellationPolicy = txtCancellationPolicy.Text,
+                    Currency = txtCurrency.Text,
+                    Status = status
+                };
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return _hotel;
         }
 
         public void Clear()
@@ -89,7 +123,7 @@ namespace HotelBooking
                     Currency = o.Currency,
 
 
-                }).ToList() ;
+                }).ToList();
 
                 txtHotelID.DataBindings.Clear();
                 txtManagerID.DataBindings.Clear();
@@ -145,6 +179,26 @@ namespace HotelBooking
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            LoadHotelsList();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int _hotelID = int.Parse(txtHotelID.Text);
+
+            DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (_confirm == DialogResult.OK)
+            {
+                hotelRepository.DeleteHotel(_hotelID);
+                MessageBox.Show("Delete Successfully");
+            }
+            else
+            {
+
+            }
+
+
             LoadHotelsList();
         }
     }
