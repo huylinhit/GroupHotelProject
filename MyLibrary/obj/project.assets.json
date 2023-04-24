@@ -2344,37 +2344,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\nvm\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> bookingRepo
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\FPT\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
-      "projectName": "MyLibrary",
-      "projectPath": "C:\\FPT\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
-      "packagesPath": "C:\\Users\\nvm\\.nuget\\packages\\",
-      "outputPath": "C:\\FPT\\GroupHotelProject\\MyLibrary\\obj\\",
-=======
       "projectUniqueName": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
       "projectName": "MyLibrary",
       "projectPath": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\obj\\",
->>>>>>> bookingRepo
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\nvm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> bookingRepo
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2436,8 +2423,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
