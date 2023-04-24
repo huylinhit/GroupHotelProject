@@ -107,9 +107,9 @@ namespace HotelBooking
                     if (list != null && list.Count() > 0)
                     {
                         BindingSource bds = new BindingSource();
-                        lblSelectedRoomTypeID.DataBindings.Add("Text", bds, "RoomTypeID");
                         bds.DataSource = list;
-                        dgvHotel.DataSource= bds;
+                        lblSelectedRoomTypeID.DataBindings.Add("Text", bds, "RoomTypeID");
+                        dgvHotel.DataSource = bds;
                     }
                     else
                     {
@@ -141,7 +141,8 @@ namespace HotelBooking
                 if (hd.ShowDialog() == DialogResult.OK)
                 {
                     this.Show();
-                } else
+                }
+                else
                 {
                     this.Show();
                 }
@@ -149,6 +150,6 @@ namespace HotelBooking
 
         }
 
-       
+
     }
 }

@@ -67,6 +67,7 @@ namespace MyLibrary.DAOs
                             HotelID = h.HotelId,
                             Name = h.HotelName,
                             Address = h.Address,
+                            RoomTypeID = rt.RoomTypeId,
                             RoomTypeName = rt.RoomTypeName,
                             RoomDescription = rt.Description,
                             Price = rt.Price ?? 1,
@@ -74,8 +75,6 @@ namespace MyLibrary.DAOs
                             Capacity = rt.Capacity ?? 1,
                             Currency = h.Currency
                         };
-                
-
             }
             catch (Exception ex)
             {
