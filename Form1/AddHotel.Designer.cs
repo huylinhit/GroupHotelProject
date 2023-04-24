@@ -30,301 +30,352 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtHotelID = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtHotelName = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtAddress = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            txtPhone = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            txtEmail = new TextBox();
             label6 = new Label();
-            textBox6 = new TextBox();
+            txtContacPersonPhone = new TextBox();
             label7 = new Label();
-            textBox7 = new TextBox();
+            txtContactPersonPhone = new TextBox();
             label8 = new Label();
-            textBox8 = new TextBox();
+            txtContactPersonEmail = new TextBox();
             label9 = new Label();
-            textBox9 = new TextBox();
+            txtCancellationPolicy = new TextBox();
             label10 = new Label();
-            textBox10 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            comboBox1 = new ComboBox();
-            textBox11 = new TextBox();
-            button4 = new Button();
+            txtCurrency = new TextBox();
+            btnDelete = new Button();
+            btnAdd = new Button();
+            btnLoad = new Button();
+            cboHotelName = new ComboBox();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             saveFileDialog1 = new SaveFileDialog();
             label11 = new Label();
+            txtManagerID = new TextBox();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(546, 113);
+            dataGridView1.Location = new Point(336, 71);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1142, 780);
+            dataGridView1.Size = new Size(703, 488);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 148);
+            label1.Location = new Point(20, 92);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(102, 32);
+            label1.Size = new Size(65, 20);
             label1.TabIndex = 1;
             label1.Text = "Hotel ID";
             // 
-            // textBox1
+            // txtHotelID
             // 
-            textBox1.Location = new Point(285, 141);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(217, 39);
-            textBox1.TabIndex = 2;
+            txtHotelID.Location = new Point(175, 88);
+            txtHotelID.Margin = new Padding(2);
+            txtHotelID.Name = "txtHotelID";
+            txtHotelID.Size = new Size(135, 27);
+            txtHotelID.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(33, 213);
+            label2.Location = new Point(20, 169);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(143, 32);
+            label2.Size = new Size(90, 20);
             label2.TabIndex = 1;
             label2.Text = "Hotel Name";
             // 
-            // textBox2
+            // txtHotelName
             // 
-            textBox2.Location = new Point(285, 206);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(217, 39);
-            textBox2.TabIndex = 2;
+            txtHotelName.Location = new Point(175, 165);
+            txtHotelName.Margin = new Padding(2);
+            txtHotelName.Name = "txtHotelName";
+            txtHotelName.Size = new Size(135, 27);
+            txtHotelName.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(33, 282);
+            label3.Location = new Point(20, 212);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(98, 32);
+            label3.Size = new Size(62, 20);
             label3.TabIndex = 1;
             label3.Text = "Address";
             // 
-            // textBox3
+            // txtAddress
             // 
-            textBox3.Location = new Point(285, 275);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(217, 39);
-            textBox3.TabIndex = 2;
+            txtAddress.Location = new Point(175, 208);
+            txtAddress.Margin = new Padding(2);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(135, 27);
+            txtAddress.TabIndex = 2;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(33, 354);
+            label4.Location = new Point(20, 257);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(82, 32);
+            label4.Size = new Size(50, 20);
             label4.TabIndex = 1;
             label4.Text = "Phone";
             // 
-            // textBox4
+            // txtPhone
             // 
-            textBox4.Location = new Point(285, 347);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(217, 39);
-            textBox4.TabIndex = 2;
+            txtPhone.Location = new Point(175, 253);
+            txtPhone.Margin = new Padding(2);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(135, 27);
+            txtPhone.TabIndex = 2;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(33, 425);
+            label5.Location = new Point(20, 302);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(71, 32);
+            label5.Size = new Size(46, 20);
             label5.TabIndex = 1;
             label5.Text = "Email";
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.Location = new Point(285, 418);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(217, 39);
-            textBox5.TabIndex = 2;
+            txtEmail.Location = new Point(175, 297);
+            txtEmail.Margin = new Padding(2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(135, 27);
+            txtEmail.TabIndex = 2;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(33, 497);
+            label6.Location = new Point(20, 347);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(174, 32);
+            label6.Size = new Size(107, 20);
             label6.TabIndex = 1;
             label6.Text = "Contact Person";
             // 
-            // textBox6
+            // txtContacPersonPhone
             // 
-            textBox6.Location = new Point(285, 490);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(217, 39);
-            textBox6.TabIndex = 2;
+            txtContacPersonPhone.Location = new Point(175, 342);
+            txtContacPersonPhone.Margin = new Padding(2);
+            txtContacPersonPhone.Name = "txtContacPersonPhone";
+            txtContacPersonPhone.Size = new Size(135, 27);
+            txtContacPersonPhone.TabIndex = 2;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(33, 565);
+            label7.Location = new Point(20, 389);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(249, 32);
+            label7.Size = new Size(152, 20);
             label7.TabIndex = 1;
             label7.Text = "Contact Person Phone";
             // 
-            // textBox7
+            // txtContactPersonPhone
             // 
-            textBox7.Location = new Point(285, 558);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(217, 39);
-            textBox7.TabIndex = 2;
+            txtContactPersonPhone.Location = new Point(175, 385);
+            txtContactPersonPhone.Margin = new Padding(2);
+            txtContactPersonPhone.Name = "txtContactPersonPhone";
+            txtContactPersonPhone.Size = new Size(135, 27);
+            txtContactPersonPhone.TabIndex = 2;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(33, 632);
+            label8.Location = new Point(20, 431);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(238, 32);
+            label8.Size = new Size(148, 20);
             label8.TabIndex = 1;
             label8.Text = "Contact Person Email";
             // 
-            // textBox8
+            // txtContactPersonEmail
             // 
-            textBox8.Location = new Point(285, 625);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(217, 39);
-            textBox8.TabIndex = 2;
+            txtContactPersonEmail.Location = new Point(175, 427);
+            txtContactPersonEmail.Margin = new Padding(2);
+            txtContactPersonEmail.Name = "txtContactPersonEmail";
+            txtContactPersonEmail.Size = new Size(135, 27);
+            txtContactPersonEmail.TabIndex = 2;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(33, 703);
+            label9.Location = new Point(20, 475);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(213, 32);
+            label9.Size = new Size(133, 20);
             label9.TabIndex = 1;
             label9.Text = "Cancellation Policy";
             // 
-            // textBox9
+            // txtCancellationPolicy
             // 
-            textBox9.Location = new Point(285, 696);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(217, 39);
-            textBox9.TabIndex = 2;
+            txtCancellationPolicy.Location = new Point(175, 471);
+            txtCancellationPolicy.Margin = new Padding(2);
+            txtCancellationPolicy.Name = "txtCancellationPolicy";
+            txtCancellationPolicy.Size = new Size(135, 27);
+            txtCancellationPolicy.TabIndex = 2;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(33, 772);
+            label10.Location = new Point(20, 518);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(109, 32);
+            label10.Size = new Size(66, 20);
             label10.TabIndex = 1;
             label10.Text = "Currency";
             // 
-            // textBox10
+            // txtCurrency
             // 
-            textBox10.Location = new Point(285, 765);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(217, 39);
-            textBox10.TabIndex = 2;
+            txtCurrency.Location = new Point(175, 514);
+            txtCurrency.Margin = new Padding(2);
+            txtCurrency.Name = "txtCurrency";
+            txtCurrency.Size = new Size(135, 27);
+            txtCurrency.TabIndex = 2;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Location = new Point(1536, 58);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 3;
-            button1.Text = "Delete";
-            button1.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(945, 36);
+            btnDelete.Margin = new Padding(2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(92, 29);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAdd
             // 
-            button2.Location = new Point(1380, 58);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 3;
-            button2.Text = "Add";
-            button2.UseVisualStyleBackColor = true;
+            btnAdd.Location = new Point(849, 36);
+            btnAdd.Margin = new Padding(2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(92, 29);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnLoad
             // 
-            button3.Location = new Point(1224, 58);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 46);
-            button3.TabIndex = 3;
-            button3.Text = "Load";
-            button3.UseVisualStyleBackColor = true;
+            btnLoad.Location = new Point(753, 36);
+            btnLoad.Margin = new Padding(2);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(92, 29);
+            btnLoad.TabIndex = 3;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cboHotelName
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(546, 65);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(145, 40);
-            comboBox1.TabIndex = 4;
+            cboHotelName.FormattingEnabled = true;
+            cboHotelName.Location = new Point(336, 41);
+            cboHotelName.Margin = new Padding(2);
+            cboHotelName.Name = "cboHotelName";
+            cboHotelName.Size = new Size(91, 28);
+            cboHotelName.TabIndex = 4;
             // 
-            // textBox11
+            // txtSearch
             // 
-            textBox11.Location = new Point(697, 65);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(190, 39);
-            textBox11.TabIndex = 5;
+            txtSearch.Location = new Point(429, 41);
+            txtSearch.Margin = new Padding(2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(118, 27);
+            txtSearch.TabIndex = 5;
             // 
-            // button4
+            // btnSearch
             // 
-            button4.Location = new Point(893, 61);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 46);
-            button4.TabIndex = 3;
-            button4.Text = "Search";
-            button4.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(550, 38);
+            btnSearch.Margin = new Padding(2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(92, 29);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label11.ForeColor = Color.DodgerBlue;
-            label11.Location = new Point(33, 58);
+            label11.Location = new Point(20, 36);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(296, 45);
+            label11.Size = new Size(181, 28);
             label11.TabIndex = 1;
             label11.Text = "Hotel Management";
             // 
+            // txtManagerID
+            // 
+            txtManagerID.Location = new Point(175, 126);
+            txtManagerID.Margin = new Padding(2);
+            txtManagerID.Name = "txtManagerID";
+            txtManagerID.Size = new Size(135, 27);
+            txtManagerID.TabIndex = 7;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(20, 130);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(87, 20);
+            label12.TabIndex = 6;
+            label12.Text = "Manager ID";
+            // 
             // AddHotel
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1700, 920);
-            Controls.Add(textBox11);
-            Controls.Add(comboBox1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox10);
+            ClientSize = new Size(1046, 575);
+            Controls.Add(txtManagerID);
+            Controls.Add(label12);
+            Controls.Add(txtSearch);
+            Controls.Add(cboHotelName);
+            Controls.Add(btnSearch);
+            Controls.Add(btnLoad);
+            Controls.Add(btnAdd);
+            Controls.Add(btnDelete);
+            Controls.Add(txtCurrency);
             Controls.Add(label10);
-            Controls.Add(textBox9);
+            Controls.Add(txtCancellationPolicy);
             Controls.Add(label9);
-            Controls.Add(textBox8);
+            Controls.Add(txtContactPersonEmail);
             Controls.Add(label8);
-            Controls.Add(textBox7);
+            Controls.Add(txtContactPersonPhone);
             Controls.Add(label7);
-            Controls.Add(textBox6);
+            Controls.Add(txtContacPersonPhone);
             Controls.Add(label6);
-            Controls.Add(textBox5);
+            Controls.Add(txtEmail);
             Controls.Add(label5);
-            Controls.Add(textBox4);
+            Controls.Add(txtPhone);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(txtAddress);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(txtHotelName);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtHotelID);
             Controls.Add(label11);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2);
             Name = "AddHotel";
             Text = "AddHotel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -336,32 +387,34 @@
 
         private DataGridView dataGridView1;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtHotelID;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtHotelName;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtAddress;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox txtPhone;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox txtEmail;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox txtContacPersonPhone;
         private Label label7;
-        private TextBox textBox7;
+        private TextBox txtContactPersonPhone;
         private Label label8;
-        private TextBox textBox8;
+        private TextBox txtContactPersonEmail;
         private Label label9;
-        private TextBox textBox9;
+        private TextBox txtCancellationPolicy;
         private Label label10;
-        private TextBox textBox10;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private ComboBox comboBox1;
-        private TextBox textBox11;
-        private Button button4;
+        private TextBox txtCurrency;
+        private Button btnDelete;
+        private Button btnAdd;
+        private Button btnLoad;
+        private ComboBox cboHotelName;
+        private TextBox txtSearch;
+        private Button btnSearch;
         private SaveFileDialog saveFileDialog1;
         private Label label11;
+        private TextBox txtManagerID;
+        private Label label12;
     }
 }
