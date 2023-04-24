@@ -1,4 +1,5 @@
-﻿using MyLibrary.Models;
+﻿using Microsoft.Extensions.Configuration;
+using MyLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -134,6 +135,22 @@ namespace MyLibrary.DAOs
             {
                 throw new Exception(ex.Message);
             }
+        }
+        public (string? Email,string? Password) GetDefaultAccount(bool isAdmin)
+        {
+            IConfiguration config = new ConfigurationBuilder()
+                                    .SetBasePath(Directory.GetCurrentDirectory())
+                                    .AddJsonFile("appsettings.json", true, true)
+                                    .Build();
+            if (isAdmin)
+            {
+                return (config["Admin:Email"], config["Admin:Password"]);
+            }
+            else
+            {
+                return (config["Manager:Email"], config["Manager:Password"]);
+            }
+            
         }
     }
 }
