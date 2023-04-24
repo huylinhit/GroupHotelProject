@@ -18,6 +18,7 @@ namespace HotelBooking
     {
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
+        IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -70,6 +71,8 @@ namespace HotelBooking
                 InsertOrUpdate = true,
                 RoomInfo = GetRoom(),
                 RoomRepository = roomRepository,
+                RoomTypeRepository = roomTypeRepository,
+                HotelID = 1,
             };
             if (roomDetails.ShowDialog() == DialogResult.OK)
             {

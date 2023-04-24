@@ -95,6 +95,7 @@
             // 
             // btnClose
             // 
+            btnClose.DialogResult = DialogResult.OK;
             btnClose.Location = new Point(439, 474);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(150, 46);
@@ -117,7 +118,6 @@
             // cboRoomType
             // 
             cboRoomType.FormattingEnabled = true;
-            cboRoomType.Items.AddRange(new object[] { "Standard ", "Double", "Suite" });
             cboRoomType.Location = new Point(314, 295);
             cboRoomType.Name = "cboRoomType";
             cboRoomType.Size = new Size(275, 40);
