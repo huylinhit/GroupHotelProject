@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Repositories
 {
-    public class HotelRepository : IHotelInterface
+    public class HotelRepository : IHotelRepository
     {
         public void AddHotel(Hotel hotel) => HotelDAO.Instance.AddHotel(hotel);
 
