@@ -34,6 +34,8 @@
             label5 = new Label();
             txtAvailable = new TextBox();
             label4 = new Label();
+            txtRoomType = new TextBox();
+            label15 = new Label();
             txtRoomTypeID = new TextBox();
             label3 = new Label();
             txtRoomNumber = new TextBox();
@@ -95,6 +97,8 @@
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(txtAvailable);
             tabPage1.Controls.Add(label4);
+            tabPage1.Controls.Add(txtRoomType);
+            tabPage1.Controls.Add(label15);
             tabPage1.Controls.Add(txtRoomTypeID);
             tabPage1.Controls.Add(label3);
             tabPage1.Controls.Add(txtRoomNumber);
@@ -116,10 +120,11 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Room Management";
             tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Click += tabPage1_Click;
             // 
             // txtHotelID
             // 
-            txtHotelID.Location = new Point(200, 438);
+            txtHotelID.Location = new Point(200, 501);
             txtHotelID.Name = "txtHotelID";
             txtHotelID.Size = new Size(217, 39);
             txtHotelID.TabIndex = 18;
@@ -127,7 +132,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 445);
+            label5.Location = new Point(28, 508);
             label5.Name = "label5";
             label5.Size = new Size(102, 32);
             label5.TabIndex = 13;
@@ -135,7 +140,7 @@
             // 
             // txtAvailable
             // 
-            txtAvailable.Location = new Point(200, 367);
+            txtAvailable.Location = new Point(200, 430);
             txtAvailable.Name = "txtAvailable";
             txtAvailable.Size = new Size(217, 39);
             txtAvailable.TabIndex = 19;
@@ -143,11 +148,27 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(28, 374);
+            label4.Location = new Point(28, 437);
             label4.Name = "label4";
             label4.Size = new Size(110, 32);
             label4.TabIndex = 14;
             label4.Text = "Available";
+            // 
+            // txtRoomType
+            // 
+            txtRoomType.Location = new Point(200, 366);
+            txtRoomType.Name = "txtRoomType";
+            txtRoomType.Size = new Size(217, 39);
+            txtRoomType.TabIndex = 20;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(28, 373);
+            label15.Name = "label15";
+            label15.Size = new Size(134, 32);
+            label15.TabIndex = 15;
+            label15.Text = "Room Type";
             // 
             // txtRoomTypeID
             // 
@@ -249,6 +270,7 @@
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
@@ -258,6 +280,7 @@
             btnDelete.TabIndex = 10;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dgvRoomList
             // 
@@ -268,6 +291,7 @@
             dgvRoomList.RowTemplate.Height = 41;
             dgvRoomList.Size = new Size(1142, 780);
             dgvRoomList.TabIndex = 6;
+            dgvRoomList.CellDoubleClick += dgvRoomList_CellDoubleClick;
             // 
             // tabPage2
             // 
@@ -550,5 +574,7 @@
         private Label label14;
         private TextBox textBox13;
         private Label label13;
+        private TextBox txtRoomType;
+        private Label label15;
     }
 }
