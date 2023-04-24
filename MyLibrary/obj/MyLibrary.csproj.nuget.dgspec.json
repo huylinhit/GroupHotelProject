@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj": {}
+    "C:\\Users\\Nguyen Huy Linh\\Desktop\\TeamWorkProject\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj": {}
   },
   "projects": {
-    "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj": {
+    "C:\\Users\\Nguyen Huy Linh\\Desktop\\TeamWorkProject\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Nguyen Huy Linh\\Desktop\\TeamWorkProject\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
         "projectName": "MyLibrary",
-        "projectPath": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\code\\PRN211\\GroupHotelProject\\MyLibrary\\obj\\",
+        "projectPath": "C:\\Users\\Nguyen Huy Linh\\Desktop\\TeamWorkProject\\GroupHotelProject\\MyLibrary\\MyLibrary.csproj",
+        "packagesPath": "C:\\Users\\Nguyen Huy Linh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nguyen Huy Linh\\Desktop\\TeamWorkProject\\GroupHotelProject\\MyLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nguyen Huy Linh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
