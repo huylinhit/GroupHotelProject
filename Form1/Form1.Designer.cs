@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            lblSelectedRoomTypeID = new Label();
             lblMsg = new Label();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
@@ -52,7 +53,6 @@
             dgvHotel = new DataGridView();
             textBox10 = new TextBox();
             tabPage2 = new TabPage();
-            lblSelectedRoomTypeID = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHotel).BeginInit();
@@ -103,6 +103,16 @@
             tabPage1.Text = "Booking";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // lblSelectedRoomTypeID
+            // 
+            lblSelectedRoomTypeID.AutoSize = true;
+            lblSelectedRoomTypeID.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSelectedRoomTypeID.Location = new Point(43, 623);
+            lblSelectedRoomTypeID.Margin = new Padding(2, 0, 2, 0);
+            lblSelectedRoomTypeID.Name = "lblSelectedRoomTypeID";
+            lblSelectedRoomTypeID.Size = new Size(0, 20);
+            lblSelectedRoomTypeID.TabIndex = 32;
             // 
             // lblMsg
             // 
@@ -343,17 +353,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lblSelectedRoomTypeID
-            // 
-            lblSelectedRoomTypeID.AutoSize = true;
-            lblSelectedRoomTypeID.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSelectedRoomTypeID.Location = new Point(43, 623);
-            lblSelectedRoomTypeID.Margin = new Padding(2, 0, 2, 0);
-            lblSelectedRoomTypeID.Name = "lblSelectedRoomTypeID";
-            lblSelectedRoomTypeID.Size = new Size(0, 20);
-            lblSelectedRoomTypeID.TabIndex = 32;
-            lblSelectedRoomTypeID.Visible = false;
             // 
             // Form1
             // 
