@@ -71,6 +71,27 @@ namespace MyLibrary.DAOs
             }
             return list;
         }
+        public IEnumerable<Booking> ManagerGetBookingsByHotelID(int hotelID)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(b => b.Room.RoomType.HotelId == hotelID)
+                                      .OrderByDescending(b => b.BookingId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
 
         //for manager view
         public IEnumerable<Booking> GetBookingsByManagerID(int managerID)
