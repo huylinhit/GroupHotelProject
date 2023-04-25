@@ -13,7 +13,7 @@ namespace MyLibrary.Repositories
         IEnumerable<RoomType> GetRoomTypes();
         public IEnumerable<RoomType> GetRoomTypesByHotelID(int hotelID);
         RoomType? GetRoomTypeByID(int id);
-        RoomType? GetRoomTypeByName(string name);
+        RoomType? GetRoomTypeByName(string name, int hotelID);
         void AddRoomType(RoomType item);
         void RemoveRoomType(RoomType item);
         void RemoveRoomTypeByID(int id);

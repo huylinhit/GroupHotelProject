@@ -69,12 +69,12 @@ namespace MyLibrary.DAOs
             }
             return i;
         }
-        public RoomType? GetRoomTypeByName(string name)
+        public RoomType? GetRoomTypeByName(string name, int hotelID)
         {
             RoomType? i = null;
             using (var db = new HotelProjectContext())
             {
-                i = db.RoomTypes.SingleOrDefault(p => p.RoomTypeName.Equals(name));
+                i = db.RoomTypes.SingleOrDefault(p => p.RoomTypeName.Equals(name) && p.HotelId == hotelID);
             }
             return i;
         }

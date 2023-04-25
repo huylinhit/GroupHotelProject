@@ -56,12 +56,13 @@ namespace Form1
                     cboRoomType.Items.Add(item.RoomTypeName);
                 }
             }
-            cboRoomType.SelectedIndex = 0;
+            if(cboRoomType.Items.Count != 0)
+                 cboRoomType.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var roomTypeID = RoomTypeRepository.GetRoomTypeByName(cboRoomType.Text).RoomTypeId;
+            var roomTypeID = RoomTypeRepository.GetRoomTypeByName(cboRoomType.Text, HotelID).RoomTypeId;
             try
             {
                 var room = new Room
