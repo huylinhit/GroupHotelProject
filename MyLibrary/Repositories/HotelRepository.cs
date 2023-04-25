@@ -23,8 +23,8 @@ namespace MyLibrary.Repositories
         public IEnumerable<Hotel> SearchHotelByNameOrAddress(string search) => HotelDAO.Instance.SearchHotelByNameOrAddress(search);
 
 
-        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest, HotelProjectContext db) 
-                => HotelDAO.Instance.GetHotelsBySearchParameters(search, checkIn, checkOut, guest, db);
+        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest) 
+                => HotelDAO.Instance.GetHotelsBySearchParameters(search, checkIn, checkOut, guest);
 
     }
 }

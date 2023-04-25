@@ -35,6 +35,6 @@ namespace MyLibrary.Repositories
         public void UpdateBookingStatusByBookingID(int id, string status) => BookingDAO.Instance.UpdateBookingStatusByBookingID(id, status);
 
         public IEnumerable<Booking> GetBookingByBookingID(int BookingID) => BookingDAO.Instance.GetBookingByBookingID(BookingID);
-
+        public IEnumerable<RoomViewModel> ViewBookableRoom(int SelectedRoomTypeID, int HotelID, DateTime CheckIn, DateTime CheckOut) => BookingDAO.Instance.ViewBookableRoom(SelectedRoomTypeID, HotelID, CheckIn, CheckOut);
     }
 }

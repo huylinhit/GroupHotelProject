@@ -1,4 +1,5 @@
-﻿using MyLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MyLibrary.Models;
 using MyLibrary.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,8 @@ namespace HotelBooking
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         IHotelRepository hotelRepository = new HotelRepository();
-        IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
+        IBookingRepository bookingRepository = new BookingRepository();
         private void HotelDetail_Load(object sender, EventArgs e)
         {
             RoomType roomType = roomTypeRepository.GetRoomTypeByID(SelectedRoomTypeID);
@@ -37,7 +38,6 @@ namespace HotelBooking
             lblRoomTypeCapacity.Text = roomType.Capacity.ToString();
             lblRoomTypeBedCount.Text = roomType.BedCount.ToString();
             lblRoomTypePrice.Text = roomType.Price.ToString() + hotel.Currency;
-
 
             lblHotelName.Text = hotel.HotelName;
             lblHotelLocation.Text = hotel.Address;
@@ -53,39 +53,26 @@ namespace HotelBooking
             try
             {
                 lblMsg.Text = string.Empty;
-                using (var db = new HotelProjectContext())
+                var list = bookingRepository.ViewBookableRoom(SelectedRoomTypeID, HotelID, CheckIn, CheckOut);
+                //clear data 
+                lblRoomNumber.DataBindings.Clear();
+                lblRoomID.DataBindings.Clear();
+                dgvRoom.DataSource = null;
+
+                //check if list == 0, else add databinding
+                if (list != null && list.Count() > 0)
                 {
-
-                    IEnumerable<RoomType> rtList = roomTypeRepository.GetRoomTypesByHotelID(HotelID).ToList();
-                    IEnumerable<Room> rList = roomRepository.GetRoomsByRoomTypeID(SelectedRoomTypeID).ToList();
-                    IEnumerable<RoomViewModel> list = new List<RoomViewModel>();
-                    list = from rt in rtList
-                           join r in rList on rt.RoomTypeId equals r.RoomTypeId
-                           where r.RoomTypeId == SelectedRoomTypeID && r.Status == "active" && rt.Status == "active"
-                           select new RoomViewModel()
-                           {
-                               RoomID = r.RoomId,
-                               Number = r.RoomNumber,
-                           };
-                    //clear data 
-                    lblRoomNumber.DataBindings.Clear();
-                    lblRoomID.DataBindings.Clear();
-                    dgvRoom.DataSource = null;
-
-                    //check if list == 0, else add databinding
-                    if (list != null && list.Count() > 0)
-                    {
-                        BindingSource bds = new BindingSource();
-                        bds.DataSource = list;
-                        lblRoomNumber.DataBindings.Add("Text", bds, "Number");
-                        lblRoomID.DataBindings.Add("Text", bds, "RoomID");
-                        dgvRoom.DataSource = bds;
-                    }
-                    else
-                    {
-                        lblMsg.Text = "There are no current Room with this room Type";
-                    }
+                    BindingSource bds = new BindingSource();
+                    bds.DataSource = list;
+                    lblRoomNumber.DataBindings.Add("Text", bds, "Number");
+                    lblRoomID.DataBindings.Add("Text", bds, "RoomID");
+                    dgvRoom.DataSource = bds;
                 }
+                else
+                {
+                    lblMsg.Text = "There are no current Room with this room Type";
+                }
+                
             }
             catch (Exception ex)
             {
@@ -116,7 +103,7 @@ namespace HotelBooking
             }
             else
             {
-                Booking f = new Booking()
+                BookingFrm f = new BookingFrm()
                 {
 
                     UserID = UserID,

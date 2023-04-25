@@ -48,20 +48,20 @@ namespace HotelBooking
 
 
 
-            private Booking _obj;
-            private MyLibrary.Models.Booking e;
+            private BookingFrm _obj;
+            private Booking e;
 
-            public MyViewModel(Booking obj)
+            public MyViewModel(BookingFrm obj)
             {
                 _obj = obj;
             }
 
-            public MyViewModel(MyLibrary.Models.Booking e)
+            public MyViewModel(Booking e)
             {
                 this.e = e;
             }
 
-            public Booking GetModel()
+            public BookingFrm GetModel()
             {
                 return _obj;
             }

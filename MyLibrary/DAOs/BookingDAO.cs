@@ -35,12 +35,7 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    list = db.Bookings.Include(b => b.User)
-                                      .Include(b => b.Room)
-                                      .ThenInclude(room => room.RoomType)
-                                      .ThenInclude(roomtype => roomtype.Hotel)
-                                      .OrderByDescending(b => b.BookingId)
-                                      .ToList();
+                    list = db.Bookings.ToList();
                 }
             }
             catch (Exception ex)
@@ -251,5 +246,39 @@ namespace MyLibrary.DAOs
             }
             return list;
         }
+
+        public IEnumerable<RoomViewModel> ViewBookableRoom(int SelectedRoomTypeID, int HotelID, DateTime CheckIn, DateTime CheckOut)
+        {
+            IEnumerable<RoomViewModel> list = new List<RoomViewModel>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = (
+                        from h in db.Hotels
+                        join rt in db.RoomTypes on h.HotelId equals rt.HotelId
+                        join r in db.Rooms on rt.RoomTypeId equals r.RoomTypeId
+                        where !db.Bookings.Any(b => b.RoomId == r.RoomId &&
+                                                    (b.Status.Equals("pending") || b.Status.Equals("confirmed")) &&
+                                                    ((CheckIn >= b.CheckInDate && CheckIn <= b.CheckOutDate) ||
+                                                        (CheckOut >= b.CheckInDate && CheckOut <= b.CheckOutDate)))
+                                && rt.RoomTypeId == SelectedRoomTypeID
+                                && rt.Status.Equals("active")
+                                && h.Status.Equals("active")
+                                && h.HotelId == HotelID
+                        select new RoomViewModel
+                        {
+                            RoomID = r.RoomId,
+                            Number = r.RoomNumber,
+                        }).ToList().Distinct();
+                }
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return list;
+        }
+            
     }
 }

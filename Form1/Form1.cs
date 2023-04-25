@@ -11,6 +11,8 @@ namespace HotelBooking
             InitializeComponent();
             dtpkrCheckIn.MinDate = DateTime.Now.AddHours(30);
             dtpkrCheckIn.MaxDate = DateTime.Now.AddMonths(6);
+            sortNone.Checked = true;
+            sortBedNone.Checked = true;
         }
         IHotelRepository hotelRepository = new HotelRepository();
 
@@ -29,22 +31,9 @@ namespace HotelBooking
         public DateTime CheckOut { get; set; }
         public int SelectedRoomTypeID { get; set; }
 
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateSeachParameters();
-        }
-        private void txtDuration_TextChanged(object sender, EventArgs e)
-        {
-            UpdateCheckOutDate();
-        }
-        private void dtpkrCheckIn_ValueChanged(object sender, EventArgs e)
-        {
-            UpdateCheckOutDate();
         }
         private void UpdateCheckOutDate()
         {
@@ -66,10 +55,6 @@ namespace HotelBooking
             {
                 lblMsg.Text = "Duration must be number";
             }
-        }
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            LoadHotel();
         }
 
         private void LoadHotel()
@@ -93,7 +78,11 @@ namespace HotelBooking
                     CheckIn = checkin;
                     CheckOut = checkout;
 
-                    IEnumerable<HotelViewModel> list = hotelRepository.GetHotelsBySearchParameters(search, checkin, checkout, guest, db).ToList();
+                    IEnumerable<HotelViewModel> list = hotelRepository.GetHotelsBySearchParameters(search, checkin, checkout, guest);
+                    if (sortHigh2Low.Checked) list = list.OrderByDescending(h => h.Price);
+                    if (sortLow2High.Checked) list = list.OrderBy(h => h.Price);
+                    if (sortBedH2L.Checked) list = list.OrderByDescending((h) => h.BedCount);
+                    if (sortBedL2H.Checked) list = list.OrderBy((h) => h.BedCount);
                     //clear data 
                     lblSelectedRoomTypeID.DataBindings.Clear();
                     dgvHotel.DataSource = null;
@@ -148,6 +137,19 @@ namespace HotelBooking
 
         }
 
+        private void txtDuration_TextChanged(object sender, EventArgs e)
+        {
+            UpdateCheckOutDate();
+        }
 
+        private void dtpkrCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateCheckOutDate();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadHotel();
+        }
     }
 }
