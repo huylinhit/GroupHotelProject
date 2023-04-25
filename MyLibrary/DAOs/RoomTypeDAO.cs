@@ -53,7 +53,15 @@ namespace MyLibrary.DAOs
             }
             return i;
         }
-
+        public RoomType? GetRoomTypeByName(string name)
+        {
+            RoomType? i = null;
+            using (var db = new HotelProjectContext())
+            {
+                i = db.RoomTypes.SingleOrDefault(p => p.RoomTypeName.Equals(name));
+            }
+            return i;
+        }
         public void AddRoomType(RoomType item)
         {
             try

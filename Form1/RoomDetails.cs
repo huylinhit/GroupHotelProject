@@ -16,7 +16,9 @@ namespace Form1
     public partial class RoomDetails : Form
     {
         public IRoomRepository RoomRepository { get; set; }
+        public IRoomTypeRepository RoomTypeRepository { get; set; }
         public bool InsertOrUpdate { get; set; }
+        public int HotelID { get; set; }
         public Room RoomInfo { get; set; }
         public RoomDetails()
         {
@@ -30,7 +32,7 @@ namespace Form1
             {
                 txtRoomID.Text = RoomInfo.RoomId.ToString();
                 txtRoomNumber.Text = RoomInfo.RoomNumber.ToString();
-                cboRoomType.SelectedIndex = (int)RoomInfo.RoomTypeId - 1;
+
                 if (RoomInfo.Status.Equals("active"))
                 {
                     cboStatus.SelectedIndex = 0;
@@ -40,17 +42,27 @@ namespace Form1
                     cboStatus.SelectedIndex = 1;
                 }
             }
+            foreach (var item in RoomTypeRepository.GetRoomTypes()
+                .Where(r => r.HotelId == HotelID))
+            {
+                if (!cboRoomType.Items.Contains(item))
+                {
+                    cboRoomType.Items.Add(item.RoomTypeName);
+                }
+            }
+            cboRoomType.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            var roomTypeID = RoomTypeRepository.GetRoomTypeByName(cboRoomType.Text).RoomTypeId;
             try
             {
                 var room = new Room
                 {
                     RoomId = int.Parse(txtRoomID.Text),
                     RoomNumber = txtRoomNumber.Text,
-                    RoomTypeId = cboRoomType.SelectedIndex + 1,
+                    RoomTypeId = roomTypeID,
                     Status = cboStatus.Text,
                 };
                 if (InsertOrUpdate == false)
@@ -60,7 +72,7 @@ namespace Form1
                 else
                 {
                     RoomRepository.UpdateRoom(room);
-                    MessageBox.Show(cboStatus.SelectedText);
+                    MessageBox.Show(roomTypeID.ToString());
 
                 }
             }
