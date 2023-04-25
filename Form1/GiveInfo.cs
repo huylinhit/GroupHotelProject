@@ -72,7 +72,7 @@ namespace HotelBooking
 
                 Form1 f = new Form1()
                 {
-                    UserID = User.UserId,
+                    UserID = User?.UserId??-1,
                     Guest = guest,
                     Search = search,
                     CheckIn = checkin,

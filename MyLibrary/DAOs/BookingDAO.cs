@@ -161,7 +161,7 @@ namespace MyLibrary.DAOs
             {
                 using (var db = new HotelProjectContext())
                 {
-                    list = db.Bookings.Where(b => b.UserId == userID);
+                    list = db.Bookings.Where(b => b.UserId == userID).ToList();
                 }
             }
             catch (Exception ex)

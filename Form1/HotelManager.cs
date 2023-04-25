@@ -19,7 +19,7 @@ namespace HotelBooking
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
-        public int InitHotelID { get; set; };
+        public int InitHotelID { get; set; }
         class MyViewModel
         {
             public int HotelId { get; set; }
