@@ -121,25 +121,29 @@ namespace Form1
                     Status = e.Status
                 });
 
-                txtBookingID.DataBindings.Clear();
-                txtUserID.DataBindings.Clear();
-                txtFirstName.DataBindings.Clear();
-                txtLastName.DataBindings.Clear();
-                txtEmail.DataBindings.Clear();
-                txtPassword.DataBindings.Clear();
-                txtPhone.DataBindings.Clear();
-                txtAddress.DataBindings.Clear();
-                txtRole.DataBindings.Clear();
+                if(_bookings.Count() > 0)
+                {
+                    txtBookingID.DataBindings.Clear();
+                    txtUserID.DataBindings.Clear();
+                    txtFirstName.DataBindings.Clear();
+                    txtLastName.DataBindings.Clear();
+                    txtEmail.DataBindings.Clear();
+                    txtPassword.DataBindings.Clear();
+                    txtPhone.DataBindings.Clear();
+                    txtAddress.DataBindings.Clear();
+                    txtRole.DataBindings.Clear();
 
-                txtBookingID.DataBindings.Add("Text", source, "BookingID");
-                txtUserID.DataBindings.Add("Text", source, "UserID");
-                txtFirstName.DataBindings.Add("Text", source, "FirstName");
-                txtLastName.DataBindings.Add("Text", source, "LastName"); ;
-                txtEmail.DataBindings.Add("Text", source, "Email"); ;
-                txtPassword.DataBindings.Add("Text", source, "Password"); ;
-                txtPhone.DataBindings.Add("Text", source, "Phone"); ;
-                txtAddress.DataBindings.Add("Text", source, "Address");
-                txtRole.DataBindings.Add("Text", source, "Role");
+                    txtBookingID.DataBindings.Add("Text", source, "BookingID");
+                    txtUserID.DataBindings.Add("Text", source, "UserID");
+                    txtFirstName.DataBindings.Add("Text", source, "FirstName");
+                    txtLastName.DataBindings.Add("Text", source, "LastName"); ;
+                    txtEmail.DataBindings.Add("Text", source, "Email"); ;
+                    txtPassword.DataBindings.Add("Text", source, "Password"); ;
+                    txtPhone.DataBindings.Add("Text", source, "Phone"); ;
+                    txtAddress.DataBindings.Add("Text", source, "Address");
+                    txtRole.DataBindings.Add("Text", source, "Role");
+                }
+                 
 
                 dgvBookingList.DataSource = null;
                 dgvBookingList.DataSource = source;

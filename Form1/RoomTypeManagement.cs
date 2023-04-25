@@ -112,23 +112,27 @@ namespace Form1
                 source = new BindingSource();
                 source.DataSource = roomTypes;
 
-                txtRoomTypeID.DataBindings.Clear();
-                txtRoomTypeName.DataBindings.Clear();
-                txtDescription.DataBindings.Clear();
-                txtCapacity.DataBindings.Clear();
-                txtBedCount.DataBindings.Clear();
-                txtTotalPrice.DataBindings.Clear();
-                txtHotelID.DataBindings.Clear();
-                txtStatus.DataBindings.Clear();
+                if(roomTypes.Count() > 0)
+                {
+                    txtRoomTypeID.DataBindings.Clear();
+                    txtRoomTypeName.DataBindings.Clear();
+                    txtDescription.DataBindings.Clear();
+                    txtCapacity.DataBindings.Clear();
+                    txtBedCount.DataBindings.Clear();
+                    txtTotalPrice.DataBindings.Clear();
+                    txtHotelID.DataBindings.Clear();
+                    txtStatus.DataBindings.Clear();
 
-                txtRoomTypeID.DataBindings.Add("Text", source, "RoomTypeID");
-                txtRoomTypeName.DataBindings.Add("Text", source, "RoomTypeName");
-                txtDescription.DataBindings.Add("Text", source, "Description");
-                txtCapacity.DataBindings.Add("Text", source, "Capacity");
-                txtBedCount.DataBindings.Add("Text", source, "BedCount");
-                txtTotalPrice.DataBindings.Add("Text", source, "Price");
-                txtHotelID.DataBindings.Add("Text", source, "HotelID");
-                txtStatus.DataBindings.Add("Text", source, "Status");
+                    txtRoomTypeID.DataBindings.Add("Text", source, "RoomTypeID");
+                    txtRoomTypeName.DataBindings.Add("Text", source, "RoomTypeName");
+                    txtDescription.DataBindings.Add("Text", source, "Description");
+                    txtCapacity.DataBindings.Add("Text", source, "Capacity");
+                    txtBedCount.DataBindings.Add("Text", source, "BedCount");
+                    txtTotalPrice.DataBindings.Add("Text", source, "Price");
+                    txtHotelID.DataBindings.Add("Text", source, "HotelID");
+                    txtStatus.DataBindings.Add("Text", source, "Status");
+                }
+                 
 
                 dgvRoomTypeList.DataSource = null;
                 dgvRoomTypeList.DataSource = source;
@@ -165,8 +169,13 @@ namespace Form1
         {
             try
             {
-                var roomType = GetRoomType();
-                RoomTypeRepository.DeleteRoomType(roomType.RoomTypeId);
+                DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (_confirm == DialogResult.OK) 
+                {
+                    var roomType = GetRoomType();
+                    RoomTypeRepository.DeleteRoomType(roomType.RoomTypeId);
+                    MessageBox.Show("Delete Successfully");
+                }
                 LoadRoomTypeList();
 
             }
