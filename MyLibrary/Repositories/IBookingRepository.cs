@@ -35,5 +35,15 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<Booking> GetBookingDetailSearchHotelRoom(string hotelroom);
 
+        public IEnumerable<Booking> GetBookingDetailSearchHotelStatus(string bookingstatus);
+
+        public IEnumerable<Booking> GetBookingDetailSearchRole(string role);
+
+        public IEnumerable<Booking> GetBookingDetailPriceAscending();
+
+        public IEnumerable<Booking> GetBookingDetailPriceDescending();
+
+
+
     }
 }

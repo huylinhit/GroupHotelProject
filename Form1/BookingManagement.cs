@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -68,6 +69,43 @@ namespace HotelBooking
             }
         }
 
+        public void SetDefaultPlaceHolderFilter()
+        {
+            txtSearchUserID.PlaceholderText = "User ID";
+            txtNameSearch.PlaceholderText = "Search Name";
+
+
+            List<string> listPrice = new List<string>()
+            {
+                "Price Ascending", "Price Descending"
+            };
+
+
+            List<string> listRole = new List<string>()
+            {
+                "admin","manager","member"
+            };
+
+            List<string> listStatus = new List<string>()
+            {
+                "confirmed", "cancel", "pending"
+            };
+
+            foreach (var item in listPrice)
+            {
+                cboPrice.Items.Add(item);
+            }
+
+            foreach (string role in listRole)
+            {
+                cboRole.Items.Add(role);
+            }
+
+            foreach (var item in listStatus)
+            {
+                cboStatus.Items.Add(item);
+            }
+        }
         public BookingManagement()
         {
             InitializeComponent();
@@ -102,6 +140,11 @@ namespace HotelBooking
             //RemoveComboBox
             cboUsersName.Items.Clear();
             cboHotelName.Items.Clear();
+            //cboStatus.Items.Clear();
+            //cboRole.Items.Clear();
+            //cboPrice.Items.Clear();
+
+
             //SetComboBoxName
             foreach (var item in _bookings)
             {
@@ -136,6 +179,33 @@ namespace HotelBooking
                             ClearFilter();
                             break;
                         }
+                    case "PriceAscending":
+                        {
+                            _bookings = bookingRepository.GetBookingDetailPriceAscending();
+                            ClearFilter();
+                            break;
+                        }
+                    case "PriceDescending":
+                        {
+                            _bookings = bookingRepository.GetBookingDetailPriceDescending();
+                            ClearFilter();
+                            break;
+                        }
+                    case "SearchByRole":
+                        {
+                            _bookings = bookingRepository.GetBookingDetailSearchRole(FilterValue);
+                            ClearFilter();
+                            break;
+                        }
+
+                    case "SearchByBookingStatus":
+                        {
+                            _bookings = bookingRepository.GetBookingDetailSearchHotelStatus(FilterValue);
+                            ClearFilter();
+                            break;
+                        }
+
+                    
                     default:
                         {
                             _bookings = bookingRepository.GetBookings();
@@ -215,6 +285,7 @@ namespace HotelBooking
         private void BookingManagement_Load(object sender, EventArgs e)
         {
             LoadBookings();
+            SetDefaultPlaceHolderFilter();
 
             dgvBookings.CellDoubleClick += DgvBookings_CellDoubleClick;
         }
@@ -305,6 +376,54 @@ namespace HotelBooking
             else
             {
                 ClearFilter();
+                LoadBookings();
+            }
+        }
+
+        private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchValue = cboStatus.SelectedItem.ToString();
+            if (!searchValue.Equals(""))
+            {
+                Filter = "SearchByBookingStatus";
+                FilterValue = searchValue;
+                LoadBookings();
+            }
+            else
+            {
+                ClearFilter();
+                LoadBookings();
+            }
+        }
+
+        private void cboRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchValue = cboRole.SelectedItem.ToString();
+            if (!searchValue.Equals(""))
+            {
+                Filter = "SearchByRole";
+                FilterValue = searchValue;
+                LoadBookings();
+            }
+            else
+            {
+                ClearFilter();
+                LoadBookings();
+            }
+        }
+
+        private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int searchValue = cboPrice.SelectedIndex;
+            ClearFilter();
+            if (searchValue == 0)
+            {
+                Filter = "PriceAscending";
+                LoadBookings();
+            }
+            else if (searchValue == 1)
+            {
+                Filter = "PriceDescending";
                 LoadBookings();
             }
         }

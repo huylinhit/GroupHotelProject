@@ -30,9 +30,11 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            cboPrice = new ComboBox();
+            cboRole = new ComboBox();
             txtSearchUserID = new TextBox();
             cboUsersName = new ComboBox();
-            comboBox2 = new ComboBox();
+            cboStatus = new ComboBox();
             cboHotelName = new ComboBox();
             btnSearch = new Button();
             button1 = new Button();
@@ -79,9 +81,11 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(cboPrice);
+            tabPage1.Controls.Add(cboRole);
             tabPage1.Controls.Add(txtSearchUserID);
             tabPage1.Controls.Add(cboUsersName);
-            tabPage1.Controls.Add(comboBox2);
+            tabPage1.Controls.Add(cboStatus);
             tabPage1.Controls.Add(cboHotelName);
             tabPage1.Controls.Add(btnSearch);
             tabPage1.Controls.Add(button1);
@@ -97,6 +101,26 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Booking Management";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cboPrice
+            // 
+            cboPrice.FormattingEnabled = true;
+            cboPrice.Location = new Point(1322, 3);
+            cboPrice.Margin = new Padding(2);
+            cboPrice.Name = "cboPrice";
+            cboPrice.Size = new Size(251, 28);
+            cboPrice.TabIndex = 30;
+            cboPrice.SelectedIndexChanged += cboPrice_SelectedIndexChanged;
+            // 
+            // cboRole
+            // 
+            cboRole.FormattingEnabled = true;
+            cboRole.Location = new Point(1577, 3);
+            cboRole.Margin = new Padding(2);
+            cboRole.Name = "cboRole";
+            cboRole.Size = new Size(122, 28);
+            cboRole.TabIndex = 29;
+            cboRole.SelectedIndexChanged += cboRole_SelectedIndexChanged;
             // 
             // txtSearchUserID
             // 
@@ -116,14 +140,15 @@
             cboUsersName.TabIndex = 27;
             cboUsersName.SelectedIndexChanged += cboUsersName_SelectedIndexChanged;
             // 
-            // comboBox2
+            // cboStatus
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(1703, 3);
-            comboBox2.Margin = new Padding(2);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(122, 28);
-            comboBox2.TabIndex = 24;
+            cboStatus.FormattingEnabled = true;
+            cboStatus.Location = new Point(1703, 3);
+            cboStatus.Margin = new Padding(2);
+            cboStatus.Name = "cboStatus";
+            cboStatus.Size = new Size(122, 28);
+            cboStatus.TabIndex = 24;
+            cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
             // 
             // cboHotelName
             // 
@@ -140,7 +165,7 @@
             btnSearch.Location = new Point(976, 3);
             btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(92, 25);
+            btnSearch.Size = new Size(92, 28);
             btnSearch.TabIndex = 21;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -418,7 +443,7 @@
 
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private ComboBox comboBox2;
+        private ComboBox cboStatus;
         private ComboBox cboHotelName;
         private Button btnSearch;
         private Button button1;
@@ -447,5 +472,7 @@
         private Label label3;
         private TextBox txtSearchUserID;
         private ComboBox cboUsersName;
+        private ComboBox cboPrice;
+        private ComboBox cboRole;
     }
 }
