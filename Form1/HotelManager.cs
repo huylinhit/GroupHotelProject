@@ -133,8 +133,14 @@ namespace HotelBooking
         {
             try
             {
-                var room = GetRoom();
-                roomRepository.DeleteRoom(room.RoomId);
+                DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if(_confirm == DialogResult.OK)
+                {
+                    var room = GetRoom();
+                    roomRepository.DeleteRoom(room.RoomId);
+                    MessageBox.Show("Delete Successfully");
+                }
+                
                 LoadRoomList();
             }
             catch (Exception ex)
@@ -163,17 +169,21 @@ namespace HotelBooking
 
                 }).ToList();
 
-                txtRoomID.DataBindings.Clear();
-                txtRoomNumber.DataBindings.Clear();
-                txtRoomTypeID.DataBindings.Clear();
-                txtAvailable.DataBindings.Clear();
-                txtRoomType.DataBindings.Clear();
+                if(rooms.Count() > 0)
+                {
+                    txtRoomID.DataBindings.Clear();
+                    txtRoomNumber.DataBindings.Clear();
+                    txtRoomTypeID.DataBindings.Clear();
+                    txtAvailable.DataBindings.Clear();
+                    txtRoomType.DataBindings.Clear();
 
-                txtRoomID.DataBindings.Add("Text", source, "RoomId");
-                txtRoomNumber.DataBindings.Add("Text", source, "RoomNumber");
-                txtRoomTypeID.DataBindings.Add("Text", source, "RoomTypeId");
-                txtAvailable.DataBindings.Add("Text", source, "Status");
-                txtRoomType.DataBindings.Add("Text", source, "RoomTypeName");
+                    txtRoomID.DataBindings.Add("Text", source, "RoomId");
+                    txtRoomNumber.DataBindings.Add("Text", source, "RoomNumber");
+                    txtRoomTypeID.DataBindings.Add("Text", source, "RoomTypeId");
+                    txtAvailable.DataBindings.Add("Text", source, "Status");
+                    txtRoomType.DataBindings.Add("Text", source, "RoomTypeName");
+                }
+                 
 
                 dgvRoomList.DataSource = null;
                 dgvRoomList.DataSource = source;
