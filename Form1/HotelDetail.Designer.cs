@@ -53,6 +53,12 @@
             lblRoomTypePrice = new Label();
             toolTip1 = new ToolTip(components);
             btnBook = new Button();
+            asd = new Label();
+            lblRoomNumber = new Label();
+            lblRoomID = new Label();
+            lblMsg = new Label();
+            label1 = new Label();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRoom).BeginInit();
             SuspendLayout();
             // 
@@ -148,14 +154,15 @@
             // dgvRoom
             // 
             dgvRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRoom.Location = new Point(292, 206);
+            dgvRoom.Location = new Point(375, 206);
             dgvRoom.Margin = new Padding(2);
             dgvRoom.Name = "dgvRoom";
             dgvRoom.RowHeadersWidth = 82;
             dgvRoom.RowTemplate.Height = 41;
             dgvRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRoom.Size = new Size(607, 356);
+            dgvRoom.Size = new Size(515, 270);
             dgvRoom.TabIndex = 12;
+            dgvRoom.CellContentClick += dgvRoom_CellContentClick;
             // 
             // label8
             // 
@@ -217,7 +224,7 @@
             lblRoomTypeDes.Location = new Point(46, 281);
             lblRoomTypeDes.Margin = new Padding(2, 0, 2, 0);
             lblRoomTypeDes.Name = "lblRoomTypeDes";
-            lblRoomTypeDes.Size = new Size(233, 42);
+            lblRoomTypeDes.Size = new Size(299, 41);
             lblRoomTypeDes.TabIndex = 1;
             lblRoomTypeDes.Text = "A basic room with a queen-size bed and a TV.";
             // 
@@ -245,7 +252,7 @@
             // lblRoomTypeBedCount
             // 
             lblRoomTypeBedCount.AutoSize = true;
-            lblRoomTypeBedCount.Location = new Point(46, 412);
+            lblRoomTypeBedCount.Location = new Point(206, 355);
             lblRoomTypeBedCount.Margin = new Padding(2, 0, 2, 0);
             lblRoomTypeBedCount.Name = "lblRoomTypeBedCount";
             lblRoomTypeBedCount.Size = new Size(115, 20);
@@ -256,7 +263,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(46, 392);
+            label18.Location = new Point(206, 335);
             label18.Margin = new Padding(2, 0, 2, 0);
             label18.Name = "label18";
             label18.Size = new Size(35, 20);
@@ -289,7 +296,7 @@
             lblRoomTypePrice.AutoSize = true;
             lblRoomTypePrice.Font = new Font("Segoe UI Semibold", 13.125F, FontStyle.Bold, GraphicsUnit.Point);
             lblRoomTypePrice.ForeColor = Color.FromArgb(255, 128, 0);
-            lblRoomTypePrice.Location = new Point(46, 446);
+            lblRoomTypePrice.Location = new Point(209, 391);
             lblRoomTypePrice.Margin = new Padding(2, 0, 2, 0);
             lblRoomTypePrice.Name = "lblRoomTypePrice";
             lblRoomTypePrice.Size = new Size(140, 30);
@@ -301,19 +308,90 @@
             btnBook.BackColor = Color.FromArgb(255, 128, 0);
             btnBook.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnBook.ForeColor = Color.White;
-            btnBook.Location = new Point(46, 478);
+            btnBook.Location = new Point(213, 437);
             btnBook.Margin = new Padding(2);
             btnBook.Name = "btnBook";
             btnBook.Size = new Size(136, 39);
             btnBook.TabIndex = 14;
             btnBook.Text = "Book Now!";
             btnBook.UseVisualStyleBackColor = false;
+            btnBook.Click += btnBook_Click;
+            // 
+            // asd
+            // 
+            asd.AutoSize = true;
+            asd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            asd.Location = new Point(209, 206);
+            asd.Margin = new Padding(2, 0, 2, 0);
+            asd.Name = "asd";
+            asd.Size = new Size(49, 20);
+            asd.TabIndex = 16;
+            asd.Text = "Room";
+            // 
+            // lblRoomNumber
+            // 
+            lblRoomNumber.AutoSize = true;
+            lblRoomNumber.Location = new Point(209, 226);
+            lblRoomNumber.Margin = new Padding(2, 0, 2, 0);
+            lblRoomNumber.Name = "lblRoomNumber";
+            lblRoomNumber.Size = new Size(60, 20);
+            lblRoomNumber.TabIndex = 15;
+            lblRoomNumber.Text = "number";
+            // 
+            // lblRoomID
+            // 
+            lblRoomID.AutoSize = true;
+            lblRoomID.Location = new Point(857, 522);
+            lblRoomID.Margin = new Padding(2, 0, 2, 0);
+            lblRoomID.Name = "lblRoomID";
+            lblRoomID.Size = new Size(0, 20);
+            lblRoomID.TabIndex = 17;
+            // 
+            // lblMsg
+            // 
+            lblMsg.AutoSize = true;
+            lblMsg.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMsg.Location = new Point(405, 261);
+            lblMsg.Margin = new Padding(2, 0, 2, 0);
+            lblMsg.Name = "lblMsg";
+            lblMsg.Size = new Size(0, 20);
+            lblMsg.TabIndex = 18;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(46, 399);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 20);
+            label1.TabIndex = 19;
+            label1.Text = "Price per night";
+            // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.White;
+            btnBack.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBack.ForeColor = Color.FromArgb(255, 128, 0);
+            btnBack.Location = new Point(50, 437);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(69, 39);
+            btnBack.TabIndex = 20;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // HotelDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(930, 584);
+            ClientSize = new Size(930, 510);
+            Controls.Add(btnBack);
+            Controls.Add(label1);
+            Controls.Add(lblMsg);
+            Controls.Add(asd);
+            Controls.Add(lblRoomNumber);
             Controls.Add(btnBook);
             Controls.Add(lblRoomTypePrice);
             Controls.Add(dgvRoom);
@@ -337,6 +415,7 @@
             Controls.Add(lblHotelEmail);
             Controls.Add(lblHotelLocation);
             Controls.Add(lblHotelName);
+            Controls.Add(lblRoomID);
             Margin = new Padding(2);
             Name = "HotelDetail";
             Text = "HotelDetail";
@@ -372,5 +451,11 @@
         private Label lblRoomTypePrice;
         private ToolTip toolTip1;
         private Button btnBook;
+        private Label asd;
+        private Label lblRoomNumber;
+        private Label lblRoomID;
+        private Label lblMsg;
+        private Label label1;
+        private Button btnBack;
     }
 }

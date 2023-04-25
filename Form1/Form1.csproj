@@ -9,11 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="HotelBooking.csproj" />
-    <None Include="HotelBooking.csproj.user" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MyLibrary\MyLibrary.csproj" />
   </ItemGroup>
 

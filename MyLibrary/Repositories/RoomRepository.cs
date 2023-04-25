@@ -18,7 +18,8 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<Room> GetRooms() => RoomDAO.Instance.GetRooms();
 
-        public IEnumerable<Room> GetRoomsByID(int id) => RoomDAO.Instance.GetRoomsByHotelID(id);    
+        public IEnumerable<Room> GetRoomsByID(int id) => RoomDAO.Instance.GetRoomsByHotelID(id);
+        public IEnumerable<Room> GetRoomsByRoomTypeID(int roomTypeID) => RoomDAO.Instance.GetRoomsByRoomTypeID(roomTypeID);
 
         public void UpdateRoom(Room room) => RoomDAO.Instance.UpdateRoom(room);
     }

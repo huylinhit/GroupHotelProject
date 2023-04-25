@@ -21,6 +21,8 @@ namespace HotelBooking
             txtDuration.Text = "1";
         }
 
+        public int UserID { get; set; } = 1;
+
         private void GiveInfo_Load(object sender, EventArgs e)
         {
 
@@ -69,13 +71,21 @@ namespace HotelBooking
 
                 Form1 f = new Form1()
                 {
+                    UserID = UserID,
                     Guest = guest,
                     Search = search,
                     CheckIn = checkin,
                     Duration = duration
                 };
-                f.ShowDialog();
-                this.Close();
+                this.Hide();
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    this.Close();
+                } else
+                {
+                    this.Close();
+                }
+
 
             }
             catch (Exception ex)
