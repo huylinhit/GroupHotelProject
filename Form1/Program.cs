@@ -15,7 +15,7 @@ namespace Form1
             ApplicationConfiguration.Initialize();
 
 
-            Application.Run(new AddHotel());
+            Application.Run(new GiveInfo());
 
 
         }
