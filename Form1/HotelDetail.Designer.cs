@@ -418,6 +418,7 @@
             Controls.Add(lblRoomID);
             Margin = new Padding(2);
             Name = "HotelDetail";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HotelDetail";
             Load += HotelDetail_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRoom).EndInit();

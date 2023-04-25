@@ -381,6 +381,7 @@
             Controls.Add(dgvHotels);
             Margin = new Padding(2);
             Name = "AddHotel";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddHotel";
             Load += AddHotel_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHotels).EndInit();

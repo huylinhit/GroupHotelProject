@@ -232,6 +232,7 @@
             Controls.Add(lblMsg);
             Margin = new Padding(2, 1, 2, 1);
             Name = "GiveInfo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GiveInfo";
             Load += GiveInfo_Load;
             panel1.ResumeLayout(false);

@@ -62,9 +62,10 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(2, 2, 2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1825, 953);
+            tabControl1.Size = new Size(1123, 596);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -91,10 +92,11 @@
             tabPage1.Controls.Add(btnAdd);
             tabPage1.Controls.Add(btnDelete);
             tabPage1.Controls.Add(dgvRoomList);
-            tabPage1.Location = new Point(8, 46);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(2, 2, 2, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1809, 899);
+            tabPage1.Padding = new Padding(2, 2, 2, 2);
+            tabPage1.Size = new Size(1115, 563);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Room Management";
             tabPage1.UseVisualStyleBackColor = true;
@@ -103,18 +105,20 @@
             // cboFilter
             // 
             cboFilter.FormattingEnabled = true;
-            cboFilter.Location = new Point(1228, 50);
+            cboFilter.Location = new Point(756, 31);
+            cboFilter.Margin = new Padding(2, 2, 2, 2);
             cboFilter.Name = "cboFilter";
-            cboFilter.Size = new Size(242, 40);
+            cboFilter.Size = new Size(150, 28);
             cboFilter.TabIndex = 24;
             cboFilter.SelectedIndexChanged += cboFilter_SelectedIndexChanged;
             // 
             // btnBookingManagement
             // 
             btnBookingManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBookingManagement.Location = new Point(28, 772);
+            btnBookingManagement.Location = new Point(17, 482);
+            btnBookingManagement.Margin = new Padding(2, 2, 2, 2);
             btnBookingManagement.Name = "btnBookingManagement";
-            btnBookingManagement.Size = new Size(389, 78);
+            btnBookingManagement.Size = new Size(239, 49);
             btnBookingManagement.TabIndex = 23;
             btnBookingManagement.Text = "Booking Management";
             btnBookingManagement.UseVisualStyleBackColor = true;
@@ -123,9 +127,10 @@
             // btnRoomTypeManagement
             // 
             btnRoomTypeManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRoomTypeManagement.Location = new Point(28, 688);
+            btnRoomTypeManagement.Location = new Point(17, 430);
+            btnRoomTypeManagement.Margin = new Padding(2, 2, 2, 2);
             btnRoomTypeManagement.Name = "btnRoomTypeManagement";
-            btnRoomTypeManagement.Size = new Size(389, 78);
+            btnRoomTypeManagement.Size = new Size(239, 49);
             btnRoomTypeManagement.TabIndex = 23;
             btnRoomTypeManagement.Text = "Room Type Management";
             btnRoomTypeManagement.UseVisualStyleBackColor = true;
@@ -133,89 +138,100 @@
             // 
             // txtHotelID
             // 
-            txtHotelID.Location = new Point(200, 501);
+            txtHotelID.Location = new Point(123, 313);
+            txtHotelID.Margin = new Padding(2, 2, 2, 2);
             txtHotelID.Name = "txtHotelID";
-            txtHotelID.Size = new Size(217, 39);
+            txtHotelID.Size = new Size(135, 27);
             txtHotelID.TabIndex = 18;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 508);
+            label5.Location = new Point(17, 318);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(102, 32);
+            label5.Size = new Size(65, 20);
             label5.TabIndex = 13;
             label5.Text = "Hotel ID";
             // 
             // txtAvailable
             // 
-            txtAvailable.Location = new Point(200, 430);
+            txtAvailable.Location = new Point(123, 269);
+            txtAvailable.Margin = new Padding(2, 2, 2, 2);
             txtAvailable.Name = "txtAvailable";
-            txtAvailable.Size = new Size(217, 39);
+            txtAvailable.Size = new Size(135, 27);
             txtAvailable.TabIndex = 19;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(28, 437);
+            label4.Location = new Point(17, 273);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(110, 32);
+            label4.Size = new Size(71, 20);
             label4.TabIndex = 14;
             label4.Text = "Available";
             // 
             // txtRoomType
             // 
-            txtRoomType.Location = new Point(200, 366);
+            txtRoomType.Location = new Point(123, 229);
+            txtRoomType.Margin = new Padding(2, 2, 2, 2);
             txtRoomType.Name = "txtRoomType";
-            txtRoomType.Size = new Size(217, 39);
+            txtRoomType.Size = new Size(135, 27);
             txtRoomType.TabIndex = 20;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(28, 373);
+            label15.Location = new Point(17, 233);
+            label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(134, 32);
+            label15.Size = new Size(84, 20);
             label15.TabIndex = 15;
             label15.Text = "Room Type";
             // 
             // txtRoomTypeID
             // 
-            txtRoomTypeID.Location = new Point(200, 295);
+            txtRoomTypeID.Location = new Point(123, 184);
+            txtRoomTypeID.Margin = new Padding(2, 2, 2, 2);
             txtRoomTypeID.Name = "txtRoomTypeID";
-            txtRoomTypeID.Size = new Size(217, 39);
+            txtRoomTypeID.Size = new Size(135, 27);
             txtRoomTypeID.TabIndex = 20;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 302);
+            label3.Location = new Point(17, 189);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(171, 32);
+            label3.Size = new Size(107, 20);
             label3.TabIndex = 15;
             label3.Text = "Room Type ID ";
             // 
             // txtRoomNumber
             // 
-            txtRoomNumber.Location = new Point(200, 226);
+            txtRoomNumber.Location = new Point(123, 141);
+            txtRoomNumber.Margin = new Padding(2, 2, 2, 2);
             txtRoomNumber.Name = "txtRoomNumber";
-            txtRoomNumber.Size = new Size(217, 39);
+            txtRoomNumber.Size = new Size(135, 27);
             txtRoomNumber.TabIndex = 21;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 233);
+            label2.Location = new Point(17, 146);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(171, 32);
+            label2.Size = new Size(107, 20);
             label2.TabIndex = 16;
             label2.Text = "Room Number";
             // 
             // txtRoomID
             // 
-            txtRoomID.Location = new Point(200, 161);
+            txtRoomID.Location = new Point(123, 101);
+            txtRoomID.Margin = new Padding(2, 2, 2, 2);
             txtRoomID.Name = "txtRoomID";
-            txtRoomID.Size = new Size(217, 39);
+            txtRoomID.Size = new Size(135, 27);
             txtRoomID.TabIndex = 22;
             // 
             // label6
@@ -223,27 +239,30 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DodgerBlue;
-            label6.Location = new Point(28, 53);
+            label6.Location = new Point(17, 33);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(302, 45);
+            label6.Size = new Size(185, 28);
             label6.TabIndex = 17;
             label6.Text = "Room Management";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(28, 168);
+            label1.Location = new Point(17, 105);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(106, 32);
+            label1.Size = new Size(68, 20);
             label1.TabIndex = 17;
             label1.Text = "Room ID";
             // 
             // txtSearch
             // 
             txtSearch.ForeColor = Color.Silver;
-            txtSearch.Location = new Point(663, 54);
+            txtSearch.Location = new Point(408, 34);
+            txtSearch.Margin = new Padding(2, 2, 2, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(190, 39);
+            txtSearch.Size = new Size(118, 27);
             txtSearch.TabIndex = 12;
             txtSearch.Text = "search";
             // 
@@ -251,16 +270,18 @@
             // 
             cboSearch.FormattingEnabled = true;
             cboSearch.Items.AddRange(new object[] { "Room Number", "Room Type", "Status" });
-            cboSearch.Location = new Point(454, 53);
+            cboSearch.Location = new Point(279, 33);
+            cboSearch.Margin = new Padding(2, 2, 2, 2);
             cboSearch.Name = "cboSearch";
-            cboSearch.Size = new Size(203, 40);
+            cboSearch.Size = new Size(126, 28);
             cboSearch.TabIndex = 11;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(859, 49);
+            btnSearch.Location = new Point(529, 31);
+            btnSearch.Margin = new Padding(2, 2, 2, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(106, 46);
+            btnSearch.Size = new Size(65, 29);
             btnSearch.TabIndex = 7;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -268,9 +289,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(1476, 46);
+            btnAdd.Location = new Point(908, 29);
+            btnAdd.Margin = new Padding(2, 2, 2, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(150, 46);
+            btnAdd.Size = new Size(92, 29);
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -278,9 +300,10 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(1632, 46);
+            btnDelete.Location = new Point(1004, 29);
+            btnDelete.Margin = new Padding(2, 2, 2, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(150, 46);
+            btnDelete.Size = new Size(92, 29);
             btnDelete.TabIndex = 10;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -289,21 +312,24 @@
             // dgvRoomList
             // 
             dgvRoomList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRoomList.Location = new Point(454, 101);
+            dgvRoomList.Location = new Point(279, 63);
+            dgvRoomList.Margin = new Padding(2, 2, 2, 2);
             dgvRoomList.Name = "dgvRoomList";
             dgvRoomList.RowHeadersWidth = 82;
             dgvRoomList.RowTemplate.Height = 41;
-            dgvRoomList.Size = new Size(1328, 780);
+            dgvRoomList.Size = new Size(817, 488);
             dgvRoomList.TabIndex = 6;
             dgvRoomList.CellDoubleClick += dgvRoomList_CellDoubleClick;
             // 
             // HotelManager
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1825, 953);
+            ClientSize = new Size(1123, 596);
             Controls.Add(tabControl1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HotelManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HotelManager";
             Load += HotelManager_Load;
             tabControl1.ResumeLayout(false);

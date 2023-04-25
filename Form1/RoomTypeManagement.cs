@@ -112,7 +112,7 @@ namespace Form1
                 source = new BindingSource();
                 source.DataSource = roomTypes;
 
-                if(roomTypes.Count() > 0)
+                if (roomTypes.Count() > 0)
                 {
                     txtRoomTypeID.DataBindings.Clear();
                     txtRoomTypeName.DataBindings.Clear();
@@ -132,7 +132,7 @@ namespace Form1
                     txtHotelID.DataBindings.Add("Text", source, "HotelID");
                     txtStatus.DataBindings.Add("Text", source, "Status");
                 }
-                 
+
 
                 dgvRoomTypeList.DataSource = null;
                 dgvRoomTypeList.DataSource = source;
@@ -170,7 +170,7 @@ namespace Form1
             try
             {
                 DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (_confirm == DialogResult.OK) 
+                if (_confirm == DialogResult.OK)
                 {
                     var roomType = GetRoomType();
                     RoomTypeRepository.DeleteRoomType(roomType.RoomTypeId);
