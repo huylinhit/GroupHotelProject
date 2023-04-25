@@ -14,7 +14,7 @@ namespace MyLibrary.Repositories
         void AddUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int id);
-        (string Email, string Password) GetDefaultAccount(bool isAdmin);
+        public User? ValidateLogin(string email, string pwd);
     }
 
 }

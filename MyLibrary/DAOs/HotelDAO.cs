@@ -97,23 +97,15 @@ namespace MyLibrary.DAOs
             return i;
         }
 
-/*        public IEnumerable<Hotel> GetHotelsByMemberID(int memberId)
+        public Hotel GetHotelsByManagerID(int managerID)
         {
-            IEnumerable<Hotel> Hotels = null;
+            Hotel Hotel = null;
 
             try
             {
-                var context = new HotelProjectContext();
-                if (memberId > 0)
+                using (var db = new HotelProjectContext())
                 {
-                    Hotels = context.Hotels.Where(or => or.HotelId == memberId)
-                        .Include(or => or.Member)
-                        .Include(or => or.HotelDetails);
-                }
-                else if (memberId <= 0)
-                {
-                    Hotels = context.Hotels.Include(or => or.Member)
-                        .Include(or => or.HotelDetails);
+                    Hotel = db.Hotels.SingleOrDefault(p => p.ManagerId== managerID);
                 }
             }
             catch (Exception ex)
@@ -121,8 +113,8 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
 
-            return Hotels;
-        }*/
+            return Hotel;
+        }
 
         public void AddHotel(Hotel item)
         {

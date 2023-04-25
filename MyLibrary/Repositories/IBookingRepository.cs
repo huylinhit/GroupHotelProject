@@ -25,5 +25,15 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<Booking> GetBookingByBookingID(int BookingID);
         public IEnumerable<RoomViewModel> ViewBookableRoom(int SelectedRoomTypeID, int HotelID, DateTime CheckIn, DateTime CheckOut);
+
+        public IEnumerable<Booking> GetBookingsShort();
+
+
+        public IEnumerable<Booking> GetBookingDetailSearchName(string name);
+
+        public IEnumerable<Booking> GetBookingDetailSearchUserID(int userID);
+
+        public IEnumerable<Booking> GetBookingDetailSearchHotelRoom(string hotelroom);
+
     }
 }
