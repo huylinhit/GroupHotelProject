@@ -10,11 +10,12 @@ namespace MyLibrary.Repositories
 {
     public interface IRoomTypeRepository
     {
-         IEnumerable<RoomType> GetRoomTypes();
-         RoomType? GetRoomTypeByID(int id);
-         void AddRoomType(RoomType item);
-         void RemoveRoomType(RoomType item);
-         void RemoveRoomTypeByID(int id);
-         void UpdateRoomType(RoomType item);
+        IEnumerable<RoomType> GetRoomTypes();
+        RoomType? GetRoomTypeByID(int id);
+        RoomType? GetRoomTypeByName(string name);
+        void AddRoomType(RoomType item);
+        void RemoveRoomType(RoomType item);
+        void RemoveRoomTypeByID(int id);
+        void UpdateRoomType(RoomType item);
     }
 }

@@ -47,12 +47,12 @@
             label23 = new Label();
             textBox16 = new TextBox();
             comboBox3 = new ComboBox();
-            button1 = new Button();
+            btnSearch = new Button();
             button2 = new Button();
-            button3 = new Button();
-            button9 = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            dgvRoomTypeList = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvRoomTypeList).BeginInit();
             SuspendLayout();
             // 
             // txtHotelID
@@ -209,14 +209,14 @@
             comboBox3.Size = new Size(145, 40);
             comboBox3.TabIndex = 68;
             // 
-            // button1
+            // btnSearch
             // 
-            button1.Location = new Point(813, 47);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 64;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(813, 47);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(150, 46);
+            btnSearch.TabIndex = 64;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -227,33 +227,36 @@
             button2.Text = "Load";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAdd
             // 
-            button3.Location = new Point(1300, 44);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 46);
-            button3.TabIndex = 66;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = true;
+            btnAdd.Location = new Point(1300, 44);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(150, 46);
+            btnAdd.TabIndex = 66;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // button9
+            // btnDelete
             // 
-            button9.Location = new Point(1456, 44);
-            button9.Name = "button9";
-            button9.Size = new Size(150, 46);
-            button9.TabIndex = 67;
-            button9.Text = "Delete";
-            button9.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(1456, 44);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(150, 46);
+            btnDelete.TabIndex = 67;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // dataGridView1
+            // dgvRoomTypeList
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(466, 99);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1142, 780);
-            dataGridView1.TabIndex = 63;
+            dgvRoomTypeList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoomTypeList.Location = new Point(466, 99);
+            dgvRoomTypeList.Name = "dgvRoomTypeList";
+            dgvRoomTypeList.RowHeadersWidth = 82;
+            dgvRoomTypeList.RowTemplate.Height = 41;
+            dgvRoomTypeList.Size = new Size(1142, 780);
+            dgvRoomTypeList.TabIndex = 63;
+            dgvRoomTypeList.CellDoubleClick += dgvRoomTypeList_CellDoubleClick;
             // 
             // RoomTypeManagement
             // 
@@ -279,14 +282,15 @@
             Controls.Add(label23);
             Controls.Add(textBox16);
             Controls.Add(comboBox3);
-            Controls.Add(button1);
+            Controls.Add(btnSearch);
             Controls.Add(button2);
-            Controls.Add(button3);
-            Controls.Add(button9);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnAdd);
+            Controls.Add(btnDelete);
+            Controls.Add(dgvRoomTypeList);
             Name = "RoomTypeManagement";
             Text = "RoomTypeManagement";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += RoomTypeManagement_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvRoomTypeList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,10 +316,10 @@
         private Label label23;
         private TextBox textBox16;
         private ComboBox comboBox3;
-        private Button button1;
+        private Button btnSearch;
         private Button button2;
-        private Button button3;
-        private Button button9;
-        private DataGridView dataGridView1;
+        private Button btnAdd;
+        private Button btnDelete;
+        private DataGridView dgvRoomTypeList;
     }
 }
