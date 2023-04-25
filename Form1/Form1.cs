@@ -1,3 +1,4 @@
+using Form1;
 using MyLibrary.Models;
 using MyLibrary.Repositories;
 using System.Globalization;
@@ -18,11 +19,12 @@ namespace HotelBooking
 
         public void PopulateSeachParameters()
         {
-            txtSearch.Text = Search;
-            txtGuest.Text = Guest.ToString();
-            txtDuration.Text = Duration.ToString();
-            dtpkrCheckIn.Value = CheckIn;
+            txtSearch.Text = Search??"";
+            txtGuest.Text = Guest.ToString()??"";
+            txtDuration.Text = Duration.ToString() ?? "";
+            dtpkrCheckIn.Value = CheckIn==default(DateTime)?DateTime.Now.AddDays(3):CheckIn;
         }
+        public User user { get; set; }
         public int UserID { get; set; }
         public string Search { get; set; }
         public int Guest { get; set; }
@@ -150,6 +152,22 @@ namespace HotelBooking
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadHotel();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmProfile hd = new frmProfile()
+            {
+                user = user,
+            };
+            hd.ShowDialog();
+            this.Show();
         }
     }
 }

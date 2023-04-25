@@ -53,6 +53,8 @@
             label13 = new Label();
             dgvHotel = new DataGridView();
             lblSelectedRoomTypeID = new Label();
+            btnLogout = new Button();
+            btnHistory = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHotel).BeginInit();
@@ -338,11 +340,41 @@
             lblSelectedRoomTypeID.Size = new Size(0, 20);
             lblSelectedRoomTypeID.TabIndex = 55;
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.White;
+            btnLogout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.ForeColor = Color.FromArgb(255, 128, 0);
+            btnLogout.Location = new Point(38, 171);
+            btnLogout.Margin = new Padding(2);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(94, 39);
+            btnLogout.TabIndex = 58;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // btnHistory
+            // 
+            btnHistory.BackColor = Color.White;
+            btnHistory.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHistory.ForeColor = Color.FromArgb(255, 128, 0);
+            btnHistory.Location = new Point(178, 171);
+            btnHistory.Margin = new Padding(2);
+            btnHistory.Name = "btnHistory";
+            btnHistory.Size = new Size(94, 39);
+            btnHistory.TabIndex = 59;
+            btnHistory.Text = "History";
+            btnHistory.UseVisualStyleBackColor = false;
+            btnHistory.Click += btnHistory_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1044, 699);
+            Controls.Add(btnHistory);
+            Controls.Add(btnLogout);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(lblMsg);
@@ -400,5 +432,7 @@
         private Label label13;
         private DataGridView dgvHotel;
         private Label lblSelectedRoomTypeID;
+        private Button btnLogout;
+        private Button btnHistory;
     }
 }
