@@ -251,5 +251,166 @@ namespace MyLibrary.DAOs
             }
             return list;
         }
+        //Search and Filter Here
+        public IEnumerable<Booking> GetBookingDetailSearchName(string name)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(item => item.User.FirstName.ToLower().Contains(name.ToLower())
+                                      || item.User.LastName.ToLower().Contains(name.ToLower()))
+                                      .OrderBy(item => item.User.FirstName)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Booking> GetBookingDetailSearchUserID(int userID)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(item => item.UserId == userID)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+
+        public IEnumerable<Booking> GetBookingDetailPriceAscending()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Booking> GetBookingDetailPriceDescending()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        public IEnumerable<Booking> GetBookingDetailByStatus(string status)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        public IEnumerable<Booking> GetBookingDetailByRole()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        public IEnumerable<Booking> GetBookingDetailByRoomType()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
     }
+
+
+
+
 }
