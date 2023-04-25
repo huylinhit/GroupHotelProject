@@ -35,6 +35,16 @@ namespace Form1
             txtTotalPrice.Enabled = false;
             txtHotelID.Enabled = false;
             txtStatus.Enabled = false;
+
+            foreach (var item in RoomTypeRepository.GetRoomTypes()
+                .Where(r => r.HotelId == HotelID))
+            {
+                if (!cboFilter.Items.Contains(item))
+                {
+                    cboFilter.Items.Add(item.RoomTypeName);
+                }
+            }
+            cboSearch.SelectedIndex = 0;
         }
         private void dgvRoomTypeList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -166,6 +176,43 @@ namespace Form1
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text.Equals(""))
+            {
+                var roomTypes = RoomTypeRepository.GetRoomTypes().
+                    Where(r => r.HotelId == HotelID);
+                TryBindRoomTypeList(roomTypes);
+            }
+            if (cboSearch.SelectedIndex == 0) // Search By Room Type
+            {
+                var roomTypes = RoomTypeRepository.GetRoomTypes()
+                    .Where(r => r.HotelId == HotelID)
+                    .Where(o => o.RoomTypeName.ToLower().Contains(txtSearch.Text.ToLower()));
+                TryBindRoomTypeList(roomTypes);
+            }
+            else if (cboSearch.SelectedIndex == 1) // Search By capacity
+            {
+                var roomTypes = RoomTypeRepository.GetRoomTypes()
+                    .Where(r => r.HotelId == HotelID)
+                    .Where(o => o.Capacity == int.Parse(txtSearch.Text));
+                TryBindRoomTypeList(roomTypes);
+            }
+            else if (cboSearch.SelectedIndex == 2) // Search By Bed Count
+            {
+                var roomTypes = RoomTypeRepository.GetRoomTypes()
+                    .Where(r => r.HotelId == HotelID)
+                    .Where(o => o.BedCount == int.Parse(txtSearch.Text));
+                TryBindRoomTypeList(roomTypes);
+            }
+        }
 
+        private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var roomTypes = RoomTypeRepository.GetRoomTypes()
+                .Where(r => r.HotelId == HotelID)
+                .Where(o => o.RoomTypeName.Equals(cboFilter.Text));
+            TryBindRoomTypeList(roomTypes);
+        }
     }
 }

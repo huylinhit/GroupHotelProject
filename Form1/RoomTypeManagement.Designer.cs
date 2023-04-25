@@ -45,12 +45,13 @@
             txtRoomTypeID = new TextBox();
             label22 = new Label();
             label23 = new Label();
-            textBox16 = new TextBox();
-            comboBox3 = new ComboBox();
+            txtSearch = new TextBox();
+            cboSearch = new ComboBox();
             btnSearch = new Button();
             btnAdd = new Button();
             btnDelete = new Button();
             dgvRoomTypeList = new DataGridView();
+            cboFilter = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvRoomTypeList).BeginInit();
             SuspendLayout();
             // 
@@ -194,29 +195,33 @@
             label23.TabIndex = 78;
             label23.Text = "Room Type ID";
             // 
-            // textBox16
+            // txtSearch
             // 
-            textBox16.Location = new Point(617, 51);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(190, 39);
-            textBox16.TabIndex = 69;
+            txtSearch.ForeColor = Color.Silver;
+            txtSearch.Location = new Point(703, 51);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(190, 39);
+            txtSearch.TabIndex = 69;
             // 
-            // comboBox3
+            // cboSearch
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(466, 51);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(145, 40);
-            comboBox3.TabIndex = 68;
+            cboSearch.FormattingEnabled = true;
+            cboSearch.Items.AddRange(new object[] { "Room Type", "Capacity", "Bed Count" });
+            cboSearch.Location = new Point(466, 51);
+            cboSearch.Name = "cboSearch";
+            cboSearch.Size = new Size(231, 40);
+            cboSearch.TabIndex = 68;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(813, 47);
+            btnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSearch.Location = new Point(899, 47);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(150, 46);
+            btnSearch.Size = new Size(124, 46);
             btnSearch.TabIndex = 64;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnAdd
             // 
@@ -249,11 +254,21 @@
             dgvRoomTypeList.TabIndex = 63;
             dgvRoomTypeList.CellDoubleClick += dgvRoomTypeList_CellDoubleClick;
             // 
+            // cboFilter
+            // 
+            cboFilter.FormattingEnabled = true;
+            cboFilter.Location = new Point(1266, 48);
+            cboFilter.Name = "cboFilter";
+            cboFilter.Size = new Size(232, 40);
+            cboFilter.TabIndex = 87;
+            cboFilter.SelectedIndexChanged += cboFilter_SelectedIndexChanged;
+            // 
             // RoomTypeManagement
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1842, 914);
+            Controls.Add(cboFilter);
             Controls.Add(txtHotelID);
             Controls.Add(label24);
             Controls.Add(txtStatus);
@@ -271,8 +286,8 @@
             Controls.Add(txtRoomTypeID);
             Controls.Add(label22);
             Controls.Add(label23);
-            Controls.Add(textBox16);
-            Controls.Add(comboBox3);
+            Controls.Add(txtSearch);
+            Controls.Add(cboSearch);
             Controls.Add(btnSearch);
             Controls.Add(btnAdd);
             Controls.Add(btnDelete);
@@ -304,11 +319,12 @@
         private TextBox txtRoomTypeID;
         private Label label22;
         private Label label23;
-        private TextBox textBox16;
-        private ComboBox comboBox3;
+        private TextBox txtSearch;
+        private ComboBox cboSearch;
         private Button btnSearch;
         private Button btnAdd;
         private Button btnDelete;
         private DataGridView dgvRoomTypeList;
+        private ComboBox cboFilter;
     }
 }
