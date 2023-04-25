@@ -134,13 +134,13 @@ namespace HotelBooking
             try
             {
                 DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if(_confirm == DialogResult.OK)
+                if (_confirm == DialogResult.OK)
                 {
                     var room = GetRoom();
                     roomRepository.DeleteRoom(room.RoomId);
                     MessageBox.Show("Delete Successfully");
                 }
-                
+
                 LoadRoomList();
             }
             catch (Exception ex)
@@ -169,7 +169,7 @@ namespace HotelBooking
 
                 }).ToList();
 
-                if(rooms.Count() > 0)
+                if (rooms.Count() > 0)
                 {
                     txtRoomID.DataBindings.Clear();
                     txtRoomNumber.DataBindings.Clear();
@@ -183,7 +183,7 @@ namespace HotelBooking
                     txtAvailable.DataBindings.Add("Text", source, "Status");
                     txtRoomType.DataBindings.Add("Text", source, "RoomTypeName");
                 }
-                 
+
 
                 dgvRoomList.DataSource = null;
                 dgvRoomList.DataSource = source;

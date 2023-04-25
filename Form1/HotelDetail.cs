@@ -72,7 +72,7 @@ namespace HotelBooking
                 {
                     lblMsg.Text = "There are no current Room with this room Type";
                 }
-                
+
             }
             catch (Exception ex)
             {

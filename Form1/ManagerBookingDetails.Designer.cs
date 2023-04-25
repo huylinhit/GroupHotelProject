@@ -73,10 +73,9 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(1518, 864);
-            btnCancel.Margin = new Padding(5);
+            btnCancel.Location = new Point(934, 540);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(153, 46);
+            btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 43;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
@@ -85,10 +84,9 @@
             // btnUpdate
             // 
             btnUpdate.DialogResult = DialogResult.OK;
-            btnUpdate.Location = new Point(1355, 864);
-            btnUpdate.Margin = new Padding(5);
+            btnUpdate.Location = new Point(834, 540);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(153, 46);
+            btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 42;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -114,162 +112,179 @@
             panel2.Controls.Add(label15);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(label17);
-            panel2.Location = new Point(740, 139);
+            panel2.Location = new Point(455, 87);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(931, 691);
+            panel2.Size = new Size(573, 432);
             panel2.TabIndex = 40;
             // 
             // txtCheckOutDate
             // 
-            txtCheckOutDate.Location = new Point(244, 464);
+            txtCheckOutDate.Location = new Point(150, 290);
+            txtCheckOutDate.Margin = new Padding(2, 2, 2, 2);
             txtCheckOutDate.Name = "txtCheckOutDate";
             txtCheckOutDate.ReadOnly = true;
-            txtCheckOutDate.Size = new Size(634, 39);
+            txtCheckOutDate.Size = new Size(392, 27);
             txtCheckOutDate.TabIndex = 36;
             // 
             // txtCheckInDate
             // 
-            txtCheckInDate.Location = new Point(244, 390);
+            txtCheckInDate.Location = new Point(150, 244);
+            txtCheckInDate.Margin = new Padding(2, 2, 2, 2);
             txtCheckInDate.Name = "txtCheckInDate";
             txtCheckInDate.ReadOnly = true;
-            txtCheckInDate.Size = new Size(634, 39);
+            txtCheckInDate.Size = new Size(392, 27);
             txtCheckInDate.TabIndex = 35;
             // 
             // txtRoomTypeName
             // 
-            txtRoomTypeName.Location = new Point(244, 323);
+            txtRoomTypeName.Location = new Point(150, 202);
+            txtRoomTypeName.Margin = new Padding(2, 2, 2, 2);
             txtRoomTypeName.Name = "txtRoomTypeName";
             txtRoomTypeName.ReadOnly = true;
-            txtRoomTypeName.Size = new Size(634, 39);
+            txtRoomTypeName.Size = new Size(392, 27);
             txtRoomTypeName.TabIndex = 34;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(24, 323);
+            label19.Location = new Point(15, 202);
+            label19.Margin = new Padding(2, 0, 2, 0);
             label19.Name = "label19";
-            label19.Size = new Size(127, 32);
+            label19.Size = new Size(80, 20);
             label19.TabIndex = 33;
             label19.Text = "RoomType";
             // 
             // txtTotalPrice
             // 
-            txtTotalPrice.Location = new Point(244, 531);
+            txtTotalPrice.Location = new Point(150, 332);
+            txtTotalPrice.Margin = new Padding(2, 2, 2, 2);
             txtTotalPrice.Name = "txtTotalPrice";
             txtTotalPrice.ReadOnly = true;
-            txtTotalPrice.Size = new Size(634, 39);
+            txtTotalPrice.Size = new Size(392, 27);
             txtTotalPrice.TabIndex = 30;
             // 
             // txtRoomNumber
             // 
-            txtRoomNumber.Location = new Point(244, 254);
+            txtRoomNumber.Location = new Point(150, 159);
+            txtRoomNumber.Margin = new Padding(2, 2, 2, 2);
             txtRoomNumber.Name = "txtRoomNumber";
             txtRoomNumber.ReadOnly = true;
-            txtRoomNumber.Size = new Size(634, 39);
+            txtRoomNumber.Size = new Size(392, 27);
             txtRoomNumber.TabIndex = 28;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 254);
+            label3.Location = new Point(15, 159);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(164, 32);
+            label3.Size = new Size(103, 20);
             label3.TabIndex = 26;
             label3.Text = "RoomNumber";
             // 
             // txtRoomID
             // 
-            txtRoomID.Location = new Point(244, 181);
+            txtRoomID.Location = new Point(150, 113);
+            txtRoomID.Margin = new Padding(2, 2, 2, 2);
             txtRoomID.Name = "txtRoomID";
             txtRoomID.ReadOnly = true;
-            txtRoomID.Size = new Size(634, 39);
+            txtRoomID.Size = new Size(392, 27);
             txtRoomID.TabIndex = 25;
             // 
             // cboStatus
             // 
             cboStatus.FormattingEnabled = true;
-            cboStatus.Location = new Point(244, 602);
-            cboStatus.Margin = new Padding(5);
+            cboStatus.Location = new Point(150, 376);
             cboStatus.Name = "cboStatus";
-            cboStatus.Size = new Size(634, 40);
+            cboStatus.Size = new Size(392, 28);
             cboStatus.TabIndex = 24;
             // 
             // txtUserID2
             // 
-            txtUserID2.Location = new Point(244, 104);
+            txtUserID2.Location = new Point(150, 65);
+            txtUserID2.Margin = new Padding(2, 2, 2, 2);
             txtUserID2.Name = "txtUserID2";
             txtUserID2.ReadOnly = true;
-            txtUserID2.Size = new Size(634, 39);
+            txtUserID2.Size = new Size(392, 27);
             txtUserID2.TabIndex = 16;
             // 
             // txtBookingID
             // 
-            txtBookingID.Location = new Point(244, 32);
+            txtBookingID.Location = new Point(150, 20);
+            txtBookingID.Margin = new Padding(2, 2, 2, 2);
             txtBookingID.Name = "txtBookingID";
             txtBookingID.ReadOnly = true;
-            txtBookingID.Size = new Size(634, 39);
+            txtBookingID.Size = new Size(392, 27);
             txtBookingID.TabIndex = 17;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 602);
+            label4.Location = new Point(15, 376);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(78, 32);
+            label4.Size = new Size(49, 20);
             label4.TabIndex = 4;
             label4.Text = "Status";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 541);
+            label5.Location = new Point(15, 338);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(116, 32);
+            label5.Size = new Size(74, 20);
             label5.TabIndex = 5;
             label5.Text = "TotalPrice";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(24, 466);
+            label6.Location = new Point(15, 291);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(169, 32);
+            label6.Size = new Size(104, 20);
             label6.TabIndex = 6;
             label6.Text = "CheckOutDate";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(24, 390);
+            label14.Location = new Point(15, 244);
+            label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
-            label14.Size = new Size(149, 32);
+            label14.Size = new Size(92, 20);
             label14.TabIndex = 7;
             label14.Text = "CheckInDate";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(24, 186);
+            label15.Location = new Point(15, 116);
+            label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(99, 32);
+            label15.Size = new Size(64, 20);
             label15.TabIndex = 8;
             label15.Text = "RoomID";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(24, 107);
+            label16.Location = new Point(15, 67);
+            label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(91, 32);
+            label16.Size = new Size(57, 20);
             label16.TabIndex = 9;
             label16.Text = "User ID";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(24, 35);
+            label17.Location = new Point(15, 22);
+            label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
-            label17.Size = new Size(132, 32);
+            label17.Size = new Size(83, 20);
             label17.TabIndex = 10;
             label17.Text = "Booking ID";
             // 
@@ -278,9 +293,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(575, 41);
+            label2.Location = new Point(354, 26);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(515, 50);
+            label2.Size = new Size(336, 32);
             label2.TabIndex = 41;
             label2.Text = "Booking Management Update";
             // 
@@ -302,158 +318,177 @@
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
-            panel1.Location = new Point(69, 139);
+            panel1.Location = new Point(42, 87);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(588, 691);
+            panel1.Size = new Size(362, 432);
             panel1.TabIndex = 39;
             // 
             // txtRole
             // 
-            txtRole.Location = new Point(244, 550);
+            txtRole.Location = new Point(150, 344);
+            txtRole.Margin = new Padding(2, 2, 2, 2);
             txtRole.Name = "txtRole";
             txtRole.ReadOnly = true;
-            txtRole.Size = new Size(314, 39);
+            txtRole.Size = new Size(195, 27);
             txtRole.TabIndex = 11;
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(244, 474);
+            txtAddress.Location = new Point(150, 296);
+            txtAddress.Margin = new Padding(2, 2, 2, 2);
             txtAddress.Name = "txtAddress";
             txtAddress.ReadOnly = true;
-            txtAddress.Size = new Size(314, 39);
+            txtAddress.Size = new Size(195, 27);
             txtAddress.TabIndex = 11;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(244, 400);
+            txtPhone.Location = new Point(150, 250);
+            txtPhone.Margin = new Padding(2, 2, 2, 2);
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
-            txtPhone.Size = new Size(314, 39);
+            txtPhone.Size = new Size(195, 27);
             txtPhone.TabIndex = 12;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(244, 323);
+            txtPassword.Location = new Point(150, 202);
+            txtPassword.Margin = new Padding(2, 2, 2, 2);
             txtPassword.Name = "txtPassword";
             txtPassword.ReadOnly = true;
-            txtPassword.Size = new Size(314, 39);
+            txtPassword.Size = new Size(195, 27);
             txtPassword.TabIndex = 13;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(244, 250);
+            txtEmail.Location = new Point(150, 156);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(314, 39);
+            txtEmail.Size = new Size(195, 27);
             txtEmail.TabIndex = 14;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(244, 178);
+            txtLastName.Location = new Point(150, 111);
+            txtLastName.Margin = new Padding(2, 2, 2, 2);
             txtLastName.Name = "txtLastName";
             txtLastName.ReadOnly = true;
-            txtLastName.Size = new Size(314, 39);
+            txtLastName.Size = new Size(195, 27);
             txtLastName.TabIndex = 15;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(244, 104);
+            txtFirstName.Location = new Point(150, 65);
+            txtFirstName.Margin = new Padding(2, 2, 2, 2);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.ReadOnly = true;
-            txtFirstName.Size = new Size(314, 39);
+            txtFirstName.Size = new Size(195, 27);
             txtFirstName.TabIndex = 16;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 557);
+            label1.Location = new Point(15, 348);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(60, 32);
+            label1.Size = new Size(39, 20);
             label1.TabIndex = 4;
             label1.Text = "Role";
             // 
             // txtUserID
             // 
-            txtUserID.Location = new Point(244, 32);
+            txtUserID.Location = new Point(150, 20);
+            txtUserID.Margin = new Padding(2, 2, 2, 2);
             txtUserID.Name = "txtUserID";
             txtUserID.ReadOnly = true;
-            txtUserID.Size = new Size(314, 39);
+            txtUserID.Size = new Size(195, 27);
             txtUserID.TabIndex = 17;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(24, 482);
+            label13.Location = new Point(15, 301);
+            label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
-            label13.Size = new Size(98, 32);
+            label13.Size = new Size(62, 20);
             label13.TabIndex = 4;
             label13.Text = "Address";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(24, 406);
+            label12.Location = new Point(15, 254);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(82, 32);
+            label12.Size = new Size(50, 20);
             label12.TabIndex = 5;
             label12.Text = "Phone";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(24, 331);
+            label11.Location = new Point(15, 207);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(111, 32);
+            label11.Size = new Size(70, 20);
             label11.TabIndex = 6;
             label11.Text = "Password";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(24, 256);
+            label10.Location = new Point(15, 160);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(71, 32);
+            label10.Size = new Size(46, 20);
             label10.TabIndex = 7;
             label10.Text = "Email";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(24, 186);
+            label9.Location = new Point(15, 116);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(126, 32);
+            label9.Size = new Size(79, 20);
             label9.TabIndex = 8;
             label9.Text = "Last Name";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(24, 107);
+            label8.Location = new Point(15, 67);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(129, 32);
+            label8.Size = new Size(80, 20);
             label8.TabIndex = 9;
             label8.Text = "First Name";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(24, 35);
+            label7.Location = new Point(15, 22);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(91, 32);
+            label7.Size = new Size(57, 20);
             label7.TabIndex = 10;
             label7.Text = "User ID";
             // 
             // ManagerBookingDetails
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1729, 947);
+            ClientSize = new Size(1064, 592);
             Controls.Add(btnCancel);
             Controls.Add(btnUpdate);
             Controls.Add(panel2);
             Controls.Add(label2);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ManagerBookingDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ManagerBookingDetails";
             Load += ManagerBookingDetails_Load;
             panel2.ResumeLayout(false);

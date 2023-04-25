@@ -395,6 +395,7 @@
             Controls.Add(lblSelectedRoomTypeID);
             Margin = new Padding(2);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panel2.ResumeLayout(false);

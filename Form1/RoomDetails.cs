@@ -43,7 +43,7 @@ namespace Form1
                     cboStatus.SelectedIndex = 1;
                 }
             }
-            else if(InsertOrUpdate == false)
+            else if (InsertOrUpdate == false)
             {
                 cboStatus.SelectedIndex = 0;
                 cboStatus.Enabled = false;
@@ -56,8 +56,8 @@ namespace Form1
                     cboRoomType.Items.Add(item.RoomTypeName);
                 }
             }
-            if(cboRoomType.Items.Count != 0)
-                 cboRoomType.SelectedIndex = 0;
+            if (cboRoomType.Items.Count != 0)
+                cboRoomType.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

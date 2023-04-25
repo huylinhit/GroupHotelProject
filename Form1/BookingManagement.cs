@@ -18,8 +18,11 @@ namespace HotelBooking
     {
         IBookingRepository bookingRepository = new BookingRepository();
 
+        IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
+        
         BindingSource source;
 
+        
         public User User { get; set; }
 
         public string Filter { get; set; }
@@ -73,7 +76,15 @@ namespace HotelBooking
         {
             txtSearchUserID.PlaceholderText = "User ID";
             txtNameSearch.PlaceholderText = "Search Name";
+            cboHotelName.Items.Clear();
 
+            IEnumerable<RoomType> rooms = roomTypeRepository.GetRoomTypes();
+
+            foreach (var item in rooms)
+            {
+                cboHotelName.Items.Add(item.RoomTypeName.ToString());
+
+            }
 
             List<string> listPrice = new List<string>()
             {
@@ -139,7 +150,6 @@ namespace HotelBooking
 
             //RemoveComboBox
             cboUsersName.Items.Clear();
-            cboHotelName.Items.Clear();
             //cboStatus.Items.Clear();
             //cboRole.Items.Clear();
             //cboPrice.Items.Clear();
@@ -149,7 +159,6 @@ namespace HotelBooking
             foreach (var item in _bookings)
             {
                 cboUsersName.Items.Add(item.User.FirstName);
-                cboHotelName.Items.Add(item.Room.RoomType.RoomTypeName);
             }
 
             try

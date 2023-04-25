@@ -119,23 +119,23 @@ namespace HotelBooking
                 if (isSearch)
                 {
                     source.DataSource = searchHotelsList.Select(o => new MyViewModel(o)
-                        {
-                            HotelId = o.HotelId,
-                            ManagerID = (int)o.ManagerId,
-                            HotelName = o.HotelName,
-                            Address = o.Address,
-                            Phone = o.Phone,
-                            Email = o.Email,
-                            ContactPerson = o.ContactPerson,
-                            ContactPersonEmail = o.ContactPersonEmail,
-                            ContactPersonPhone = o.ContactPersonPhone,
-                            CancellationPolicy = o.CancellationPolicy,
-                            Currency = o.Currency,
-                        }).ToList();
+                    {
+                        HotelId = o.HotelId,
+                        ManagerID = (int)o.ManagerId,
+                        HotelName = o.HotelName,
+                        Address = o.Address,
+                        Phone = o.Phone,
+                        Email = o.Email,
+                        ContactPerson = o.ContactPerson,
+                        ContactPersonEmail = o.ContactPersonEmail,
+                        ContactPersonPhone = o.ContactPersonPhone,
+                        CancellationPolicy = o.CancellationPolicy,
+                        Currency = o.Currency,
+                    }).ToList();
 
                     isSearch = false;
                 }
-                else 
+                else
                 {
                     source.DataSource = hotelsList.Select(o => new MyViewModel(o)
                     {
@@ -287,7 +287,8 @@ namespace HotelBooking
                 isSearch = true;
                 searchHotelsList = hotelRepository.SearchHotelByNameOrAddress(search);
                 LoadHotelsList();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
