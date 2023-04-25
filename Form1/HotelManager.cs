@@ -19,7 +19,7 @@ namespace HotelBooking
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
-        public int InitHotelID { get; set; }
+        public int InitHotelID { get; set; } = 1;
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -133,8 +133,14 @@ namespace HotelBooking
         {
             try
             {
-                var room = GetRoom();
-                roomRepository.DeleteRoom(room.RoomId);
+                DialogResult _confirm = MessageBox.Show("Do you want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (_confirm == DialogResult.OK) 
+                {
+                    var room = GetRoom();
+                    roomRepository.DeleteRoom(room.RoomId);
+                    MessageBox.Show("Delete Successfully");
+                }
+                 
                 LoadRoomList();
             }
             catch (Exception ex)
