@@ -23,7 +23,7 @@ namespace MyLibrary.Models
         public string Currency { get; set; }
         public string Status { get; set; }
 
-        public virtual User Manager { get; set; }
+        public virtual User User { get; set; }
         public virtual ICollection<RoomType> RoomTypes { get; set; }
     }
 }

@@ -9,17 +9,6 @@ namespace MyLibrary.Models
 {
     public partial class HotelProjectContext : DbContext
     {
-        public HotelProjectContext()
-        {
-        }
-
-        public HotelProjectContext(DbContextOptions<HotelProjectContext> options)
-            : base(options)
-        {
-
-        }
-        
-
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
@@ -120,7 +109,7 @@ namespace MyLibrary.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Manager)
+                entity.HasOne(d => d.User)
                     .WithMany(p => p.Hotels)
                     .HasForeignKey(d => d.ManagerId)
                     .HasConstraintName("FK__Hotels__ManagerI__398D8EEE");

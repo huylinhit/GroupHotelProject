@@ -205,7 +205,7 @@ namespace HotelBooking
                             break;
                         }
 
-                    
+
                     default:
                         {
                             _bookings = bookingRepository.GetBookings();
@@ -426,6 +426,20 @@ namespace HotelBooking
                 Filter = "PriceDescending";
                 LoadBookings();
             }
+        }
+
+        private void btnAddHotel_Click(object sender, EventArgs e)
+        {
+            AddHotel addHotel = new AddHotel()
+            {
+
+            };
+            addHotel.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
