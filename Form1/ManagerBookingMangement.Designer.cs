@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             label11 = new Label();
-            textBox12 = new TextBox();
-            comboBox2 = new ComboBox();
-            button5 = new Button();
+            txtSearch = new TextBox();
+            cboSearch = new ComboBox();
+            btnSearch = new Button();
             button6 = new Button();
             dgvBookingList = new DataGridView();
             panel1 = new Panel();
@@ -68,29 +68,31 @@
             label11.TabIndex = 54;
             label11.Text = "Booking Management";
             // 
-            // textBox12
+            // txtSearch
             // 
-            textBox12.Location = new Point(823, 48);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(190, 39);
-            textBox12.TabIndex = 47;
+            txtSearch.Location = new Point(823, 48);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(190, 39);
+            txtSearch.TabIndex = 47;
             // 
-            // comboBox2
+            // cboSearch
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(672, 48);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(145, 40);
-            comboBox2.TabIndex = 46;
+            cboSearch.FormattingEnabled = true;
+            cboSearch.Items.AddRange(new object[] { "Phone" });
+            cboSearch.Location = new Point(672, 48);
+            cboSearch.Name = "cboSearch";
+            cboSearch.Size = new Size(145, 40);
+            cboSearch.TabIndex = 46;
             // 
-            // button5
+            // btnSearch
             // 
-            button5.Location = new Point(1019, 44);
-            button5.Name = "button5";
-            button5.Size = new Size(150, 46);
-            button5.TabIndex = 42;
-            button5.Text = "Search";
-            button5.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(1019, 44);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(150, 46);
+            btnSearch.TabIndex = 42;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // button6
             // 
@@ -297,9 +299,9 @@
             ClientSize = new Size(1939, 914);
             Controls.Add(panel1);
             Controls.Add(label11);
-            Controls.Add(textBox12);
-            Controls.Add(comboBox2);
-            Controls.Add(button5);
+            Controls.Add(txtSearch);
+            Controls.Add(cboSearch);
+            Controls.Add(btnSearch);
             Controls.Add(button6);
             Controls.Add(dgvBookingList);
             Name = "ManagerBookingMangement";
@@ -314,9 +316,9 @@
 
         #endregion
         private Label label11;
-        private TextBox textBox12;
-        private ComboBox comboBox2;
-        private Button button5;
+        private TextBox txtSearch;
+        private ComboBox cboSearch;
+        private Button btnSearch;
         private Button button6;
         private DataGridView dgvBookingList;
         private Panel panel1;

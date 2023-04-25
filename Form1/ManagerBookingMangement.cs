@@ -43,7 +43,7 @@ namespace Form1
 
             private Booking _obj;
             private MyLibrary.Models.Booking e;
-
+            
             public MyViewModel(MyLibrary.Models.Booking e)
             {
                 this.e = e;
@@ -69,6 +69,7 @@ namespace Form1
             txtBookingID.Enabled = false;
             txtUserID.Enabled = false;
             dgvBookingList.CellDoubleClick += dgvBookingList_CellDoubleClick;
+            cboSearch.SelectedIndex = 0;
         }
         private void dgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -151,5 +152,63 @@ namespace Form1
 
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var _bookings = bookingRepository.ManagerGetBookingsByHotelID(HotelID)
+                .Where(o => o.User.Phone.Contains(txtSearch.Text));
+
+            try
+            {
+                source = new BindingSource();
+                source.DataSource = _bookings.Select(e => new MyViewModel(e)
+                {
+                    BookingID = e.BookingId,
+                    UserID = (int)e.UserId,
+                    RoomID = (int)e.RoomId,
+                    CheckInDate = (DateTime)e.CheckInDate,
+                    CheckOutTime = (DateTime)e.CheckOutDate,
+                    TotalPrice = (decimal)e.TotalPrice,
+                    //Room
+                    RoomType = e.Room.RoomType.RoomTypeName,
+                    //User
+                    FirstName = e.User.FirstName,
+                    LastName = e.User.LastName,
+                    Email = e.User.Email,
+                    Password = e.User.Password,
+                    Phone = e.User.Phone,
+                    Address = e.User.Address,
+                    Role = e.User.Role,
+                    Status = e.Status
+                });
+
+                txtBookingID.DataBindings.Clear();
+                txtUserID.DataBindings.Clear();
+                txtFirstName.DataBindings.Clear();
+                txtLastName.DataBindings.Clear();
+                txtEmail.DataBindings.Clear();
+                txtPassword.DataBindings.Clear();
+                txtPhone.DataBindings.Clear();
+                txtAddress.DataBindings.Clear();
+                txtRole.DataBindings.Clear();
+
+                txtBookingID.DataBindings.Add("Text", source, "BookingID");
+                txtUserID.DataBindings.Add("Text", source, "UserID");
+                txtFirstName.DataBindings.Add("Text", source, "FirstName");
+                txtLastName.DataBindings.Add("Text", source, "LastName"); ;
+                txtEmail.DataBindings.Add("Text", source, "Email"); ;
+                txtPassword.DataBindings.Add("Text", source, "Password"); ;
+                txtPhone.DataBindings.Add("Text", source, "Phone"); ;
+                txtAddress.DataBindings.Add("Text", source, "Address");
+                txtRole.DataBindings.Add("Text", source, "Role");
+
+                dgvBookingList.DataSource = null;
+                dgvBookingList.DataSource = source;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -30,6 +30,8 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            cboFilter = new ComboBox();
+            btnBookingManagement = new Button();
             btnRoomTypeManagement = new Button();
             txtHotelID = new TextBox();
             label5 = new Label();
@@ -45,8 +47,8 @@
             label6 = new Label();
             label1 = new Label();
             txtSearch = new TextBox();
-            comboBox1 = new ComboBox();
-            button4 = new Button();
+            cboSearch = new ComboBox();
+            btnSearch = new Button();
             btnLoad = new Button();
             btnAdd = new Button();
             btnDelete = new Button();
@@ -64,8 +66,10 @@
             label9 = new Label();
             textBox9 = new TextBox();
             label10 = new Label();
+            txtHotelID_2 = new TextBox();
             textBox10 = new TextBox();
             label11 = new Label();
+            label16 = new Label();
             label12 = new Label();
             textBox12 = new TextBox();
             comboBox2 = new ComboBox();
@@ -74,9 +78,6 @@
             button7 = new Button();
             button8 = new Button();
             dgvBookingList = new DataGridView();
-            label16 = new Label();
-            txtHotelID_2 = new TextBox();
-            btnBookingManagement = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
@@ -92,11 +93,12 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1640, 953);
+            tabControl1.Size = new Size(1825, 953);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(cboFilter);
             tabPage1.Controls.Add(btnBookingManagement);
             tabPage1.Controls.Add(btnRoomTypeManagement);
             tabPage1.Controls.Add(txtHotelID);
@@ -113,8 +115,8 @@
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(txtSearch);
-            tabPage1.Controls.Add(comboBox1);
-            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(cboSearch);
+            tabPage1.Controls.Add(btnSearch);
             tabPage1.Controls.Add(btnLoad);
             tabPage1.Controls.Add(btnAdd);
             tabPage1.Controls.Add(btnDelete);
@@ -122,11 +124,31 @@
             tabPage1.Location = new Point(8, 46);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1624, 899);
+            tabPage1.Size = new Size(1809, 899);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Room Management";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // cboFilter
+            // 
+            cboFilter.FormattingEnabled = true;
+            cboFilter.Location = new Point(1228, 50);
+            cboFilter.Name = "cboFilter";
+            cboFilter.Size = new Size(242, 40);
+            cboFilter.TabIndex = 24;
+            cboFilter.SelectedIndexChanged += cboFilter_SelectedIndexChanged;
+            // 
+            // btnBookingManagement
+            // 
+            btnBookingManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBookingManagement.Location = new Point(28, 772);
+            btnBookingManagement.Name = "btnBookingManagement";
+            btnBookingManagement.Size = new Size(389, 78);
+            btnBookingManagement.TabIndex = 23;
+            btnBookingManagement.Text = "Booking Management";
+            btnBookingManagement.UseVisualStyleBackColor = true;
+            btnBookingManagement.Click += btnBookingManagement_Click;
             // 
             // btnRoomTypeManagement
             // 
@@ -248,31 +270,35 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(605, 53);
+            txtSearch.ForeColor = Color.Silver;
+            txtSearch.Location = new Point(663, 54);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(190, 39);
             txtSearch.TabIndex = 12;
+            txtSearch.Text = "search";
             // 
-            // comboBox1
+            // cboSearch
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(454, 53);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(145, 40);
-            comboBox1.TabIndex = 11;
+            cboSearch.FormattingEnabled = true;
+            cboSearch.Items.AddRange(new object[] { "Room Number", "Room Type", "Status" });
+            cboSearch.Location = new Point(454, 53);
+            cboSearch.Name = "cboSearch";
+            cboSearch.Size = new Size(203, 40);
+            cboSearch.TabIndex = 11;
             // 
-            // button4
+            // btnSearch
             // 
-            button4.Location = new Point(801, 49);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 46);
-            button4.TabIndex = 7;
-            button4.Text = "Search";
-            button4.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(859, 49);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(106, 46);
+            btnSearch.TabIndex = 7;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnLoad
             // 
-            btnLoad.Location = new Point(1132, 46);
+            btnLoad.Location = new Point(267, 636);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new Size(150, 46);
             btnLoad.TabIndex = 8;
@@ -281,7 +307,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(1288, 46);
+            btnAdd.Location = new Point(1476, 46);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(150, 46);
             btnAdd.TabIndex = 9;
@@ -291,7 +317,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(1444, 46);
+            btnDelete.Location = new Point(1632, 46);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(150, 46);
             btnDelete.TabIndex = 10;
@@ -306,7 +332,7 @@
             dgvRoomList.Name = "dgvRoomList";
             dgvRoomList.RowHeadersWidth = 82;
             dgvRoomList.RowTemplate.Height = 41;
-            dgvRoomList.Size = new Size(1142, 780);
+            dgvRoomList.Size = new Size(1328, 780);
             dgvRoomList.TabIndex = 6;
             dgvRoomList.CellDoubleClick += dgvRoomList_CellDoubleClick;
             // 
@@ -339,7 +365,7 @@
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1624, 899);
+            tabPage2.Size = new Size(1809, 899);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Booking Management";
             tabPage2.UseVisualStyleBackColor = true;
@@ -441,6 +467,13 @@
             label10.TabIndex = 33;
             label10.Text = "User ID";
             // 
+            // txtHotelID_2
+            // 
+            txtHotelID_2.Location = new Point(200, 130);
+            txtHotelID_2.Name = "txtHotelID_2";
+            txtHotelID_2.Size = new Size(217, 39);
+            txtHotelID_2.TabIndex = 40;
+            // 
             // textBox10
             // 
             textBox10.Location = new Point(200, 201);
@@ -458,6 +491,15 @@
             label11.Size = new Size(335, 45);
             label11.TabIndex = 34;
             label11.Text = "Booking Management";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(28, 137);
+            label16.Name = "label16";
+            label16.Size = new Size(102, 32);
+            label16.TabIndex = 35;
+            label16.Text = "Hotel ID";
             // 
             // label12
             // 
@@ -529,38 +571,11 @@
             dgvBookingList.Size = new Size(1142, 780);
             dgvBookingList.TabIndex = 23;
             // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(28, 137);
-            label16.Name = "label16";
-            label16.Size = new Size(102, 32);
-            label16.TabIndex = 35;
-            label16.Text = "Hotel ID";
-            // 
-            // txtHotelID_2
-            // 
-            txtHotelID_2.Location = new Point(200, 130);
-            txtHotelID_2.Name = "txtHotelID_2";
-            txtHotelID_2.Size = new Size(217, 39);
-            txtHotelID_2.TabIndex = 40;
-            // 
-            // btnBookingManagement
-            // 
-            btnBookingManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBookingManagement.Location = new Point(28, 772);
-            btnBookingManagement.Name = "btnBookingManagement";
-            btnBookingManagement.Size = new Size(389, 78);
-            btnBookingManagement.TabIndex = 23;
-            btnBookingManagement.Text = "Booking Management";
-            btnBookingManagement.UseVisualStyleBackColor = true;
-            btnBookingManagement.Click += btnBookingManagement_Click;
-            // 
             // HotelManager
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1640, 953);
+            ClientSize = new Size(1825, 953);
             Controls.Add(tabControl1);
             Name = "HotelManager";
             Text = "HotelManager";
@@ -581,8 +596,8 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TextBox txtSearch;
-        private ComboBox comboBox1;
-        private Button button4;
+        private ComboBox cboSearch;
+        private Button btnSearch;
         private Button btnLoad;
         private Button btnAdd;
         private Button btnDelete;
@@ -626,5 +641,6 @@
         private TextBox txtHotelID_2;
         private Label label16;
         private Button btnBookingManagement;
+        private ComboBox cboFilter;
     }
 }

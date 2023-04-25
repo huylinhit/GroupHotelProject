@@ -19,7 +19,7 @@ namespace HotelBooking
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
-        public int InitHotelID { get; set; } = 1;
+        public int InitHotelID { get; set; };
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -64,6 +64,17 @@ namespace HotelBooking
             txtRoomType.Enabled = false;
             txtHotelID.Enabled = false;
             LoadRoomList();
+
+            cboSearch.SelectedIndex = 0;
+            foreach (var item in roomTypeRepository.GetRoomTypes()
+                .Where(r => r.HotelId == InitHotelID))
+            {
+                if (!cboFilter.Items.Contains(item))
+                {
+                    cboFilter.Items.Add(item.RoomTypeName);
+                }
+            }
+
         }
         private void dgvRoomList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -133,7 +144,7 @@ namespace HotelBooking
         }
         private void LoadRoomList()
         {
-            var rooms = roomRepository.GetRoomsByID(1);
+            var rooms = roomRepository.GetRoomsByID(InitHotelID);
             TryBindRoomList(rooms);
         }
         private void TryBindRoomList(IEnumerable<Room> rooms)
@@ -219,6 +230,40 @@ namespace HotelBooking
                 HotelID = InitHotelID,
             };
             bookingManagement.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text.Equals(""))
+            {
+                var rooms = roomRepository.GetRoomsByID(InitHotelID);
+                TryBindRoomList(rooms);
+            }
+            if (cboSearch.SelectedIndex == 0) // Search By Room number
+            {
+                var rooms = roomRepository.GetRoomsByID(InitHotelID)
+                    .Where(o => o.RoomNumber.ToLower().Contains(txtSearch.Text.ToLower()));
+                TryBindRoomList(rooms);
+            }
+            else if (cboSearch.SelectedIndex == 1) // Search By Room Type
+            {
+                var rooms = roomRepository.GetRoomsByID(InitHotelID)
+                    .Where(o => o.RoomType.RoomTypeName.ToLower().Contains(txtSearch.Text.ToLower()));
+                TryBindRoomList(rooms);
+            }
+            else if (cboSearch.SelectedIndex == 2) // Search By Status
+            {
+                var rooms = roomRepository.GetRoomsByID(InitHotelID)
+                    .Where(o => o.Status.ToLower().Contains(txtSearch.Text.ToLower()));
+                TryBindRoomList(rooms);
+            }
+        }
+
+        private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var rooms = roomRepository.GetRoomsByID(InitHotelID)
+                .Where(o => o.RoomType.RoomTypeName.Equals(cboFilter.Text));
+            TryBindRoomList(rooms);
         }
     }
 }

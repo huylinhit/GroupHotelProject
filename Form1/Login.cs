@@ -51,7 +51,8 @@ namespace HotelBooking
                 HotelManager f = new HotelManager()
                 {
                     User = user,
-                    Hotel = hotel
+                    Hotel = hotel,
+                    InitHotelID = hotel.HotelId,
                 };
                 this.Hide();
                 f.ShowDialog();
