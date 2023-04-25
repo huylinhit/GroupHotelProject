@@ -107,7 +107,7 @@ namespace MyLibrary.DAOs
 
         public int GetNewBookingID()
         {
-            return GetBookings().Count()+1;
+            return GetBookings().Count() + 1;
         }
 
         //for user booking history
@@ -152,7 +152,7 @@ namespace MyLibrary.DAOs
                 using (var db = new HotelProjectContext())
                 {
                     item.Status = "pending";
-                    item.BookingId= GetNewBookingID();
+                    item.BookingId = GetNewBookingID();
                     db.Bookings.Add(item);
                     db.SaveChanges();
                 }
@@ -232,6 +232,24 @@ namespace MyLibrary.DAOs
             }
         }
 
-
+        public IEnumerable<Booking> GetBookingByBookingID(int BookingID)
+        {
+            IEnumerable<Booking> list = null;
+            try{
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings
+                        .Include(item => item.User)
+                        .Include(item => item.Room)
+                            .ThenInclude(item => item.RoomType)
+                        .Where(item => item.BookingId == BookingID)
+                        .ToList();
+                }
+            }
+            catch(Exception ex){
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
     }
 }

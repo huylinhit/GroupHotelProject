@@ -22,7 +22,7 @@ namespace MyLibrary.Repositories
         public void UpdateBooking(Booking item);
         public void UpdateBookingStatusByBookingID(int id, string status);
 
-
+        public IEnumerable<Booking> GetBookingByBookingID(int BookingID);
 
     }
 }
