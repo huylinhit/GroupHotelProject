@@ -18,7 +18,7 @@ namespace Form1
         public IRoomRepository RoomRepository { get; set; }
         public IRoomTypeRepository RoomTypeRepository { get; set; }
         public bool InsertOrUpdate { get; set; }
-        public int HotelID { get; set; } = 1;
+        public int HotelID { get; set; }
         public Room RoomInfo { get; set; }
         public RoomDetails()
         {

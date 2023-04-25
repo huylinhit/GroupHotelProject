@@ -38,6 +38,9 @@ namespace Form1
             public string Phone { get; set; }
             public string Address { get; set; }
 
+            public string Role { get; set; }
+            public string Status { get; set; }
+
             private Booking _obj;
             private MyLibrary.Models.Booking e;
 
@@ -54,7 +57,7 @@ namespace Form1
         BindingSource source;
         IBookingRepository bookingRepository = new BookingRepository();
 
-        public int HotelID { get; set; } = 1;
+        public int HotelID { get; set; }
         public ManagerBookingMangement()
         {
             InitializeComponent();
@@ -62,57 +65,91 @@ namespace Form1
 
         private void ManagerBookingMangement_Load(object sender, EventArgs e)
         {
-            LoadBookingList();
+            LoadBookings();
             txtBookingID.Enabled = false;
             txtUserID.Enabled = false;
-            txtRoomID.Enabled = false;
-            txtCheckin.Enabled = false;
-            txtCheckout.Enabled = false;
-            txtTotalPrice.Enabled = false;
-            txtStatus.Enabled = false;
             dgvBookingList.CellDoubleClick += dgvBookingList_CellDoubleClick;
         }
         private void dgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-             
+            //ManagerBookingDetails bookingDetails = new ManagerBookingDetails()
+            //{
+            //    BookingRepository = bookingRepository,
+            //    BookingID = int.Parse(txtBookingID.Text)
+            //};
+            //if (bookingDetails.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoadBookings();
+            //    source.Position = source.Count - 1;
+            //}
+            BookingManagementDetail bookingManagementDetail = new BookingManagementDetail()
+            {
+                BookingRepository = bookingRepository,
+                BookingID = int.Parse(txtBookingID.Text)
+            };
+            if (bookingManagementDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadBookings();
+                source.Position = source.Count - 1;
+            }
         }
-        private void LoadBookingList()
+        public void LoadBookings()
         {
-            var bookings = bookingRepository.ManagerGetBookingsByHotelID(HotelID);
-            TryBindBookingList(bookings);
-        }
-        private void TryBindBookingList(IEnumerable<Booking> bookings)
-        {
+            var _bookings = bookingRepository.ManagerGetBookingsByHotelID(HotelID);
             try
             {
                 source = new BindingSource();
-                source.DataSource = bookings;
+                source.DataSource = _bookings.Select(e => new MyViewModel(e)
+                {
+                    BookingID = e.BookingId,
+                    UserID = (int)e.UserId,
+                    RoomID = (int)e.RoomId,
+                    CheckInDate = (DateTime)e.CheckInDate,
+                    CheckOutTime = (DateTime)e.CheckOutDate,
+                    TotalPrice = (decimal)e.TotalPrice,
+                    //Room
+                    RoomType = e.Room.RoomType.RoomTypeName,
+                    //User
+                    FirstName = e.User.FirstName,
+                    LastName = e.User.LastName,
+                    Email = e.User.Email,
+                    Password = e.User.Password,
+                    Phone = e.User.Phone,
+                    Address = e.User.Address,
+                    Role = e.User.Role,
+                    Status = e.Status
+                });
 
                 txtBookingID.DataBindings.Clear();
                 txtUserID.DataBindings.Clear();
-                txtRoomID.DataBindings.Clear();
-                txtCheckin.DataBindings.Clear();
-                txtCheckout.DataBindings.Clear();
-                txtTotalPrice.DataBindings.Clear();
-                txtStatus.DataBindings.Clear();
+                txtFirstName.DataBindings.Clear();
+                txtLastName.DataBindings.Clear();
+                txtEmail.DataBindings.Clear();
+                txtPassword.DataBindings.Clear();
+                txtPhone.DataBindings.Clear();
+                txtAddress.DataBindings.Clear();
+                txtRole.DataBindings.Clear();
 
                 txtBookingID.DataBindings.Add("Text", source, "BookingID");
                 txtUserID.DataBindings.Add("Text", source, "UserID");
-                txtRoomID.DataBindings.Add("Text", source, "RoomID");
-                txtCheckin.DataBindings.Add("Text", source, "CheckInDate");
-                txtCheckout.DataBindings.Add("Text", source, "CheckOutDate");
-                txtTotalPrice.DataBindings.Add("Text", source, "TotalPrice");
-                txtStatus.DataBindings.Add("Text", source, "Status");
+                txtFirstName.DataBindings.Add("Text", source, "FirstName");
+                txtLastName.DataBindings.Add("Text", source, "LastName"); ;
+                txtEmail.DataBindings.Add("Text", source, "Email"); ;
+                txtPassword.DataBindings.Add("Text", source, "Password"); ;
+                txtPhone.DataBindings.Add("Text", source, "Phone"); ;
+                txtAddress.DataBindings.Add("Text", source, "Address");
+                txtRole.DataBindings.Add("Text", source, "Role");
 
                 dgvBookingList.DataSource = null;
                 dgvBookingList.DataSource = source;
+
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
             }
+
         }
 
- 
     }
 }

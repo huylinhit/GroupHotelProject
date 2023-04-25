@@ -19,6 +19,7 @@ namespace HotelBooking
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
+        public int InitHotelID { get; set; } = 1;
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -73,7 +74,7 @@ namespace HotelBooking
                 RoomInfo = GetRoom(),
                 RoomRepository = roomRepository,
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = Hotel.HotelId,
+                HotelID = InitHotelID,
             };
             if (roomDetails.ShowDialog() == DialogResult.OK)
             {
@@ -108,7 +109,8 @@ namespace HotelBooking
                 InsertOrUpdate = false,
                 RoomRepository = roomRepository,
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = Hotel.HotelId,
+                HotelID = InitHotelID,
+
             };
             if (roomDetails.ShowDialog() == DialogResult.OK)
             {
@@ -141,7 +143,7 @@ namespace HotelBooking
                 source = new BindingSource();
                 source.DataSource = rooms.Select(o => new MyViewModel(o)
                 {
-                    HotelId = (int)o.RoomType.HotelId,
+                    HotelId = InitHotelID,
                     RoomId = o.RoomId,
                     RoomNumber = o.RoomNumber,
                     RoomTypeId = (int)o.RoomTypeId,
@@ -203,7 +205,8 @@ namespace HotelBooking
             {
                 Text = "Room Type Management",
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = Hotel.HotelId,
+                HotelID = InitHotelID,
+
             };
             roomTypeManagement.Show();
         }
@@ -213,7 +216,7 @@ namespace HotelBooking
             ManagerBookingMangement bookingManagement = new ManagerBookingMangement
             {
                 Text = "Booking Management",
-                HotelID = 1,
+                HotelID = InitHotelID,
             };
             bookingManagement.Show();
         }
