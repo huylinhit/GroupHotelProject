@@ -60,16 +60,14 @@ namespace HotelBooking
             }
             else
             {
-                GiveInfo f = new GiveInfo()
+                Form1 f = new Form1()
                 {
-                    User = user,
+                    user = user,
                 };
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
