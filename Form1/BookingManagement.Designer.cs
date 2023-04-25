@@ -30,9 +30,11 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            txtSearchUserID = new TextBox();
+            cboUsersName = new ComboBox();
             comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            button3 = new Button();
+            cboHotelName = new ComboBox();
+            btnSearch = new Button();
             button1 = new Button();
             dgvBookings = new DataGridView();
             label2 = new Label();
@@ -55,7 +57,7 @@
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
-            textBox9 = new TextBox();
+            txtNameSearch = new TextBox();
             tabPage2 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -72,55 +74,77 @@
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1382, 606);
+            tabControl1.Size = new Size(1840, 606);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(txtSearchUserID);
+            tabPage1.Controls.Add(cboUsersName);
             tabPage1.Controls.Add(comboBox2);
-            tabPage1.Controls.Add(comboBox1);
-            tabPage1.Controls.Add(button3);
+            tabPage1.Controls.Add(cboHotelName);
+            tabPage1.Controls.Add(btnSearch);
             tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(dgvBookings);
             tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(panel1);
-            tabPage1.Controls.Add(textBox9);
+            tabPage1.Controls.Add(txtNameSearch);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(1374, 573);
+            tabPage1.Size = new Size(1832, 573);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Booking Management";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtSearchUserID
+            // 
+            txtSearchUserID.Location = new Point(748, 2);
+            txtSearchUserID.Margin = new Padding(2);
+            txtSearchUserID.Name = "txtSearchUserID";
+            txtSearchUserID.Size = new Size(80, 27);
+            txtSearchUserID.TabIndex = 28;
+            // 
+            // cboUsersName
+            // 
+            cboUsersName.FormattingEnabled = true;
+            cboUsersName.Location = new Point(540, 0);
+            cboUsersName.Margin = new Padding(2);
+            cboUsersName.Name = "cboUsersName";
+            cboUsersName.Size = new Size(171, 28);
+            cboUsersName.TabIndex = 27;
+            cboUsersName.SelectedIndexChanged += cboUsersName_SelectedIndexChanged;
+            // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(1257, 3);
+            comboBox2.Location = new Point(1703, 3);
             comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(98, 28);
+            comboBox2.Size = new Size(122, 28);
             comboBox2.TabIndex = 24;
             // 
-            // comboBox1
+            // cboHotelName
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(369, 4);
-            comboBox1.Margin = new Padding(2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(98, 28);
-            comboBox1.TabIndex = 25;
+            cboHotelName.FormattingEnabled = true;
+            cboHotelName.Location = new Point(369, 0);
+            cboHotelName.Margin = new Padding(2);
+            cboHotelName.Name = "cboHotelName";
+            cboHotelName.Size = new Size(167, 28);
+            cboHotelName.TabIndex = 25;
+            cboHotelName.SelectedIndexChanged += cboHotelName_SelectedIndexChanged;
             // 
-            // button3
+            // btnSearch
             // 
-            button3.Location = new Point(612, 4);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(92, 25);
-            button3.TabIndex = 21;
-            button3.Text = "Search";
-            button3.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(976, 3);
+            btnSearch.Margin = new Padding(2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(92, 25);
+            btnSearch.TabIndex = 21;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // button1
             // 
@@ -140,7 +164,7 @@
             dgvBookings.Name = "dgvBookings";
             dgvBookings.RowHeadersWidth = 82;
             dgvBookings.RowTemplate.Height = 41;
-            dgvBookings.Size = new Size(986, 539);
+            dgvBookings.Size = new Size(1456, 539);
             dgvBookings.TabIndex = 20;
             // 
             // label2
@@ -352,13 +376,13 @@
             label7.TabIndex = 10;
             label7.Text = "User ID";
             // 
-            // textBox9
+            // txtNameSearch
             // 
-            textBox9.Location = new Point(468, 4);
-            textBox9.Margin = new Padding(2);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(142, 27);
-            textBox9.TabIndex = 26;
+            txtNameSearch.Location = new Point(832, 3);
+            txtNameSearch.Margin = new Padding(2);
+            txtNameSearch.Name = "txtNameSearch";
+            txtNameSearch.Size = new Size(142, 27);
+            txtNameSearch.TabIndex = 26;
             // 
             // tabPage2
             // 
@@ -366,7 +390,7 @@
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(1374, 573);
+            tabPage2.Size = new Size(1832, 573);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -375,7 +399,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1382, 606);
+            ClientSize = new Size(1840, 606);
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "BookingManagement";
@@ -395,8 +419,8 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private Button button3;
+        private ComboBox cboHotelName;
+        private Button btnSearch;
         private Button button1;
         private DataGridView dgvBookings;
         private Label label2;
@@ -417,9 +441,11 @@
         private Label label9;
         private Label label8;
         private Label label7;
-        private TextBox textBox9;
+        private TextBox txtNameSearch;
         private TabPage tabPage2;
         private TextBox txtBookingID;
         private Label label3;
+        private TextBox txtSearchUserID;
+        private ComboBox cboUsersName;
     }
 }
