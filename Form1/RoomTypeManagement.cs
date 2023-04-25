@@ -44,7 +44,7 @@ namespace Form1
                 InsertOrUpdate = true,
                 RoomTypeInfo = GetRoomType(),
                 RoomTypeRepository = RoomTypeRepository,
-                HotelID = 1,
+                HotelID = HotelID,
             };
             if (roomTypeDetails.ShowDialog() == DialogResult.OK)
             {
@@ -59,7 +59,7 @@ namespace Form1
                 Text = "Add Room",
                 InsertOrUpdate = false,
                 RoomTypeRepository = RoomTypeRepository,
-                HotelID = 1,
+                HotelID = HotelID,
             };
             if (roomTypeDetails.ShowDialog() == DialogResult.OK)
             {
