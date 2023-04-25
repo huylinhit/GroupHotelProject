@@ -394,6 +394,51 @@ namespace MyLibrary.DAOs
             return list;
         }
 
+        public IEnumerable<Booking> GetBookingDetailSearchHotelStatus(string bookingstatus)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(item => item.Status.ToLower().Contains(bookingstatus.ToLower()))
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Booking> GetBookingDetailSearchRole(string role)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(item => item.User.Role.ToLower().Contains(role.ToLower()))
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
 
         public IEnumerable<Booking> GetBookingDetailPriceAscending()
         {
@@ -406,8 +451,10 @@ namespace MyLibrary.DAOs
                                       .Include(b => b.Room)
                                       .ThenInclude(room => room.RoomType)
                                       .ThenInclude(roomtype => roomtype.Hotel)
-                                      .OrderByDescending(b => b.BookingId)
+                                      .OrderBy(item => item.TotalPrice)
                                       .ToList();
+
+
                 }
             }
             catch (Exception ex)
@@ -427,7 +474,7 @@ namespace MyLibrary.DAOs
                                       .Include(b => b.Room)
                                       .ThenInclude(room => room.RoomType)
                                       .ThenInclude(roomtype => roomtype.Hotel)
-                                      .OrderByDescending(b => b.BookingId)
+                                      .OrderByDescending(b => b.TotalPrice)
                                       .ToList();
                 }
             }
