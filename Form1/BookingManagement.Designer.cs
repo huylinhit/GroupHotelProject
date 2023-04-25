@@ -33,12 +33,13 @@
             comboBox2 = new ComboBox();
             comboBox1 = new ComboBox();
             button3 = new Button();
-            btnDelete = new Button();
             button1 = new Button();
             dgvBookings = new DataGridView();
             label2 = new Label();
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            txtBookingID = new TextBox();
+            label3 = new Label();
+            txtRole = new TextBox();
             txtAddress = new TextBox();
             txtPhone = new TextBox();
             txtPassword = new TextBox();
@@ -71,7 +72,7 @@
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1103, 606);
+            tabControl1.Size = new Size(1382, 606);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -79,7 +80,6 @@
             tabPage1.Controls.Add(comboBox2);
             tabPage1.Controls.Add(comboBox1);
             tabPage1.Controls.Add(button3);
-            tabPage1.Controls.Add(btnDelete);
             tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(dgvBookings);
             tabPage1.Controls.Add(label2);
@@ -89,7 +89,7 @@
             tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(1095, 573);
+            tabPage1.Size = new Size(1374, 573);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Booking Management";
             tabPage1.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(994, 4);
+            comboBox2.Location = new Point(1257, 3);
             comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(98, 28);
@@ -122,19 +122,9 @@
             button3.Text = "Search";
             button3.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(177, 448);
-            btnDelete.Margin = new Padding(2);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(92, 29);
-            btnDelete.TabIndex = 22;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            button1.Location = new Point(273, 448);
+            button1.Location = new Point(273, 507);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(92, 29);
@@ -150,7 +140,7 @@
             dgvBookings.Name = "dgvBookings";
             dgvBookings.RowHeadersWidth = 82;
             dgvBookings.RowTemplate.Height = 41;
-            dgvBookings.Size = new Size(722, 539);
+            dgvBookings.Size = new Size(986, 539);
             dgvBookings.TabIndex = 20;
             // 
             // label2
@@ -167,7 +157,9 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtBookingID);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtRole);
             panel1.Controls.Add(txtAddress);
             panel1.Controls.Add(txtPhone);
             panel1.Controls.Add(txtPassword);
@@ -186,87 +178,114 @@
             panel1.Location = new Point(2, 33);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(362, 386);
+            panel1.Size = new Size(362, 444);
             panel1.TabIndex = 18;
             // 
-            // textBox1
+            // txtBookingID
             // 
-            textBox1.Location = new Point(150, 344);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(195, 27);
-            textBox1.TabIndex = 11;
+            txtBookingID.Location = new Point(151, 16);
+            txtBookingID.Margin = new Padding(2);
+            txtBookingID.Name = "txtBookingID";
+            txtBookingID.ReadOnly = true;
+            txtBookingID.Size = new Size(195, 27);
+            txtBookingID.TabIndex = 19;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 18);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(83, 20);
+            label3.TabIndex = 18;
+            label3.Text = "Booking ID";
+            // 
+            // txtRole
+            // 
+            txtRole.Location = new Point(151, 381);
+            txtRole.Margin = new Padding(2);
+            txtRole.Name = "txtRole";
+            txtRole.ReadOnly = true;
+            txtRole.Size = new Size(195, 27);
+            txtRole.TabIndex = 11;
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(150, 296);
+            txtAddress.Location = new Point(151, 333);
             txtAddress.Margin = new Padding(2);
             txtAddress.Name = "txtAddress";
+            txtAddress.ReadOnly = true;
             txtAddress.Size = new Size(195, 27);
             txtAddress.TabIndex = 11;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(150, 250);
+            txtPhone.Location = new Point(151, 287);
             txtPhone.Margin = new Padding(2);
             txtPhone.Name = "txtPhone";
+            txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(195, 27);
             txtPhone.TabIndex = 12;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(150, 202);
+            txtPassword.Location = new Point(151, 239);
             txtPassword.Margin = new Padding(2);
             txtPassword.Name = "txtPassword";
+            txtPassword.ReadOnly = true;
             txtPassword.Size = new Size(195, 27);
             txtPassword.TabIndex = 13;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(150, 156);
+            txtEmail.Location = new Point(151, 193);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(195, 27);
             txtEmail.TabIndex = 14;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(150, 111);
+            txtLastName.Location = new Point(151, 148);
             txtLastName.Margin = new Padding(2);
             txtLastName.Name = "txtLastName";
+            txtLastName.ReadOnly = true;
             txtLastName.Size = new Size(195, 27);
             txtLastName.TabIndex = 15;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(150, 65);
+            txtFirstName.Location = new Point(151, 102);
             txtFirstName.Margin = new Padding(2);
             txtFirstName.Name = "txtFirstName";
+            txtFirstName.ReadOnly = true;
             txtFirstName.Size = new Size(195, 27);
             txtFirstName.TabIndex = 16;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 348);
+            label1.Location = new Point(16, 385);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(39, 20);
             label1.TabIndex = 4;
-            label1.Text = "Phone";
+            label1.Text = "Role";
             // 
             // txtUserID
             // 
-            txtUserID.Location = new Point(150, 20);
+            txtUserID.Location = new Point(151, 57);
             txtUserID.Margin = new Padding(2);
             txtUserID.Name = "txtUserID";
+            txtUserID.ReadOnly = true;
             txtUserID.Size = new Size(195, 27);
             txtUserID.TabIndex = 17;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(15, 301);
+            label13.Location = new Point(16, 338);
             label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
             label13.Size = new Size(62, 20);
@@ -276,7 +295,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(15, 254);
+            label12.Location = new Point(16, 291);
             label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
             label12.Size = new Size(50, 20);
@@ -286,7 +305,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(15, 207);
+            label11.Location = new Point(16, 244);
             label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
             label11.Size = new Size(70, 20);
@@ -296,7 +315,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(15, 160);
+            label10.Location = new Point(16, 197);
             label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
             label10.Size = new Size(46, 20);
@@ -306,7 +325,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(15, 116);
+            label9.Location = new Point(16, 153);
             label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
             label9.Size = new Size(79, 20);
@@ -316,7 +335,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(15, 67);
+            label8.Location = new Point(16, 104);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(80, 20);
@@ -326,7 +345,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(15, 22);
+            label7.Location = new Point(16, 59);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(57, 20);
@@ -347,7 +366,7 @@
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(1095, 573);
+            tabPage2.Size = new Size(1374, 573);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -356,7 +375,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 606);
+            ClientSize = new Size(1382, 606);
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "BookingManagement";
@@ -378,12 +397,11 @@
         private ComboBox comboBox2;
         private ComboBox comboBox1;
         private Button button3;
-        private Button btnDelete;
         private Button button1;
         private DataGridView dgvBookings;
         private Label label2;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox txtRole;
         private TextBox txtAddress;
         private TextBox txtPhone;
         private TextBox txtPassword;
@@ -401,5 +419,7 @@
         private Label label7;
         private TextBox textBox9;
         private TabPage tabPage2;
+        private TextBox txtBookingID;
+        private Label label3;
     }
 }

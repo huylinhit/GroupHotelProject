@@ -33,5 +33,8 @@ namespace MyLibrary.Repositories
         public void UpdateBooking(Booking item) => BookingDAO.Instance.UpdateBooking(item);
 
         public void UpdateBookingStatusByBookingID(int id, string status) => BookingDAO.Instance.UpdateBookingStatusByBookingID(id, status);
+
+        public IEnumerable<Booking> GetBookingByBookingID(int BookingID) => BookingDAO.Instance.GetBookingByBookingID(BookingID);
+
     }
 }

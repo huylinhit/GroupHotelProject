@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Form1;
 using MyLibrary.Models;
 using MyLibrary.Repositories;
 
@@ -42,6 +43,11 @@ namespace HotelBooking
             public string Phone { get; set; }
             public string Address { get; set; }
 
+            public string Role { get; set; }
+            public string Status { get; set; }
+
+
+
             private Booking _obj;
             private MyLibrary.Models.Booking e;
 
@@ -68,6 +74,7 @@ namespace HotelBooking
 
         public void Clear()
         {
+            txtBookingID.Text = string.Empty;
             txtUserID.Text = string.Empty;
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
@@ -75,6 +82,8 @@ namespace HotelBooking
             txtPassword.Text = string.Empty;
             txtPhone.Text = string.Empty;
             txtAddress.Text = string.Empty;
+            txtRole.Text = string.Empty;
+
 
         }
         public void LoadBookings()
@@ -100,9 +109,12 @@ namespace HotelBooking
                     Email = e.User.Email,
                     Password = e.User.Password,
                     Phone = e.User.Phone,
-                    Address = e.User.Address
+                    Address = e.User.Address,
+                    Role = e.User.Role,
+                    Status = e.Status
                 });
 
+                txtBookingID.DataBindings.Clear();
                 txtUserID.DataBindings.Clear();
                 txtFirstName.DataBindings.Clear();
                 txtLastName.DataBindings.Clear();
@@ -110,14 +122,17 @@ namespace HotelBooking
                 txtPassword.DataBindings.Clear();
                 txtPhone.DataBindings.Clear();
                 txtAddress.DataBindings.Clear();
+                txtRole.DataBindings.Clear();
 
+                txtBookingID.DataBindings.Add("Text", source, "BookingID");
                 txtUserID.DataBindings.Add("Text", source, "UserID");
                 txtFirstName.DataBindings.Add("Text", source, "FirstName");
                 txtLastName.DataBindings.Add("Text", source, "LastName"); ;
                 txtEmail.DataBindings.Add("Text", source, "Email"); ;
                 txtPassword.DataBindings.Add("Text", source, "Password"); ;
                 txtPhone.DataBindings.Add("Text", source, "Phone"); ;
-                txtAddress.DataBindings.Add("Text", source, "Address"); ;
+                txtAddress.DataBindings.Add("Text", source, "Address");
+                txtRole.DataBindings.Add("Text", source, "Role");
 
 
 
@@ -129,11 +144,9 @@ namespace HotelBooking
                 if (_bookings.Count() == 0)
                 {
                     Clear();
-                    btnDelete.Enabled = false;
                 }
                 else
                 {
-                    btnDelete.Enabled = true;
                 }
 
 
@@ -147,6 +160,23 @@ namespace HotelBooking
         private void BookingManagement_Load(object sender, EventArgs e)
         {
             LoadBookings();
+
+            dgvBookings.CellDoubleClick += DgvBookings_CellDoubleClick;
+        }
+
+        private void DgvBookings_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            BookingManagementDetail bookingManagementDetail = new BookingManagementDetail()
+            {
+                BookingRepository = bookingRepository,
+                BookingID = int.Parse(txtBookingID.Text)
+            };
+            if (bookingManagementDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadBookings();
+                source.Position = source.Count - 1;
+            }
+
         }
     }
 }
