@@ -73,12 +73,15 @@
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
-            dataGridView2 = new DataGridView();
+            dgvBookingList = new DataGridView();
+            label16 = new Label();
+            txtHotelID_2 = new TextBox();
+            btnBookingManagement = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookingList).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -94,6 +97,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(btnBookingManagement);
             tabPage1.Controls.Add(btnRoomTypeManagement);
             tabPage1.Controls.Add(txtHotelID);
             tabPage1.Controls.Add(label5);
@@ -118,7 +122,7 @@
             tabPage1.Location = new Point(8, 46);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1624, 912);
+            tabPage1.Size = new Size(1624, 899);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Room Management";
             tabPage1.UseVisualStyleBackColor = true;
@@ -127,7 +131,7 @@
             // btnRoomTypeManagement
             // 
             btnRoomTypeManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRoomTypeManagement.Location = new Point(28, 803);
+            btnRoomTypeManagement.Location = new Point(28, 688);
             btnRoomTypeManagement.Name = "btnRoomTypeManagement";
             btnRoomTypeManagement.Size = new Size(389, 78);
             btnRoomTypeManagement.TabIndex = 23;
@@ -320,8 +324,10 @@
             tabPage2.Controls.Add(label9);
             tabPage2.Controls.Add(textBox9);
             tabPage2.Controls.Add(label10);
+            tabPage2.Controls.Add(txtHotelID_2);
             tabPage2.Controls.Add(textBox10);
             tabPage2.Controls.Add(label11);
+            tabPage2.Controls.Add(label16);
             tabPage2.Controls.Add(label12);
             tabPage2.Controls.Add(textBox12);
             tabPage2.Controls.Add(comboBox2);
@@ -329,7 +335,7 @@
             tabPage2.Controls.Add(button6);
             tabPage2.Controls.Add(button7);
             tabPage2.Controls.Add(button8);
-            tabPage2.Controls.Add(dataGridView2);
+            tabPage2.Controls.Add(dgvBookingList);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -341,7 +347,7 @@
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(200, 580);
+            textBox14.Location = new Point(200, 627);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(217, 39);
             textBox14.TabIndex = 36;
@@ -349,7 +355,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(28, 587);
+            label14.Location = new Point(28, 634);
             label14.Name = "label14";
             label14.Size = new Size(78, 32);
             label14.TabIndex = 30;
@@ -357,7 +363,7 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(200, 504);
+            textBox13.Location = new Point(200, 551);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(217, 39);
             textBox13.TabIndex = 36;
@@ -365,7 +371,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(28, 511);
+            label13.Location = new Point(28, 558);
             label13.Name = "label13";
             label13.Size = new Size(123, 32);
             label13.TabIndex = 30;
@@ -373,7 +379,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(200, 431);
+            textBox6.Location = new Point(200, 478);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(217, 39);
             textBox6.TabIndex = 36;
@@ -381,7 +387,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(28, 438);
+            label7.Location = new Point(28, 485);
             label7.Name = "label7";
             label7.Size = new Size(125, 32);
             label7.TabIndex = 30;
@@ -389,7 +395,7 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(200, 360);
+            textBox7.Location = new Point(200, 407);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(217, 39);
             textBox7.TabIndex = 37;
@@ -397,7 +403,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(28, 367);
+            label8.Location = new Point(28, 414);
             label8.Name = "label8";
             label8.Size = new Size(109, 32);
             label8.TabIndex = 31;
@@ -405,7 +411,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(200, 288);
+            textBox8.Location = new Point(200, 335);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(217, 39);
             textBox8.TabIndex = 38;
@@ -413,7 +419,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(28, 295);
+            label9.Location = new Point(28, 342);
             label9.Name = "label9";
             label9.Size = new Size(106, 32);
             label9.TabIndex = 32;
@@ -421,7 +427,7 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(200, 219);
+            textBox9.Location = new Point(200, 266);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(217, 39);
             textBox9.TabIndex = 39;
@@ -429,7 +435,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(28, 226);
+            label10.Location = new Point(28, 273);
             label10.Name = "label10";
             label10.Size = new Size(91, 32);
             label10.TabIndex = 33;
@@ -437,7 +443,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(200, 154);
+            textBox10.Location = new Point(200, 201);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(217, 39);
             textBox10.TabIndex = 40;
@@ -456,7 +462,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(28, 161);
+            label12.Location = new Point(28, 208);
             label12.Name = "label12";
             label12.Size = new Size(132, 32);
             label12.TabIndex = 35;
@@ -513,15 +519,42 @@
             button8.Text = "Delete";
             button8.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvBookingList
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(454, 94);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.RowTemplate.Height = 41;
-            dataGridView2.Size = new Size(1142, 780);
-            dataGridView2.TabIndex = 23;
+            dgvBookingList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBookingList.Location = new Point(454, 94);
+            dgvBookingList.Name = "dgvBookingList";
+            dgvBookingList.RowHeadersWidth = 82;
+            dgvBookingList.RowTemplate.Height = 41;
+            dgvBookingList.Size = new Size(1142, 780);
+            dgvBookingList.TabIndex = 23;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(28, 137);
+            label16.Name = "label16";
+            label16.Size = new Size(102, 32);
+            label16.TabIndex = 35;
+            label16.Text = "Hotel ID";
+            // 
+            // txtHotelID_2
+            // 
+            txtHotelID_2.Location = new Point(200, 130);
+            txtHotelID_2.Name = "txtHotelID_2";
+            txtHotelID_2.Size = new Size(217, 39);
+            txtHotelID_2.TabIndex = 40;
+            // 
+            // btnBookingManagement
+            // 
+            btnBookingManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBookingManagement.Location = new Point(28, 772);
+            btnBookingManagement.Name = "btnBookingManagement";
+            btnBookingManagement.Size = new Size(389, 78);
+            btnBookingManagement.TabIndex = 23;
+            btnBookingManagement.Text = "Booking Management";
+            btnBookingManagement.UseVisualStyleBackColor = true;
+            btnBookingManagement.Click += btnBookingManagement_Click;
             // 
             // HotelManager
             // 
@@ -538,7 +571,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookingList).EndInit();
             ResumeLayout(false);
         }
 
@@ -582,7 +615,7 @@
         private Button button6;
         private Button button7;
         private Button button8;
-        private DataGridView dataGridView2;
+        private DataGridView dgvBookingList;
         private TextBox textBox14;
         private Label label14;
         private TextBox textBox13;
@@ -590,5 +623,8 @@
         private TextBox txtRoomType;
         private Label label15;
         private Button btnRoomTypeManagement;
+        private TextBox txtHotelID_2;
+        private Label label16;
+        private Button btnBookingManagement;
     }
 }

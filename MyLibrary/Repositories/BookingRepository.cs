@@ -17,6 +17,7 @@ namespace MyLibrary.Repositories
         public IEnumerable<Booking> GetBookings() => BookingDAO.Instance.GetBookings();
 
         public IEnumerable<Booking> GetBookingsByHotelID(int hotelID) => BookingDAO.Instance.GetBookingsByHotelID(hotelID);
+        public IEnumerable<Booking> ManagerGetBookingsByHotelID(int hotelID) => BookingDAO.Instance.ManagerGetBookingsByHotelID(hotelID);
 
         public IEnumerable<Booking> GetBookingsByManagerID(int managerID) => BookingDAO.Instance.GetBookingsByManagerID(managerID);
 

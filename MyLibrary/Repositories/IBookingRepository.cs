@@ -12,6 +12,7 @@ namespace MyLibrary.Repositories
         public IEnumerable<Booking> GetBookings();
         public IEnumerable<Booking> GetBookingsByHotelID(int hotelID);
         public IEnumerable<Booking> GetBookingsByManagerID(int managerID);
+        IEnumerable<Booking> ManagerGetBookingsByHotelID(int hotelID);
         public Booking? GetBookingByID(int id);
         public int GetNewBookingID();
         public IEnumerable<Booking> GetBookingsByUserID(int userID);

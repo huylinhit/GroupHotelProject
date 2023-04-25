@@ -206,5 +206,15 @@ namespace HotelBooking
             };
             roomTypeManagement.Show();
         }
+
+        private void btnBookingManagement_Click(object sender, EventArgs e)
+        {
+            ManagerBookingMangement bookingManagement = new ManagerBookingMangement
+            {
+                Text = "Booking Management",
+                HotelID = 1,
+            };
+            bookingManagement.Show();
+        }
     }
 }
