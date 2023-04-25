@@ -129,6 +129,7 @@
             cboHotelName.Name = "cboHotelName";
             cboHotelName.Size = new Size(254, 28);
             cboHotelName.TabIndex = 31;
+            cboHotelName.SelectedIndexChanged += cboHotelName_SelectedIndexChanged;
             // 
             // cboPrice
             // 

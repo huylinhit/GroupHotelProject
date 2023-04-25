@@ -49,6 +49,29 @@ namespace MyLibrary.DAOs
             }
             return list;
         }
+
+        public IEnumerable<Booking> GetBookingsDefault()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
         //for admin view
         public IEnumerable<Booking> GetBookingsByHotelID(int hotelID)
         {
@@ -289,6 +312,28 @@ namespace MyLibrary.DAOs
                                       .ThenInclude(room => room.RoomType)
                                       .ThenInclude(roomtype => roomtype.Hotel)
                                       .Where(item => item.UserId == userID)
+                                      .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Booking> GetBookingDetailSearchHotelRoom(string hotelroom)
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .Where(item => item.Room.RoomType.RoomTypeName.Contains(hotelroom))
                                       .ToList();
                 }
             }

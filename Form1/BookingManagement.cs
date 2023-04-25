@@ -103,11 +103,12 @@ namespace HotelBooking
 
             //RemoveComboBox
             cboUsersName.Items.Clear();
-
+            cboHotelName.Items.Clear();
             //SetComboBoxName
             foreach (var item in _bookings)
             {
                 cboUsersName.Items.Add(item.User.FirstName);
+                cboHotelName.Items.Add(item.Room.RoomType.RoomTypeName);
             }
 
             try
@@ -116,6 +117,13 @@ namespace HotelBooking
 
                 switch (Filter)
                 {
+                    case "SearchByHotelName":
+                        {
+                            _bookings = bookingRepository.GetBookingDetailSearchHotelRoom(FilterValue);
+                            ClearFilter();
+                            break;
+                        }
+
                     case "SearchByUserID":
                         {
 
@@ -127,14 +135,13 @@ namespace HotelBooking
                         {
 
                             _bookings = bookingRepository.GetBookingDetailSearchName(FilterValue);
-
+                            ClearFilter();
                             break;
                         }
                     default:
                         {
                             _bookings = bookingRepository.GetBookings();
                             ClearFilter();
-
                             break;
                         }
                 }
@@ -258,7 +265,7 @@ namespace HotelBooking
             string searchValue = cboUsersName.SelectedItem.ToString();
             if (!searchValue.Equals(""))
             {
-                Filter = "Search";
+                Filter = "SearchByUserName";
                 FilterValue = searchValue;
                 LoadBookings();
             }
@@ -286,6 +293,22 @@ namespace HotelBooking
         private void txtNameSearch_MouseClick(object sender, MouseEventArgs e)
         {
             txtSearchUserID.Text = string.Empty;
+        }
+
+        private void cboHotelName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchValue = cboHotelName.SelectedItem.ToString();
+            if (!searchValue.Equals(""))
+            {
+                Filter = "SearchByHotelName";
+                FilterValue = searchValue;
+                LoadBookings();
+            }
+            else
+            {
+                ClearFilter();
+                LoadBookings();
+            }
         }
     }
 }

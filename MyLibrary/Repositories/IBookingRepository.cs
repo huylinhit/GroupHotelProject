@@ -22,12 +22,15 @@ namespace MyLibrary.Repositories
         public void UpdateBooking(Booking item);
         public void UpdateBookingStatusByBookingID(int id, string status);
 
+        public IEnumerable<Booking> GetBookingsDefault();
         //Search and Filter
         public IEnumerable<Booking> GetBookingByBookingID(int BookingID);
 
         public IEnumerable<Booking> GetBookingDetailSearchName(string name);
 
         public IEnumerable<Booking> GetBookingDetailSearchUserID(int userID);
+
+        public IEnumerable<Booking> GetBookingDetailSearchHotelRoom(string hotelroom);
 
     }
 }

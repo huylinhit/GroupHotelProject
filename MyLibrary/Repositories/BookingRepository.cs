@@ -39,5 +39,9 @@ namespace MyLibrary.Repositories
         public IEnumerable<Booking> GetBookingDetailSearchName(string name) => BookingDAO.Instance.GetBookingDetailSearchName(name);
 
         public IEnumerable<Booking> GetBookingDetailSearchUserID(int userID) => BookingDAO.Instance.GetBookingDetailSearchUserID(userID);
+
+        public IEnumerable<Booking> GetBookingsDefault() => BookingDAO.Instance.GetBookingsDefault();
+
+        public IEnumerable<Booking> GetBookingDetailSearchHotelRoom(string hotelroom) => BookingDAO.Instance.GetBookingDetailSearchHotelRoom(hotelroom);
     }
 }
