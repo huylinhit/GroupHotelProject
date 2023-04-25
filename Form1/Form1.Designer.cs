@@ -329,6 +329,7 @@
             dgvHotel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHotel.Size = new Size(796, 442);
             dgvHotel.TabIndex = 41;
+            dgvHotel.CellContentClick += dgvHotel_CellContentClick;
             // 
             // lblSelectedRoomTypeID
             // 
