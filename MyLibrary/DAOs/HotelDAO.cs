@@ -45,36 +45,40 @@ namespace MyLibrary.DAOs
             return list;
         }
 
-        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest, HotelProjectContext db)
+        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest)
         {
-
             IEnumerable<HotelViewModel> list = new List<HotelViewModel>();
             try
-            {   
-                    list =
-                        from h in db.Hotels
-                        join rt in db.RoomTypes on h.HotelId equals rt.HotelId
-                        join r in db.Rooms on rt.RoomTypeId equals r.RoomTypeId
-                        where !db.Bookings.Any(b => b.RoomId == r.RoomId &&
-                                                    (b.Status.Equals("pending") || b.Status.Equals("confirmed")) &&
-                                                    ((checkIn >= b.CheckInDate && checkIn < b.CheckOutDate) ||
-                                                        (checkOut > b.CheckInDate && checkOut <= b.CheckOutDate)))
-                                && rt.Capacity >= guest
-                                && h.Status.Equals("active")
-                                && (search == null || search.Trim().Equals(string.Empty) || h.Address.Contains(search))
-                        select new HotelViewModel
-                        {
-                            HotelID = h.HotelId,
-                            Name = h.HotelName,
-                            Address = h.Address,
-                            RoomTypeID = rt.RoomTypeId,
-                            RoomTypeName = rt.RoomTypeName,
-                            RoomDescription = rt.Description,
-                            Price = rt.Price ?? 1,
-                            BedCount = rt.BedCount ?? 1,
-                            Capacity = rt.Capacity ?? 1,
-                            Currency = h.Currency
-                        };
+            {
+                using( var db = new HotelProjectContext())
+                {
+                    list = (
+                            from h in db.Hotels
+                            join rt in db.RoomTypes on h.HotelId equals rt.HotelId
+                            join r in db.Rooms on rt.RoomTypeId equals r.RoomTypeId
+                            where !db.Bookings.Any(b => b.RoomId == r.RoomId &&
+                                                        (b.Status.Equals("pending") || b.Status.Equals("confirmed")) &&
+                                                        ((checkIn >= b.CheckInDate && checkIn <= b.CheckOutDate) ||
+                                                            (checkOut >= b.CheckInDate && checkOut <= b.CheckOutDate)))
+                                    && rt.Capacity >= guest
+                                    && rt.Status.Equals("active")
+                                    && h.Status.Equals("active")
+                                    && (search == null || search.Trim().Equals(string.Empty) || h.Address.Contains(search))
+                            select new HotelViewModel
+                            {
+                                HotelID = h.HotelId,
+                                Name = h.HotelName,
+                                Address = h.Address,
+                                RoomTypeID = rt.RoomTypeId,
+                                RoomTypeName = rt.RoomTypeName,
+                                RoomDescription = rt.Description,
+                                Price = rt.Price ?? 1,
+                                BedCount = rt.BedCount ?? 1,
+                                Capacity = rt.Capacity ?? 1,
+                                Currency = h.Currency
+                            }).Distinct().ToList();
+                }
+
             }
             catch (Exception ex)
             {

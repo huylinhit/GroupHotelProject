@@ -23,6 +23,6 @@ namespace MyLibrary.Repositories
         public void UpdateBookingStatusByBookingID(int id, string status);
 
         public IEnumerable<Booking> GetBookingByBookingID(int BookingID);
-
+        public IEnumerable<RoomViewModel> ViewBookableRoom(int SelectedRoomTypeID, int HotelID, DateTime CheckIn, DateTime CheckOut);
     }
 }

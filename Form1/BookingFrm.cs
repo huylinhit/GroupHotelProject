@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace HotelBooking
 {
-    public partial class Booking : Form
+    public partial class BookingFrm : Form
     {
-        public Booking()
+        public BookingFrm()
         {
             InitializeComponent();
         }

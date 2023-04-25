@@ -16,6 +16,6 @@ namespace MyLibrary.Repositories
         void DeleteHotel(int id);
 
         IEnumerable<Hotel> SearchHotelByNameOrAddress(string search);
-        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest, HotelProjectContext db);
+        public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest);
     }
 }
