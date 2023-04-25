@@ -46,7 +46,8 @@ namespace HotelBooking
         {
             InitializeComponent();
         }
-
+        public User User { get; set; }
+        public Hotel Hotel { get; set; }
         private void tabPage2_Click(object sender, EventArgs e)
         {
 
@@ -72,7 +73,7 @@ namespace HotelBooking
                 RoomInfo = GetRoom(),
                 RoomRepository = roomRepository,
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = 1,
+                HotelID = Hotel.HotelId,
             };
             if (roomDetails.ShowDialog() == DialogResult.OK)
             {
@@ -107,7 +108,7 @@ namespace HotelBooking
                 InsertOrUpdate = false,
                 RoomRepository = roomRepository,
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = 1,
+                HotelID = Hotel.HotelId,
             };
             if (roomDetails.ShowDialog() == DialogResult.OK)
             {
@@ -125,7 +126,7 @@ namespace HotelBooking
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Cannot Delete a product");
+                MessageBox.Show(ex.Message, "Cannot Delete a product");
             }
         }
         private void LoadRoomList()
@@ -202,7 +203,7 @@ namespace HotelBooking
             {
                 Text = "Room Type Management",
                 RoomTypeRepository = roomTypeRepository,
-                HotelID = 1,
+                HotelID = Hotel.HotelId,
             };
             roomTypeManagement.Show();
         }

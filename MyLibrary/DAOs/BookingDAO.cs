@@ -28,7 +28,7 @@ namespace MyLibrary.DAOs
             }
         }
 
-        public IEnumerable<Booking> GetBookings()
+        public IEnumerable<Booking> GetBookingsShort()
         {
             IEnumerable<Booking> list = new List<Booking>();
             try
@@ -36,6 +36,28 @@ namespace MyLibrary.DAOs
                 using (var db = new HotelProjectContext())
                 {
                     list = db.Bookings.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+
+        public IEnumerable<Booking> GetBookings()
+        {
+            IEnumerable<Booking> list = new List<Booking>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Bookings.Include(b => b.User)
+                                      .Include(b => b.Room)
+                                      .ThenInclude(room => room.RoomType)
+                                      .ThenInclude(roomtype => roomtype.Hotel)
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
                 }
             }
             catch (Exception ex)

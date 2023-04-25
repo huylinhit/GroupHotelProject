@@ -17,5 +17,10 @@ namespace MyLibrary.Repositories
 
         IEnumerable<Hotel> SearchHotelByNameOrAddress(string search);
         public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest);
+
+        public Hotel GetHotelsByManagerID(int managerID);
+
+
+
     }
 }

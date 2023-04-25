@@ -66,8 +66,24 @@ namespace MyLibrary.DAOs
 
         public User? ValidateLogin(string email, string pwd)
         {
+            (string adminEmail, string adminPwd) = GetDefaultAccount();
+            if (email == adminEmail && pwd == adminPwd)
+            {
+                return new User
+                {
+                    UserId = 0,
+                    FirstName = "admin",
+                    LastName = "admin",
+                    Email = adminEmail,
+                    Password = "",
+                    Address = "",
+                    Phone = "",
+                    Role = "admin",
+                    Status = "active",
+                };
+            }
             var list = GetUsers();
-            var acc = list.SingleOrDefault(acc => acc.Email == email && acc.Password == pwd);
+            var acc = list.SingleOrDefault(acc => acc.Email == email && acc.Password == pwd && acc.Status == "active");
             return acc;
         }
 
@@ -136,21 +152,13 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
         }
-        public (string? Email,string? Password) GetDefaultAccount(bool isAdmin)
+        public (string? Email,string? Password) GetDefaultAccount()
         {
             IConfiguration config = new ConfigurationBuilder()
                                     .SetBasePath(Directory.GetCurrentDirectory())
                                     .AddJsonFile("appsettings.json", true, true)
                                     .Build();
-            if (isAdmin)
-            {
-                return (config["Admin:Email"], config["Admin:Password"]);
-            }
-            else
-            {
-                return (config["Manager:Email"], config["Manager:Password"]);
-            }
-            
+            return (config["Admin:Email"], config["Admin:Password"]);
         }
     }
 }
