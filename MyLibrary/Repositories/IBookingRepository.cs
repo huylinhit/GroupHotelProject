@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Repositories
 {
-    internal interface IBookingRepository
+    public interface IBookingRepository
     {
         public IEnumerable<Booking> GetBookings();
         public IEnumerable<Booking> GetBookingsByHotelID(int hotelID);

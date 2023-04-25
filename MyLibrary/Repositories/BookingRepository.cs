@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Repositories
 {
-    internal class BookingRepository : IBookingRepository
+    public class BookingRepository : IBookingRepository
     {
         public void AddBooking(Booking item) => BookingDAO.Instance.AddBooking(item);
 

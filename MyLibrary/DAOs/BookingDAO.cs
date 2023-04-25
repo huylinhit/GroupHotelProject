@@ -39,7 +39,8 @@ namespace MyLibrary.DAOs
                                       .Include(b => b.Room)
                                       .ThenInclude(room => room.RoomType)
                                       .ThenInclude(roomtype => roomtype.Hotel)
-                                      .OrderByDescending(b => b.BookingId);
+                                      .OrderByDescending(b => b.BookingId)
+                                      .ToList();
                 }
             }
             catch (Exception ex)
