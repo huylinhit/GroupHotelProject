@@ -1,4 +1,5 @@
-﻿using MyLibrary.Repositories;
+﻿using MyLibrary.Models;
+using MyLibrary.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace HotelBooking
     public partial class Login : Form
     {
         IUserRepository userRepository = new UserRepository();
+        IHotelRepository hotelRepository = new HotelRepository();
 
         public Login()
         {
@@ -22,22 +24,56 @@ namespace HotelBooking
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string emailAdmin = userRepository.GetDefaultAccount(true).Email;
-            string passwordAdmin = userRepository.GetDefaultAccount(true).Password;
+            string email = txtEmail.Text;
+            string pwd = txtPassword.Text;
+            /*            if (!email.Contains("@"))
+                        {
+                            lblMsg.Text = "Invalid Email";
+                            return;
+                        }*/
 
-            string emailManager = userRepository.GetDefaultAccount(false).Email;
-            string passwordManager = userRepository.GetDefaultAccount(false).Password;
-            if(txtEmail.Text.Equals(emailAdmin) && txtPassword.Text.Equals(passwordAdmin)) {
-                AddHotel addHotel = new AddHotel();
-                addHotel.Show();
-            }
-            else if(txtEmail.Text.Equals(emailManager) && txtPassword.Text.Equals(passwordManager))
+            User? user = userRepository.ValidateLogin(email, pwd);
+            if (user == null) { lblMsg.Text = "Invalid account"; return; }
+            string role = user.Role;
+            if (role.Equals("admin"))
             {
-                HotelManager hotelManager = new HotelManager();
-                hotelManager.Show();
+                BookingManagement f = new BookingManagement()
+                {
+                    User = user,
+                };
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
             }
-            this.Hide();
+            else if (role.Equals("manager"))
+            {
+                Hotel hotel = hotelRepository.GetHotelsByManagerID(user.UserId);
+                HotelManager f = new HotelManager()
+                {
+                    User = user,
+                    Hotel = hotel
+                };
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                GiveInfo f = new GiveInfo()
+                {
+                    User = user,
+                };
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
 
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

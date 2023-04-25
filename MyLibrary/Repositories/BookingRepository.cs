@@ -36,5 +36,7 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<Booking> GetBookingByBookingID(int BookingID) => BookingDAO.Instance.GetBookingByBookingID(BookingID);
         public IEnumerable<RoomViewModel> ViewBookableRoom(int SelectedRoomTypeID, int HotelID, DateTime CheckIn, DateTime CheckOut) => BookingDAO.Instance.ViewBookableRoom(SelectedRoomTypeID, HotelID, CheckIn, CheckOut);
+
+        public IEnumerable<Booking> GetBookingsShort() => BookingDAO.Instance.GetBookingsShort();
     }
 }

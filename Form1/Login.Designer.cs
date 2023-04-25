@@ -32,72 +32,99 @@
             label2 = new Label();
             txtEmail = new TextBox();
             txtPassword = new TextBox();
-            button1 = new Button();
-            btnLogin = new Button();
+            btnSearchHotel = new Button();
+            button2 = new Button();
+            lblMsg = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(116, 73);
+            label1.Location = new Point(67, 50);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(71, 32);
+            label1.Size = new Size(46, 20);
             label1.TabIndex = 0;
             label1.Text = "Email";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(116, 139);
+            label2.Location = new Point(67, 91);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(111, 32);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 0;
             label2.Text = "Password";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(265, 66);
+            txtEmail.Location = new Point(159, 45);
+            txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(316, 39);
+            txtEmail.Size = new Size(196, 27);
             txtEmail.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(265, 132);
+            txtPassword.Location = new Point(159, 86);
+            txtPassword.Margin = new Padding(2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(316, 39);
+            txtPassword.Size = new Size(196, 27);
             txtPassword.TabIndex = 1;
             // 
-            // button1
+            // btnSearchHotel
             // 
-            button1.Location = new Point(431, 236);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 2;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
+            btnSearchHotel.BackColor = Color.FromArgb(255, 128, 0);
+            btnSearchHotel.FlatAppearance.BorderSize = 0;
+            btnSearchHotel.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSearchHotel.ForeColor = Color.White;
+            btnSearchHotel.Location = new Point(262, 148);
+            btnSearchHotel.Margin = new Padding(2);
+            btnSearchHotel.Name = "btnSearchHotel";
+            btnSearchHotel.Size = new Size(93, 34);
+            btnSearchHotel.TabIndex = 5;
+            btnSearchHotel.Text = "LOG IN";
+            btnSearchHotel.UseVisualStyleBackColor = false;
+            btnSearchHotel.Click += btnLogin_Click;
             // 
-            // btnLogin
+            // button2
             // 
-            btnLogin.Location = new Point(275, 236);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(150, 46);
-            btnLogin.TabIndex = 2;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
+            button2.BackColor = Color.White;
+            button2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.FromArgb(255, 128, 0);
+            button2.Location = new Point(159, 148);
+            button2.Margin = new Padding(2);
+            button2.Name = "button2";
+            button2.Size = new Size(84, 34);
+            button2.TabIndex = 6;
+            button2.Text = "Back";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // lblMsg
+            // 
+            lblMsg.AutoSize = true;
+            lblMsg.ForeColor = Color.Red;
+            lblMsg.Location = new Point(159, 120);
+            lblMsg.Margin = new Padding(2, 0, 2, 0);
+            lblMsg.Name = "lblMsg";
+            lblMsg.Size = new Size(0, 20);
+            lblMsg.TabIndex = 7;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(723, 378);
-            Controls.Add(btnLogin);
-            Controls.Add(button1);
+            ClientSize = new Size(445, 207);
+            Controls.Add(lblMsg);
+            Controls.Add(button2);
+            Controls.Add(btnSearchHotel);
             Controls.Add(txtPassword);
             Controls.Add(txtEmail);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2);
             Name = "Login";
             Text = "Login";
             ResumeLayout(false);
@@ -110,7 +137,8 @@
         private Label label2;
         private TextBox txtEmail;
         private TextBox txtPassword;
-        private Button button1;
-        private Button btnLogin;
+        private Button btnSearchHotel;
+        private Button button2;
+        private Label lblMsg;
     }
 }
