@@ -19,10 +19,10 @@ namespace HotelBooking
 
         public void PopulateSeachParameters()
         {
-            txtSearch.Text = Search??"";
-            txtGuest.Text = Guest.ToString()??"";
+            txtSearch.Text = Search ?? "";
+            txtGuest.Text = Guest.ToString() ?? "";
             txtDuration.Text = Duration.ToString() ?? "";
-            dtpkrCheckIn.Value = CheckIn==default(DateTime)?DateTime.Now.AddDays(3):CheckIn;
+            dtpkrCheckIn.Value = CheckIn == default(DateTime) ? DateTime.Now.AddDays(3) : CheckIn;
         }
         public User user { get; set; }
         public int UserID { get; set; }
@@ -36,6 +36,16 @@ namespace HotelBooking
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateSeachParameters();
+            LoadHotel();
+
+            if(user == null)
+            {
+                btnHistory.Enabled = false;
+            }
+            else
+            {
+                btnHistory.Enabled = true;
+            }
         }
         private void UpdateCheckOutDate()
         {
@@ -114,30 +124,7 @@ namespace HotelBooking
             lblSelectedRoomTypeID.Text = string.Empty;
         }
 
-        private void dgvHotel_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            bool valid = int.TryParse(lblSelectedRoomTypeID.Text, out int id);
-            if (valid)
-            {
-                this.Hide();
-                HotelDetail hd = new HotelDetail()
-                {
-                    SelectedRoomTypeID = int.Parse(lblSelectedRoomTypeID.Text),
-                    CheckIn = CheckIn,
-                    CheckOut = CheckOut,
-                    UserID = UserID
-                };
-                if (hd.ShowDialog() == DialogResult.OK)
-                {
-                    this.Show();
-                }
-                else
-                {
-                    this.Show();
-                }
-            }
 
-        }
 
         private void txtDuration_TextChanged(object sender, EventArgs e)
         {
@@ -168,6 +155,30 @@ namespace HotelBooking
             };
             hd.ShowDialog();
             this.Show();
+        }
+
+        private void dgvHotel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool valid = int.TryParse(lblSelectedRoomTypeID.Text, out int id);
+            if (valid && user != null)
+            {
+                this.Hide();
+                HotelDetail hd = new HotelDetail()
+                {
+                    SelectedRoomTypeID = int.Parse(lblSelectedRoomTypeID.Text),
+                    CheckIn = CheckIn,
+                    CheckOut = CheckOut,
+                    UserID = user.UserId
+                };
+                if (hd.ShowDialog() == DialogResult.OK)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Show();
+                }
+            }
         }
     }
 }
