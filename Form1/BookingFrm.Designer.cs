@@ -351,7 +351,7 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
-            // Booking
+            // BookingFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -384,8 +384,9 @@
             Controls.Add(lblCheckOutDate);
             Controls.Add(lblCheckInDate);
             Margin = new Padding(2);
-            Name = "Booking";
+            Name = "BookingFrm";
             RightToLeftLayout = true;
+            StartPosition = FormStartPosition.CenterScreen;
             Load += Booking_Load;
             ResumeLayout(false);
             PerformLayout();

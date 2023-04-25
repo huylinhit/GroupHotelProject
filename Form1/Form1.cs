@@ -38,7 +38,7 @@ namespace HotelBooking
             PopulateSeachParameters();
             LoadHotel();
 
-            if(user == null)
+            if (user == null)
             {
                 btnHistory.Enabled = false;
             }

@@ -43,25 +43,28 @@
             // 
             // txtRoomNumber
             // 
-            txtRoomNumber.Location = new Point(314, 219);
+            txtRoomNumber.Location = new Point(193, 137);
+            txtRoomNumber.Margin = new Padding(2, 2, 2, 2);
             txtRoomNumber.Name = "txtRoomNumber";
-            txtRoomNumber.Size = new Size(275, 39);
+            txtRoomNumber.Size = new Size(171, 27);
             txtRoomNumber.TabIndex = 34;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(98, 226);
+            label2.Location = new Point(60, 141);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(171, 32);
+            label2.Size = new Size(107, 20);
             label2.TabIndex = 27;
             label2.Text = "Room Number";
             // 
             // txtRoomID
             // 
-            txtRoomID.Location = new Point(314, 154);
+            txtRoomID.Location = new Point(193, 96);
+            txtRoomID.Margin = new Padding(2, 2, 2, 2);
             txtRoomID.Name = "txtRoomID";
-            txtRoomID.Size = new Size(275, 39);
+            txtRoomID.Size = new Size(171, 27);
             txtRoomID.TabIndex = 35;
             // 
             // label6
@@ -69,36 +72,40 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DodgerBlue;
-            label6.Location = new Point(98, 37);
+            label6.Location = new Point(60, 23);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(209, 45);
+            label6.Size = new Size(128, 28);
             label6.TabIndex = 28;
             label6.Text = "Room Details";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(98, 161);
+            label1.Location = new Point(60, 101);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(106, 32);
+            label1.Size = new Size(68, 20);
             label1.TabIndex = 29;
             label1.Text = "Room ID";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(98, 303);
+            label3.Location = new Point(60, 189);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(148, 32);
+            label3.Size = new Size(92, 20);
             label3.TabIndex = 26;
             label3.Text = "Room Type  ";
             // 
             // btnClose
             // 
             btnClose.DialogResult = DialogResult.OK;
-            btnClose.Location = new Point(439, 474);
+            btnClose.Location = new Point(270, 296);
+            btnClose.Margin = new Padding(2, 2, 2, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(150, 46);
+            btnClose.Size = new Size(92, 29);
             btnClose.TabIndex = 36;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
@@ -107,9 +114,10 @@
             // btnSave
             // 
             btnSave.DialogResult = DialogResult.OK;
-            btnSave.Location = new Point(283, 474);
+            btnSave.Location = new Point(174, 296);
+            btnSave.Margin = new Padding(2, 2, 2, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(150, 46);
+            btnSave.Size = new Size(92, 29);
             btnSave.TabIndex = 36;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -118,17 +126,19 @@
             // cboRoomType
             // 
             cboRoomType.FormattingEnabled = true;
-            cboRoomType.Location = new Point(314, 295);
+            cboRoomType.Location = new Point(193, 184);
+            cboRoomType.Margin = new Padding(2, 2, 2, 2);
             cboRoomType.Name = "cboRoomType";
-            cboRoomType.Size = new Size(275, 40);
+            cboRoomType.Size = new Size(171, 28);
             cboRoomType.TabIndex = 37;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(98, 382);
+            label4.Location = new Point(60, 239);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(78, 32);
+            label4.Size = new Size(49, 20);
             label4.TabIndex = 26;
             label4.Text = "Status";
             // 
@@ -136,16 +146,17 @@
             // 
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "active", "inactive" });
-            cboStatus.Location = new Point(314, 374);
+            cboStatus.Location = new Point(193, 234);
+            cboStatus.Margin = new Padding(2, 2, 2, 2);
             cboStatus.Name = "cboStatus";
-            cboStatus.Size = new Size(275, 40);
+            cboStatus.Size = new Size(171, 28);
             cboStatus.TabIndex = 37;
             // 
             // RoomDetails
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(673, 609);
+            ClientSize = new Size(414, 381);
             Controls.Add(cboStatus);
             Controls.Add(cboRoomType);
             Controls.Add(btnSave);
@@ -157,7 +168,9 @@
             Controls.Add(txtRoomID);
             Controls.Add(label6);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "RoomDetails";
+            StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "RoomDetails";
             Load += RoomDetails_Load;
             ResumeLayout(false);

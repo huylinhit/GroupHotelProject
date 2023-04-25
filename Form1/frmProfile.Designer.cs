@@ -281,6 +281,7 @@
             Controls.Add(panel1);
             Controls.Add(dgvBookingList);
             Name = "frmProfile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmProfile";
             Load += frmProfile_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBookingList).EndInit();

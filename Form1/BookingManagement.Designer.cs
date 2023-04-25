@@ -428,6 +428,7 @@
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "BookingManagement";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "BookingManagement";
             Load += BookingManagement_Load;
             tabPage1.ResumeLayout(false);

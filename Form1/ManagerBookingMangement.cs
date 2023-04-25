@@ -43,7 +43,7 @@ namespace Form1
 
             private Booking _obj;
             private MyLibrary.Models.Booking e;
-            
+
             public MyViewModel(MyLibrary.Models.Booking e)
             {
                 this.e = e;
@@ -121,7 +121,7 @@ namespace Form1
                     Status = e.Status
                 });
 
-                if(_bookings.Count() > 0)
+                if (_bookings.Count() > 0)
                 {
                     txtBookingID.DataBindings.Clear();
                     txtUserID.DataBindings.Clear();
@@ -143,7 +143,7 @@ namespace Form1
                     txtAddress.DataBindings.Add("Text", source, "Address");
                     txtRole.DataBindings.Add("Text", source, "Role");
                 }
-                 
+
 
                 dgvBookingList.DataSource = null;
                 dgvBookingList.DataSource = source;

@@ -487,6 +487,7 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             Name = "BookingManagementDetail";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "BookingManagementDetail";
             Load += BookingManagementDetail_Load;
             panel1.ResumeLayout(false);

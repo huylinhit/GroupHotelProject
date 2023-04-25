@@ -17,7 +17,7 @@ namespace HotelBooking
     public partial class BookingManagement : Form
     {
         IBookingRepository bookingRepository = new BookingRepository();
-
+        IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
         BindingSource source;
 
         public User User { get; set; }
@@ -73,6 +73,12 @@ namespace HotelBooking
         {
             txtSearchUserID.PlaceholderText = "User ID";
             txtNameSearch.PlaceholderText = "Search Name";
+
+            cboHotelName.Text = string.Empty;
+            List<RoomType> roomTypes = roomTypeRepository.GetRoomTypes().ToList();
+            foreach (var item in roomTypes)
+            {
+                cboHotelName.Items.Add(item.RoomTypeName);            }
 
 
             List<string> listPrice = new List<string>()
@@ -139,7 +145,6 @@ namespace HotelBooking
 
             //RemoveComboBox
             cboUsersName.Items.Clear();
-            cboHotelName.Items.Clear();
             //cboStatus.Items.Clear();
             //cboRole.Items.Clear();
             //cboPrice.Items.Clear();
@@ -149,7 +154,6 @@ namespace HotelBooking
             foreach (var item in _bookings)
             {
                 cboUsersName.Items.Add(item.User.FirstName);
-                cboHotelName.Items.Add(item.Room.RoomType.RoomTypeName);
             }
 
             try
@@ -167,6 +171,14 @@ namespace HotelBooking
 
                     case "SearchByUserID":
                         {
+                            int value = 0;
+                            try
+                            {
+                                value = int.Parse(FilterValue);
+                            }catch(Exception ex)
+                            {
+                                MessageBox.Show("Input UserID is Number");
+                            }
 
                             _bookings = bookingRepository.GetBookingDetailSearchUserID(int.Parse(FilterValue));
                             ClearFilter();
@@ -307,9 +319,10 @@ namespace HotelBooking
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchNameValue = txtNameSearch.Text.Trim();
             string searchUserIDValue = txtSearchUserID.Text.Trim();
 
+            string searchNameValue = txtNameSearch.Text.Trim();
+            
             if (!searchUserIDValue.Equals(""))
             {
                 Filter = "SearchByUserID";
