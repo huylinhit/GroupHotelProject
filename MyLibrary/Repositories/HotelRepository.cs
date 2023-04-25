@@ -25,6 +25,8 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<HotelViewModel> GetHotelsBySearchParameters(string? search, DateTime checkIn, DateTime checkOut, int guest) 
                 => HotelDAO.Instance.GetHotelsBySearchParameters(search, checkIn, checkOut, guest);
-        public Hotel GetHotelsByManagerID(int managerID) => HotelDAO.Instance.GetHotelsByManagerID((int)managerID); 
+        public Hotel GetHotelsByManagerID(int managerID) => HotelDAO.Instance.GetHotelsByManagerID((int)managerID);
+
+        public IEnumerable<Hotel> GetManagerWithNoJob() => HotelDAO.Instance.GetManagerWithNoJob();
     }
 }

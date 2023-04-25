@@ -3,6 +3,7 @@ using MyLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -201,6 +202,28 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
             return result;
+        }
+
+        public IEnumerable<Hotel> GetManagerWithNoJob()
+        {
+            IEnumerable<Hotel> Hotels = new List<Hotel>();
+
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    Hotels = db.Hotels
+                        .Include(item => item.User)
+                        .Where(item => item.User.UserId != item.ManagerId)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return Hotels;
         }
     }
 }
