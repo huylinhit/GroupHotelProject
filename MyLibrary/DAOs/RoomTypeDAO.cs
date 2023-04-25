@@ -43,6 +43,22 @@ namespace MyLibrary.DAOs
             }
             return list;
         }
+        public IEnumerable<RoomType> GetRoomTypesByHotelID(int hotelID)
+        {
+            IEnumerable<RoomType> list = new List<RoomType>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.RoomTypes.Where(rt => rt.HotelId == hotelID).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
 
         public RoomType? GetRoomTypeByID(int id)
         {

@@ -11,6 +11,7 @@ namespace MyLibrary.Repositories
     public interface IRoomTypeRepository
     {
         IEnumerable<RoomType> GetRoomTypes();
+        public IEnumerable<RoomType> GetRoomTypesByHotelID(int hotelID);
         RoomType? GetRoomTypeByID(int id);
         RoomType? GetRoomTypeByName(string name);
         void AddRoomType(RoomType item);

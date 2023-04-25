@@ -27,7 +27,7 @@ namespace MyLibrary.DAOs
                 }
             }
         }
-        public IEnumerable<Room> GetRoomsByHotelID(int id)
+        public IEnumerable<Room> GetRoomsByHotelID(int hotelId)
         {
             IEnumerable<Room> list = new List<Room>();
             try
@@ -37,7 +37,24 @@ namespace MyLibrary.DAOs
                     list = db.Rooms.
                         Include(r => r.RoomType).
                         ThenInclude(roomtype => roomtype.Hotel).
-                        Where(room => room.RoomType.HotelId == id).ToList();
+                        Where(room => room.RoomType.HotelId == hotelId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Room> GetRoomsByRoomTypeID(int roomTypeID)
+        {
+            IEnumerable<Room> list = new List<Room>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Rooms.
+                        Where(room => room.RoomTypeId == roomTypeID).ToList();
                 }
             }
             catch (Exception ex)

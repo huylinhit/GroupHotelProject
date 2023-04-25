@@ -10,6 +10,7 @@ namespace MyLibrary.Repositories
     public interface IRoomRepository
     {
         IEnumerable<Room> GetRooms();
+        public IEnumerable<Room> GetRoomsByRoomTypeID(int roomTypeID);
         IEnumerable<Room> GetRoomsByID(int id);
         Room GetRoomByID(int id);
         void AddRoom(Room room);

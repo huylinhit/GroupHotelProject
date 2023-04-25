@@ -72,7 +72,6 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(lblSelectedRoomTypeID);
             tabPage1.Controls.Add(lblMsg);
             tabPage1.Controls.Add(radioButton2);
             tabPage1.Controls.Add(radioButton1);
@@ -94,6 +93,7 @@
             tabPage1.Controls.Add(comboBox1);
             tabPage1.Controls.Add(dgvHotel);
             tabPage1.Controls.Add(textBox10);
+            tabPage1.Controls.Add(lblSelectedRoomTypeID);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
@@ -108,7 +108,7 @@
             // 
             lblSelectedRoomTypeID.AutoSize = true;
             lblSelectedRoomTypeID.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSelectedRoomTypeID.Location = new Point(43, 623);
+            lblSelectedRoomTypeID.Location = new Point(226, 630);
             lblSelectedRoomTypeID.Margin = new Padding(2, 0, 2, 0);
             lblSelectedRoomTypeID.Name = "lblSelectedRoomTypeID";
             lblSelectedRoomTypeID.Size = new Size(0, 20);
