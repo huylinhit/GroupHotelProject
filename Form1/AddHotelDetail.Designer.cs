@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtManagerID = new TextBox();
             label12 = new Label();
             txtCurrency = new TextBox();
             label10 = new Label();
@@ -53,15 +52,8 @@
             label1 = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            cboManagerID = new ComboBox();
             SuspendLayout();
-            // 
-            // txtManagerID
-            // 
-            txtManagerID.Location = new Point(201, 133);
-            txtManagerID.Margin = new Padding(2);
-            txtManagerID.Name = "txtManagerID";
-            txtManagerID.Size = new Size(350, 27);
-            txtManagerID.TabIndex = 30;
             // 
             // label12
             // 
@@ -241,6 +233,7 @@
             txtHotelID.Margin = new Padding(2);
             txtHotelID.Multiline = true;
             txtHotelID.Name = "txtHotelID";
+            txtHotelID.ReadOnly = true;
             txtHotelID.Size = new Size(350, 27);
             txtHotelID.TabIndex = 28;
             // 
@@ -287,14 +280,23 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // cboManagerID
+            // 
+            cboManagerID.FormattingEnabled = true;
+            cboManagerID.Location = new Point(201, 134);
+            cboManagerID.Name = "cboManagerID";
+            cboManagerID.Size = new Size(350, 28);
+            cboManagerID.TabIndex = 33;
+            cboManagerID.SelectedIndexChanged += cboManagerID_SelectedIndexChanged;
+            // 
             // AddHotelDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(635, 665);
+            Controls.Add(cboManagerID);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-            Controls.Add(txtManagerID);
             Controls.Add(label12);
             Controls.Add(txtCurrency);
             Controls.Add(label10);
@@ -326,8 +328,6 @@
         }
 
         #endregion
-
-        private TextBox txtManagerID;
         private Label label12;
         private TextBox txtCurrency;
         private Label label10;
@@ -352,5 +352,6 @@
         private Label label1;
         private Button btnSave;
         private Button btnCancel;
+        private ComboBox cboManagerID;
     }
 }

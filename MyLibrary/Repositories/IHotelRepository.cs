@@ -20,6 +20,7 @@ namespace MyLibrary.Repositories
 
         public Hotel GetHotelsByManagerID(int managerID);
 
+        //public IEnumerable<Hotel> GetManagerWithNoJob();
 
 
     }

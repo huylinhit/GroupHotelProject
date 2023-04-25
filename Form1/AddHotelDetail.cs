@@ -15,7 +15,7 @@ namespace Form1
 {
     public partial class AddHotelDetail : Form
     {
-
+        IUserRepository _userRepository = new UserRepository();
         public IHotelRepository hotelRepository { get; set; }
         //False is Insert, True is Update
         public bool InsertOrUpdate { get; set; }
@@ -26,14 +26,37 @@ namespace Form1
             InitializeComponent();
         }
 
+        public void SetDefaultComboBoxValue()
+        {
+
+
+            cboManagerID.Items.Clear();
+
+
+            IEnumerable<User> users = _userRepository.GetUsers().ToList();
+
+            IEnumerable<Hotel> hotels = hotelRepository.GetHotels().ToList();
+
+            int numbers = hotels.Count() + 1;
+            txtHotelID.Text = numbers.ToString();
+
+            foreach (var item in users)
+            {
+                cboManagerID.Items.Add(item.UserId);
+            }
+
+
+        }
         public void LoadValueOfObject()
         {
             Hotel _hotel = HotelObject;
 
+
+
             try
             {
                 txtHotelID.Text = _hotel.HotelId.ToString();
-                txtManagerID.Text = _hotel.ManagerId.ToString();
+                cboManagerID.Text = _hotel.ManagerId.ToString();
                 txtHotelName.Text = _hotel.HotelName.ToString();
                 txtAddress.Text = _hotel.Address.ToString();
                 txtPhone.Text = _hotel.Phone.ToString();
@@ -60,7 +83,7 @@ namespace Form1
                 _hotel = new Hotel()
                 {
                     HotelId = int.Parse(txtHotelID.Text),
-                    ManagerId = int.Parse(txtManagerID.Text),
+                    ManagerId = int.Parse(cboManagerID.SelectedItem.ToString()),
                     HotelName = txtHotelName.Text,
                     Address = txtAddress.Text,
                     Phone = txtPhone.Text,
@@ -82,13 +105,18 @@ namespace Form1
         }
         private void AddHotelDetail_Load(object sender, EventArgs e)
         {
+
             if (InsertOrUpdate)
             {
+                SetDefaultComboBoxValue();
                 txtHotelID.Enabled = false;
+                cboManagerID.Enabled = false;
                 LoadValueOfObject();
             }
             else
             {
+                SetDefaultComboBoxValue();
+
                 txtHotelID.Enabled = true;
             }
 
@@ -131,6 +159,21 @@ namespace Form1
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cboManagerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int UserID = int.Parse(cboManagerID.SelectedItem.ToString());
+
+            Hotel managerHaveJob = hotelRepository.GetHotelById(UserID);
+
+            IEnumerable<User> users = _userRepository.GetUsers();
+
+            if (managerHaveJob != null && InsertOrUpdate == false)
+            {
+                MessageBox.Show("This Manager already got job");
+            }
+
         }
     }
 }
