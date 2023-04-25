@@ -14,8 +14,8 @@ namespace Form1
 {
     public partial class RoomTypeManagement : Form
     {
-        IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
-        public int HotelID { get; set; } = 1;
+        public IRoomTypeRepository RoomTypeRepository { get; set; }
+        public int HotelID { get; set; }
         BindingSource source;
         public RoomTypeManagement()
         {
@@ -43,7 +43,7 @@ namespace Form1
                 Text = "Update Room",
                 InsertOrUpdate = true,
                 RoomTypeInfo = GetRoomType(),
-                RoomTypeRepository = roomTypeRepository,
+                RoomTypeRepository = RoomTypeRepository,
                 HotelID = 1,
             };
             if (roomTypeDetails.ShowDialog() == DialogResult.OK)
@@ -58,7 +58,7 @@ namespace Form1
             {
                 Text = "Add Room",
                 InsertOrUpdate = false,
-                RoomTypeRepository = roomTypeRepository,
+                RoomTypeRepository = RoomTypeRepository,
                 HotelID = 1,
             };
             if (roomTypeDetails.ShowDialog() == DialogResult.OK)
@@ -92,7 +92,7 @@ namespace Form1
         }
         public void LoadRoomTypeList()
         {
-            var roomTypes = roomTypeRepository.GetRoomTypes().Where(r => r.HotelId == HotelID);
+            var roomTypes = RoomTypeRepository.GetRoomTypes().Where(r => r.HotelId == HotelID);
             TryBindRoomTypeList(roomTypes);
         }
         private void TryBindRoomTypeList(IEnumerable<RoomType> roomTypes)
@@ -156,8 +156,9 @@ namespace Form1
             try
             {
                 var roomType = GetRoomType();
-                roomTypeRepository.RemoveRoomTypeByID(roomType.RoomTypeId);
+                RoomTypeRepository.DeleteRoomType(roomType.RoomTypeId);
                 LoadRoomTypeList();
+
             }
             catch (Exception ex)
             {
@@ -165,6 +166,6 @@ namespace Form1
             }
         }
 
-         
+
     }
 }

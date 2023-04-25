@@ -113,7 +113,22 @@ namespace MyLibrary.DAOs
                 throw new Exception(ex.Message);
             }
         }
-
+        public void DeleteRoomType(int id)
+        {
+            try
+            {
+                using(var db = new HotelProjectContext())
+                {
+                    var o = db.RoomTypes.SingleOrDefault(c => c.RoomTypeId == id);
+                    db.Remove(o);
+                    db.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public void UpdateRoomType(RoomType item)
         {
             try

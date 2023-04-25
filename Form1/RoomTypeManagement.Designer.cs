@@ -48,7 +48,6 @@
             textBox16 = new TextBox();
             comboBox3 = new ComboBox();
             btnSearch = new Button();
-            button2 = new Button();
             btnAdd = new Button();
             btnDelete = new Button();
             dgvRoomTypeList = new DataGridView();
@@ -57,7 +56,7 @@
             // 
             // txtHotelID
             // 
-            txtHotelID.Location = new Point(212, 659);
+            txtHotelID.Location = new Point(212, 733);
             txtHotelID.Name = "txtHotelID";
             txtHotelID.Size = new Size(217, 39);
             txtHotelID.TabIndex = 80;
@@ -65,7 +64,7 @@
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(40, 666);
+            label24.Location = new Point(40, 740);
             label24.Name = "label24";
             label24.Size = new Size(102, 32);
             label24.TabIndex = 70;
@@ -73,7 +72,7 @@
             // 
             // txtStatus
             // 
-            txtStatus.Location = new Point(212, 585);
+            txtStatus.Location = new Point(212, 659);
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new Size(217, 39);
             txtStatus.TabIndex = 79;
@@ -81,7 +80,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(40, 592);
+            label16.Location = new Point(40, 666);
             label16.Name = "label16";
             label16.Size = new Size(78, 32);
             label16.TabIndex = 71;
@@ -89,7 +88,7 @@
             // 
             // txtTotalPrice
             // 
-            txtTotalPrice.Location = new Point(212, 509);
+            txtTotalPrice.Location = new Point(212, 583);
             txtTotalPrice.Name = "txtTotalPrice";
             txtTotalPrice.Size = new Size(217, 39);
             txtTotalPrice.TabIndex = 82;
@@ -97,7 +96,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(40, 516);
+            label17.Location = new Point(40, 590);
             label17.Name = "label17";
             label17.Size = new Size(123, 32);
             label17.TabIndex = 72;
@@ -105,7 +104,7 @@
             // 
             // txtBedCount
             // 
-            txtBedCount.Location = new Point(212, 436);
+            txtBedCount.Location = new Point(212, 510);
             txtBedCount.Name = "txtBedCount";
             txtBedCount.Size = new Size(217, 39);
             txtBedCount.TabIndex = 81;
@@ -113,7 +112,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(40, 443);
+            label18.Location = new Point(40, 517);
             label18.Name = "label18";
             label18.Size = new Size(127, 32);
             label18.TabIndex = 73;
@@ -121,7 +120,7 @@
             // 
             // txtCapacity
             // 
-            txtCapacity.Location = new Point(212, 365);
+            txtCapacity.Location = new Point(212, 439);
             txtCapacity.Name = "txtCapacity";
             txtCapacity.Size = new Size(217, 39);
             txtCapacity.TabIndex = 83;
@@ -129,7 +128,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(40, 372);
+            label19.Location = new Point(40, 446);
             label19.Name = "label19";
             label19.Size = new Size(104, 32);
             label19.TabIndex = 74;
@@ -138,8 +137,9 @@
             // txtDescription
             // 
             txtDescription.Location = new Point(212, 293);
+            txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(217, 39);
+            txtDescription.Size = new Size(217, 117);
             txtDescription.TabIndex = 84;
             // 
             // label20
@@ -218,18 +218,9 @@
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            button2.Location = new Point(1144, 44);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 65;
-            button2.Text = "Load";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(1300, 44);
+            btnAdd.Location = new Point(1504, 44);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(150, 46);
             btnAdd.TabIndex = 66;
@@ -239,7 +230,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(1456, 44);
+            btnDelete.Location = new Point(1660, 44);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(150, 46);
             btnDelete.TabIndex = 67;
@@ -254,7 +245,7 @@
             dgvRoomTypeList.Name = "dgvRoomTypeList";
             dgvRoomTypeList.RowHeadersWidth = 82;
             dgvRoomTypeList.RowTemplate.Height = 41;
-            dgvRoomTypeList.Size = new Size(1142, 780);
+            dgvRoomTypeList.Size = new Size(1344, 780);
             dgvRoomTypeList.TabIndex = 63;
             dgvRoomTypeList.CellDoubleClick += dgvRoomTypeList_CellDoubleClick;
             // 
@@ -262,7 +253,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1676, 914);
+            ClientSize = new Size(1842, 914);
             Controls.Add(txtHotelID);
             Controls.Add(label24);
             Controls.Add(txtStatus);
@@ -283,7 +274,6 @@
             Controls.Add(textBox16);
             Controls.Add(comboBox3);
             Controls.Add(btnSearch);
-            Controls.Add(button2);
             Controls.Add(btnAdd);
             Controls.Add(btnDelete);
             Controls.Add(dgvRoomTypeList);
@@ -317,7 +307,6 @@
         private TextBox textBox16;
         private ComboBox comboBox3;
         private Button btnSearch;
-        private Button button2;
         private Button btnAdd;
         private Button btnDelete;
         private DataGridView dgvRoomTypeList;

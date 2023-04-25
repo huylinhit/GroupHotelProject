@@ -28,9 +28,18 @@ namespace Form1
             txtRoomTypeID.Enabled = !InsertOrUpdate;
             txtHotelID.Text = HotelID.ToString();
             txtHotelID.Enabled = false;
+            int newRoomTypeID = RoomTypeRepository.GetRoomTypes().Count() + 1;
+            var o = RoomTypeRepository.GetRoomTypeByID(newRoomTypeID);
+            while (o != null)
+            {
+                newRoomTypeID += 1;
+                o = RoomTypeRepository.GetRoomTypeByID(newRoomTypeID);
+            }
+            txtRoomTypeID.Text = newRoomTypeID.ToString();
+            txtRoomTypeID.Enabled = false;
             if (InsertOrUpdate == true)
             {
-                 
+
                 txtRoomTypeID.Text = RoomTypeInfo.RoomTypeId.ToString();
                 txtRoomTypeName.Text = RoomTypeInfo.RoomTypeName.ToString();
                 txtDescription.Text = RoomTypeInfo.Description;
@@ -60,8 +69,8 @@ namespace Form1
                     Capacity = int.Parse(txtCapacity.Text),
                     BedCount = int.Parse(txtBedCount.Text),
                     Price = decimal.Parse(txtTotalPrice.Text),
-                    HotelId = int.Parse(txtHotelID.Text),
-                    Status = cboStatus.Text,
+                    HotelId = HotelID,
+                    Status = "active",
                 };
                 if (InsertOrUpdate == false)
                 {
@@ -74,7 +83,7 @@ namespace Form1
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new car" : "Update a car");
+                MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add new room type" : "Update room type");
             }
         }
     }

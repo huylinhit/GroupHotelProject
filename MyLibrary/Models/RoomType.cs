@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyLibrary.Models
 {
@@ -9,7 +11,8 @@ namespace MyLibrary.Models
         {
             Rooms = new HashSet<Room>();
         }
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RoomTypeId { get; set; }
         public string RoomTypeName { get; set; }
         public string Description { get; set; }

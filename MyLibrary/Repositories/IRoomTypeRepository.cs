@@ -17,5 +17,6 @@ namespace MyLibrary.Repositories
         void RemoveRoomType(RoomType item);
         void RemoveRoomTypeByID(int id);
         void UpdateRoomType(RoomType item);
+        void DeleteRoomType(int id);
     }
 }
