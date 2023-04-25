@@ -19,7 +19,7 @@ namespace HotelBooking
         BindingSource source;
         IRoomRepository roomRepository = new RoomRepository();
         IRoomTypeRepository roomTypeRepository = new RoomTypeRepository();
-        public int InitHotelID { get; set; };
+        public int InitHotelID { get; set; }
         class MyViewModel
         {
             public int HotelId { get; set; }
@@ -64,7 +64,7 @@ namespace HotelBooking
             txtRoomType.Enabled = false;
             txtHotelID.Enabled = false;
             LoadRoomList();
-
+            txtHotelID.Text = InitHotelID.ToString();
             cboSearch.SelectedIndex = 0;
             foreach (var item in roomTypeRepository.GetRoomTypes()
                 .Where(r => r.HotelId == InitHotelID))

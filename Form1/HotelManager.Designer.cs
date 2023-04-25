@@ -49,7 +49,6 @@
             txtSearch = new TextBox();
             cboSearch = new ComboBox();
             btnSearch = new Button();
-            btnLoad = new Button();
             btnAdd = new Button();
             btnDelete = new Button();
             dgvRoomList = new DataGridView();
@@ -117,7 +116,6 @@
             tabPage1.Controls.Add(txtSearch);
             tabPage1.Controls.Add(cboSearch);
             tabPage1.Controls.Add(btnSearch);
-            tabPage1.Controls.Add(btnLoad);
             tabPage1.Controls.Add(btnAdd);
             tabPage1.Controls.Add(btnDelete);
             tabPage1.Controls.Add(dgvRoomList);
@@ -295,15 +293,6 @@
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
-            // 
-            // btnLoad
-            // 
-            btnLoad.Location = new Point(267, 636);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(150, 46);
-            btnLoad.TabIndex = 8;
-            btnLoad.Text = "Load";
-            btnLoad.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
@@ -598,7 +587,6 @@
         private TextBox txtSearch;
         private ComboBox cboSearch;
         private Button btnSearch;
-        private Button btnLoad;
         private Button btnAdd;
         private Button btnDelete;
         private DataGridView dgvRoomList;
