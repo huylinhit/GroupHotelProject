@@ -27,6 +27,6 @@ namespace MyLibrary.Repositories
                 => HotelDAO.Instance.GetHotelsBySearchParameters(search, checkIn, checkOut, guest);
         public Hotel GetHotelsByManagerID(int managerID) => HotelDAO.Instance.GetHotelsByManagerID(managerID);
 
-        public IEnumerable<Hotel> GetManagerWithNoJob() => HotelDAO.Instance.GetManagerWithNoJob();
+        //public IEnumerable<Hotel> GetManagerWithNoJob() => HotelDAO.Instance.GetManagerWithNoJob();
     }
 }
