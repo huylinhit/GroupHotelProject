@@ -71,7 +71,7 @@ namespace HotelBooking
         {
             InitializeComponent();
         }
-
+        public User  User { get; set; }
         public void Clear()
         {
             txtBookingID.Text = string.Empty;

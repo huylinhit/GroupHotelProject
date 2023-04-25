@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace HotelBooking
             txtDuration.Text = "1";
         }
 
-        public int UserID { get; set; } = 1;
+        public User? User { get; set; }
 
         private void GiveInfo_Load(object sender, EventArgs e)
         {
@@ -71,7 +72,7 @@ namespace HotelBooking
 
                 Form1 f = new Form1()
                 {
-                    UserID = UserID,
+                    UserID = User.UserId,
                     Guest = guest,
                     Search = search,
                     CheckIn = checkin,
@@ -81,7 +82,8 @@ namespace HotelBooking
                 if (f.ShowDialog() == DialogResult.OK)
                 {
                     this.Close();
-                } else
+                }
+                else
                 {
                     this.Close();
                 }
@@ -97,6 +99,14 @@ namespace HotelBooking
         private void dtpkrCheckIn_ValueChanged(object sender, EventArgs e)
         {
             UpdateCheckOutDate();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Show();
         }
     }
 }
