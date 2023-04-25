@@ -11,6 +11,7 @@ namespace MyLibrary.Repositories
     public class RoomTypeRepository:IRoomTypeRepository
     {
         public IEnumerable<RoomType> GetRoomTypes() => RoomTypeTypeDAO.Instance.GetRoomTypes();
+        public IEnumerable<RoomType> GetRoomTypesByHotelID(int hotelID) => RoomTypeTypeDAO.Instance.GetRoomTypesByHotelID(hotelID);
         public RoomType? GetRoomTypeByID(int id) => RoomTypeTypeDAO.Instance.GetRoomTypeByID(id);
         public RoomType? GetRoomTypeByName(string name) => RoomTypeTypeDAO.Instance.GetRoomTypeByName(name);
         public void AddRoomType(RoomType item) => RoomTypeTypeDAO.Instance.AddRoomType(item);

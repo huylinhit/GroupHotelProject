@@ -21,14 +21,12 @@ namespace HotelBooking
             txtDuration.Text = Duration.ToString();
             dtpkrCheckIn.Value = CheckIn;
         }
-
+        public int UserID { get; set; }
         public string Search { get; set; }
         public int Guest { get; set; }
         public int Duration { get; set; }
-        public DateTime CheckIn
-        {
-            get; set;
-        }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
         public int SelectedRoomTypeID { get; set; }
 
 
@@ -36,22 +34,18 @@ namespace HotelBooking
         {
 
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateSeachParameters();
         }
-
         private void txtDuration_TextChanged(object sender, EventArgs e)
         {
             UpdateCheckOutDate();
         }
-
         private void dtpkrCheckIn_ValueChanged(object sender, EventArgs e)
         {
             UpdateCheckOutDate();
         }
-
         private void UpdateCheckOutDate()
         {
             bool durationValid = int.TryParse(txtDuration.Text, out int duration);
@@ -73,7 +67,6 @@ namespace HotelBooking
                 lblMsg.Text = "Duration must be number";
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadHotel();
@@ -97,6 +90,8 @@ namespace HotelBooking
                     if (guest < 1) { lblMsg.Text += "guest must be a positive whole number"; return; }
                     DateTime checkin = dtpkrCheckIn.Value;
                     DateTime checkout = checkin.AddDays(duration);
+                    CheckIn = checkin;
+                    CheckOut = checkout;
 
                     IEnumerable<HotelViewModel> list = hotelRepository.GetHotelsBySearchParameters(search, checkin, checkout, guest, db).ToList();
                     //clear data 
@@ -136,7 +131,10 @@ namespace HotelBooking
                 this.Hide();
                 HotelDetail hd = new HotelDetail()
                 {
-                    SelectedRoomTypeID = int.Parse(lblSelectedRoomTypeID.Text)
+                    SelectedRoomTypeID = int.Parse(lblSelectedRoomTypeID.Text),
+                    CheckIn = CheckIn,
+                    CheckOut = CheckOut,
+                    UserID = UserID
                 };
                 if (hd.ShowDialog() == DialogResult.OK)
                 {
