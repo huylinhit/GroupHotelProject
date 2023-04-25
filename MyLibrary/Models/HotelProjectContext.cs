@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MyLibrary.Models
 {
@@ -15,7 +16,9 @@ namespace MyLibrary.Models
         public HotelProjectContext(DbContextOptions<HotelProjectContext> options)
             : base(options)
         {
+
         }
+        
 
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }

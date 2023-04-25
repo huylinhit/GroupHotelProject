@@ -18,7 +18,7 @@ namespace Form1
         public IRoomRepository RoomRepository { get; set; }
         public IRoomTypeRepository RoomTypeRepository { get; set; }
         public bool InsertOrUpdate { get; set; }
-        public int HotelID { get; set; }
+        public int HotelID { get; set; } = 1;
         public Room RoomInfo { get; set; }
         public RoomDetails()
         {
@@ -27,7 +27,8 @@ namespace Form1
 
         private void RoomDetails_Load(object sender, EventArgs e)
         {
-            txtRoomID.Enabled = !InsertOrUpdate;
+            txtRoomID.Text = (RoomRepository.GetRooms().Count() + 1).ToString();
+            txtRoomID.Enabled = false;
             if (InsertOrUpdate == true)
             {
                 txtRoomID.Text = RoomInfo.RoomId.ToString();
@@ -41,6 +42,11 @@ namespace Form1
                 {
                     cboStatus.SelectedIndex = 1;
                 }
+            }
+            else if(InsertOrUpdate == false)
+            {
+                cboStatus.SelectedIndex = 0;
+                cboStatus.Enabled = false;
             }
             foreach (var item in RoomTypeRepository.GetRoomTypes()
                 .Where(r => r.HotelId == HotelID))
@@ -72,8 +78,6 @@ namespace Form1
                 else
                 {
                     RoomRepository.UpdateRoom(room);
-                    MessageBox.Show(roomTypeID.ToString());
-
                 }
             }
             catch (Exception ex)

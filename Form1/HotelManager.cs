@@ -106,8 +106,10 @@ namespace HotelBooking
                 Text = "Add Room",
                 InsertOrUpdate = false,
                 RoomRepository = roomRepository,
+                RoomTypeRepository = roomTypeRepository,
+                HotelID = 1,
             };
-            if (roomDetails.DialogResult == DialogResult.OK)
+            if (roomDetails.ShowDialog() == DialogResult.OK)
             {
                 LoadRoomList();
                 source.Position = source.Count - 1;
@@ -192,6 +194,17 @@ namespace HotelBooking
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRoomTypeManagement_Click(object sender, EventArgs e)
+        {
+            RoomTypeManagement roomTypeManagement = new RoomTypeManagement
+            {
+                Text = "Room Type Management",
+                RoomTypeRepository = roomTypeRepository,
+                HotelID = 1,
+            };
+            roomTypeManagement.Show();
         }
     }
 }

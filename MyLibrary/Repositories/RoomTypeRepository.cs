@@ -17,5 +17,6 @@ namespace MyLibrary.Repositories
         public void RemoveRoomType(RoomType item) => RoomTypeTypeDAO.Instance.RemoveRoomType(item);
         public void RemoveRoomTypeByID(int id) => RoomTypeTypeDAO.Instance.RemoveRoomTypeByID(id);
         public void UpdateRoomType(RoomType item) => RoomTypeTypeDAO.Instance.UpdateRoomType(item);
+        public void DeleteRoomType(int id) => RoomTypeTypeDAO.Instance.DeleteRoomType(id);
     }
 }

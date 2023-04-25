@@ -67,7 +67,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(42, 546);
+            label16.Location = new Point(42, 604);
             label16.Name = "label16";
             label16.Size = new Size(78, 32);
             label16.TabIndex = 88;
@@ -75,7 +75,7 @@
             // 
             // txtTotalPrice
             // 
-            txtTotalPrice.Location = new Point(255, 463);
+            txtTotalPrice.Location = new Point(255, 521);
             txtTotalPrice.Name = "txtTotalPrice";
             txtTotalPrice.Size = new Size(309, 39);
             txtTotalPrice.TabIndex = 98;
@@ -83,7 +83,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(42, 470);
+            label17.Location = new Point(42, 528);
             label17.Name = "label17";
             label17.Size = new Size(123, 32);
             label17.TabIndex = 89;
@@ -91,7 +91,7 @@
             // 
             // txtBedCount
             // 
-            txtBedCount.Location = new Point(255, 390);
+            txtBedCount.Location = new Point(255, 448);
             txtBedCount.Name = "txtBedCount";
             txtBedCount.Size = new Size(309, 39);
             txtBedCount.TabIndex = 97;
@@ -99,7 +99,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(42, 397);
+            label18.Location = new Point(42, 455);
             label18.Name = "label18";
             label18.Size = new Size(127, 32);
             label18.TabIndex = 90;
@@ -107,7 +107,7 @@
             // 
             // txtCapacity
             // 
-            txtCapacity.Location = new Point(255, 319);
+            txtCapacity.Location = new Point(255, 377);
             txtCapacity.Name = "txtCapacity";
             txtCapacity.Size = new Size(309, 39);
             txtCapacity.TabIndex = 99;
@@ -115,7 +115,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(42, 326);
+            label19.Location = new Point(42, 384);
             label19.Name = "label19";
             label19.Size = new Size(104, 32);
             label19.TabIndex = 91;
@@ -124,8 +124,9 @@
             // txtDescription
             // 
             txtDescription.Location = new Point(255, 247);
+            txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(309, 39);
+            txtDescription.Size = new Size(309, 98);
             txtDescription.TabIndex = 100;
             // 
             // label20
@@ -193,7 +194,7 @@
             // 
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "active\t", "inactive" });
-            cboStatus.Location = new Point(255, 538);
+            cboStatus.Location = new Point(255, 596);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(309, 40);
             cboStatus.TabIndex = 104;
@@ -202,7 +203,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(660, 807);
+            ClientSize = new Size(623, 807);
             Controls.Add(cboStatus);
             Controls.Add(btnSave);
             Controls.Add(btnClose);

@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            btnRoomTypeManagement = new Button();
             txtHotelID = new TextBox();
             label5 = new Label();
             txtAvailable = new TextBox();
@@ -73,7 +74,6 @@
             button7 = new Button();
             button8 = new Button();
             dataGridView2 = new DataGridView();
-            button1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
@@ -89,12 +89,12 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1640, 966);
+            tabControl1.Size = new Size(1640, 953);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(btnRoomTypeManagement);
             tabPage1.Controls.Add(txtHotelID);
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(txtAvailable);
@@ -123,6 +123,17 @@
             tabPage1.Text = "Room Management";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // btnRoomTypeManagement
+            // 
+            btnRoomTypeManagement.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRoomTypeManagement.Location = new Point(28, 803);
+            btnRoomTypeManagement.Name = "btnRoomTypeManagement";
+            btnRoomTypeManagement.Size = new Size(389, 78);
+            btnRoomTypeManagement.TabIndex = 23;
+            btnRoomTypeManagement.Text = "Room Type Management";
+            btnRoomTypeManagement.UseVisualStyleBackColor = true;
+            btnRoomTypeManagement.Click += btnRoomTypeManagement_Click;
             // 
             // txtHotelID
             // 
@@ -322,7 +333,7 @@
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1624, 912);
+            tabPage2.Size = new Size(1624, 899);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Booking Management";
             tabPage2.UseVisualStyleBackColor = true;
@@ -512,21 +523,11 @@
             dataGridView2.Size = new Size(1142, 780);
             dataGridView2.TabIndex = 23;
             // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(28, 803);
-            button1.Name = "button1";
-            button1.Size = new Size(389, 78);
-            button1.TabIndex = 23;
-            button1.Text = "Room Type Management";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // HotelManager
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1640, 966);
+            ClientSize = new Size(1640, 953);
             Controls.Add(tabControl1);
             Name = "HotelManager";
             Text = "HotelManager";
@@ -588,6 +589,6 @@
         private Label label13;
         private TextBox txtRoomType;
         private Label label15;
-        private Button button1;
+        private Button btnRoomTypeManagement;
     }
 }
