@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -145,16 +146,37 @@ namespace Form1
 
         private void dgvBookingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*            BookingManagementDetail bookingManagementDetail = new BookingManagementDetail()
-                        {
-                            BookingRepository = bookingRepository,
-                            BookingID = int.Parse(txtBookingID.Text)
-                        };
-                        if (bookingManagementDetail.ShowDialog() == DialogResult.OK)
-                        {
-                            LoadBookings();
-                            source.Position = source.Count - 1;
-                        }*/
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            lblMsg.Text = string.Empty;
+            bool bookingIDValid = int.TryParse(txtBookingID.Text, out int bookingID);
+            if (bookingIDValid)
+            {
+                DialogResult rs = MessageBox.Show("Do you want to cancel this Booking?", "Cancel Booking", MessageBoxButtons.YesNo);
+                if (rs == DialogResult.Yes)
+                {
+                    IBookingRepository bookingRepository = new BookingRepository();
+                    Booking b = bookingRepository.GetBookingByID(bookingID);
+                    if (b != null && b.Status=="pending") {
+                        bookingRepository.UpdateBookingStatusByBookingID(bookingID, "cancel");
+                    } else
+                    {
+                        lblMsg.Text = "Error canceling booking";
+                    }
+                }
+                else
+                {
+                    lblMsg.Text = "Error canceling booking";
+                }
+            }
+            LoadBookings();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

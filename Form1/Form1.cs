@@ -27,8 +27,8 @@ namespace HotelBooking
         public User user { get; set; }
         public int UserID { get; set; }
         public string Search { get; set; }
-        public int Guest { get; set; }
-        public int Duration { get; set; }
+        public int Guest { get; set; } = 1;
+        public int Duration { get; set; } = 1;
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public int SelectedRoomTypeID { get; set; }
@@ -41,10 +41,12 @@ namespace HotelBooking
             if (user == null)
             {
                 btnHistory.Enabled = false;
+                btnLogout.Text = "Back";
             }
             else
             {
                 btnHistory.Enabled = true;
+                btnLogout.Text = "Log Out";
             }
         }
         private void UpdateCheckOutDate()
@@ -75,13 +77,13 @@ namespace HotelBooking
             {
                 using (var db = new HotelProjectContext())
                 {
-
-
                     lblMsg.Text = string.Empty;
                     string? search = txtSearch.Text.Trim();
                     bool guestValid = int.TryParse(txtGuest.Text, out int guest);
                     bool durationValid = int.TryParse(txtDuration.Text, out int duration);
                     if (!durationValid) { lblMsg.Text += "Duration must be filled in"; return; }
+                    if (duration < 1) { return; }
+                    if (duration > 30) { lblMsg.Text = "The maximum duration of a stay can only be 30 days"; return; }
                     if (!guestValid) { lblMsg.Text += "Guest must a number, you can leave this field empty"; return; }
                     if (guest >= 24) { lblMsg.Text += "There is no room in our system for " + guest + "guest"; return; }
                     if (guest < 1) { lblMsg.Text += "guest must be a positive whole number"; return; }
@@ -178,6 +180,9 @@ namespace HotelBooking
                 {
                     this.Show();
                 }
+            } else
+            {
+                lblMsg.Text = "You must login to continue booking";
             }
         }
     }

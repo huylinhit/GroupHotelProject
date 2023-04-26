@@ -81,11 +81,11 @@ namespace HotelBooking
                 this.Hide();
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    this.Close();
+                    this.Show();
                 }
                 else
                 {
-                    this.Close();
+                    this.Show();
                 }
 
 
