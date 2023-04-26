@@ -40,11 +40,11 @@ namespace Form1
             int numbers = hotels.Count() + 1;
             txtHotelID.Text = numbers.ToString();
 
-            var ManagerWithNoJob = hotelRepository.GetHotelsManager().Where(item => item.User.Status.Contains("inactive"));
+            var ManagerWithNoJob = _userRepository.GetInActiveManager();
 
             foreach (var item in ManagerWithNoJob)
             {
-                cboManagerID.Items.Add(item.User.UserId);
+                cboManagerID.Items.Add(item.UserId);
             }
 
 

@@ -21,5 +21,7 @@ namespace MyLibrary.Repositories
         public IEnumerable<User> GetUsers() => UserDAO.Instance.GetUsers();
 
         public void UpdateUser(User user) => UserDAO.Instance.UpdateUser(user);
+
+        public IEnumerable<User> GetInActiveManager() => UserDAO.Instance.GetInActiveManager();
     }
 }

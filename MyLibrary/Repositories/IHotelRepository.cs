@@ -24,5 +24,8 @@ namespace MyLibrary.Repositories
 
         public IEnumerable<Hotel> GetHotelsManager();
 
+        public IEnumerable<Hotel> GetHotelsManagerInactive();
+
+
     }
 }

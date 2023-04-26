@@ -15,6 +15,9 @@ namespace MyLibrary.Repositories
         void UpdateUser(User user);
         void DeleteUser(int id);
         public User? ValidateLogin(string email, string pwd);
+
+        public IEnumerable<User> GetInActiveManager();
+
     }
 
 }

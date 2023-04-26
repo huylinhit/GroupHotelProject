@@ -28,5 +28,7 @@ namespace MyLibrary.Repositories
         public Hotel GetHotelsByManagerID(int managerID) => HotelDAO.Instance.GetHotelsByManagerID(managerID);
 
         public IEnumerable<Hotel> GetHotelsManager() => HotelDAO.Instance.GetHotelsManager();
+
+        public IEnumerable<Hotel> GetHotelsManagerInactive() => HotelDAO.Instance.GetHotelsManagerInactive();
     }
 }
