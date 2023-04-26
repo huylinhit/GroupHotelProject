@@ -77,13 +77,13 @@ namespace HotelBooking
             {
                 using (var db = new HotelProjectContext())
                 {
-
-
                     lblMsg.Text = string.Empty;
                     string? search = txtSearch.Text.Trim();
                     bool guestValid = int.TryParse(txtGuest.Text, out int guest);
                     bool durationValid = int.TryParse(txtDuration.Text, out int duration);
                     if (!durationValid) { lblMsg.Text += "Duration must be filled in"; return; }
+                    if (duration < 1) { return; }
+                    if (duration > 30) { lblMsg.Text = "The maximum duration of a stay can only be 30 days"; return; }
                     if (!guestValid) { lblMsg.Text += "Guest must a number, you can leave this field empty"; return; }
                     if (guest >= 24) { lblMsg.Text += "There is no room in our system for " + guest + "guest"; return; }
                     if (guest < 1) { lblMsg.Text += "guest must be a positive whole number"; return; }
