@@ -160,5 +160,24 @@ namespace MyLibrary.DAOs
                                     .Build();
             return (config["Admin:Email"], config["Admin:Password"]);
         }
+
+        public IEnumerable<User> GetInActiveManager()
+        {
+            IEnumerable<User> users = null;
+            try
+            {
+                var context = new HotelProjectContext();
+
+                users = context.Users
+                    .Where(item => item.Role.Equals("manager") && item.Status.Equals("inactive"))
+                    .ToList();
+
+
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return users;
+        }
     }
 }
