@@ -33,16 +33,18 @@ namespace Form1
             cboManagerID.Items.Clear();
 
 
-            IEnumerable<User> users = _userRepository.GetUsers().ToList();
+            IEnumerable<User> users = _userRepository.GetUsers().Where(item => item.Role.Contains("manager"));
 
             IEnumerable<Hotel> hotels = hotelRepository.GetHotels().ToList();
 
             int numbers = hotels.Count() + 1;
             txtHotelID.Text = numbers.ToString();
 
-            foreach (var item in users)
+            var ManagerWithNoJob = hotelRepository.GetHotelsManager().Where(item => item.User.Status.Contains("inactive"));
+
+            foreach (var item in ManagerWithNoJob)
             {
-                cboManagerID.Items.Add(item.UserId);
+                cboManagerID.Items.Add(item.User.UserId);
             }
 
 
@@ -171,7 +173,7 @@ namespace Form1
 
             if (managerHaveJob != null && InsertOrUpdate == false)
             {
-                MessageBox.Show("This Manager already got job");
+
             }
 
         }

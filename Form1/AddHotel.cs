@@ -109,7 +109,8 @@ namespace HotelBooking
         }
         public void LoadHotelsList()
         {
-            var hotelsList = hotelRepository.GetHotels();
+            //var hotelsList = hotelRepository.GetHotels();
+            var hotelsList = hotelRepository.GetHotelsManager();
 
             try
             {
