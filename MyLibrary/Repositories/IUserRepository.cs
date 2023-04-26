@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyLibrary.Repositories
 {
-    public interface IUserRepository
-    {
+    public interface IUserRepository { 
+        
+        
         IEnumerable<User> GetUsers();
         User GetUserByID(int id);
         void AddUser(User user);
