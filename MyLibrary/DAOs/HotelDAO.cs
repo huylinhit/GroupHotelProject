@@ -225,5 +225,45 @@ namespace MyLibrary.DAOs
 
             return Hotels;
         }
+
+
+        public IEnumerable<Hotel> GetHotelsManager()
+        {
+            IEnumerable<Hotel> list = new List<Hotel>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Hotels.Where(item => item.Status.Equals("active"))
+                        .Include(item => item.User)
+                        .Where(item => item.User.Role.Contains("manager"))
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
+        public IEnumerable<Hotel> GetHotelsManagerInactive()
+        {
+            IEnumerable<Hotel> list = new List<Hotel>();
+            try
+            {
+                using (var db = new HotelProjectContext())
+                {
+                    list = db.Hotels.Where(item => item.Status.Equals("active"))
+                        .Include(item => item.User)
+                        .Where(item => item.User.Role.Contains("manager"))
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return list;
+        }
     }
 }
