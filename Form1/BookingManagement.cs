@@ -78,7 +78,8 @@ namespace HotelBooking
             List<RoomType> roomTypes = roomTypeRepository.GetRoomTypes().ToList();
             foreach (var item in roomTypes)
             {
-                cboHotelName.Items.Add(item.RoomTypeName);            }
+                cboHotelName.Items.Add(item.RoomTypeName);
+            }
 
 
             List<string> listPrice = new List<string>()
@@ -175,7 +176,8 @@ namespace HotelBooking
                             try
                             {
                                 value = int.Parse(FilterValue);
-                            }catch(Exception ex)
+                            }
+                            catch (Exception ex)
                             {
                                 MessageBox.Show("Input UserID is Number");
                             }
@@ -322,7 +324,7 @@ namespace HotelBooking
             string searchUserIDValue = txtSearchUserID.Text.Trim();
 
             string searchNameValue = txtNameSearch.Text.Trim();
-            
+
             if (!searchUserIDValue.Equals(""))
             {
                 Filter = "SearchByUserID";
@@ -453,6 +455,16 @@ namespace HotelBooking
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSearchUserID_TextChanged_1(object sender, EventArgs e)
+        {
+            txtNameSearch.Text = string.Empty;
+        }
+
+        private void txtNameSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            txtSearchUserID.Text = string.Empty;
         }
     }
 }
