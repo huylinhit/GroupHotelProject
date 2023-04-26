@@ -85,7 +85,7 @@ namespace Form1
                 _hotel = new Hotel()
                 {
                     HotelId = int.Parse(txtHotelID.Text),
-                    ManagerId = int.Parse(cboManagerID.SelectedItem.ToString()),
+                    ManagerId = int.Parse(cboManagerID.Text.ToString()),
                     HotelName = txtHotelName.Text,
                     Address = txtAddress.Text,
                     Phone = txtPhone.Text,
