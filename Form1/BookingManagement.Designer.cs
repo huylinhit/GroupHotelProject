@@ -128,6 +128,7 @@
             txtSearchUserID.Name = "txtSearchUserID";
             txtSearchUserID.Size = new Size(80, 27);
             txtSearchUserID.TabIndex = 28;
+            txtSearchUserID.TextChanged += txtSearchUserID_TextChanged_1;
             // 
             // txtNameSearch
             // 
@@ -136,6 +137,7 @@
             txtNameSearch.Name = "txtNameSearch";
             txtNameSearch.Size = new Size(142, 27);
             txtNameSearch.TabIndex = 26;
+            txtNameSearch.TextChanged += txtNameSearch_TextChanged_1;
             // 
             // cboUsersName
             // 
