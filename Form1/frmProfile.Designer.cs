@@ -49,6 +49,10 @@
             label8 = new Label();
             label7 = new Label();
             lblMsg = new Label();
+            btnCancel = new Button();
+            label4 = new Label();
+            label5 = new Label();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBookingList).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -266,17 +270,65 @@
             // lblMsg
             // 
             lblMsg.AutoSize = true;
-            lblMsg.Location = new Point(377, 21);
+            lblMsg.Location = new Point(633, 21);
             lblMsg.Margin = new Padding(2, 0, 2, 0);
             lblMsg.Name = "lblMsg";
             lblMsg.Size = new Size(0, 20);
             lblMsg.TabIndex = 57;
             // 
+            // btnCancel
+            // 
+            btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancel.ForeColor = Color.FromArgb(255, 128, 0);
+            btnCancel.Location = new Point(736, 508);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(109, 42);
+            btnCancel.TabIndex = 58;
+            btnCancel.Text = "Cancel Order";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(377, 21);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(90, 20);
+            label4.TabIndex = 59;
+            label4.Text = "Booking List";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(11, 21);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(146, 20);
+            label5.TabIndex = 60;
+            label5.Text = "Booking Information";
+            // 
+            // btnBack
+            // 
+            btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBack.ForeColor = Color.FromArgb(255, 128, 0);
+            btnBack.Location = new Point(12, 508);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(94, 42);
+            btnBack.TabIndex = 61;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // frmProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1112, 507);
+            ClientSize = new Size(1112, 562);
+            Controls.Add(btnBack);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(btnCancel);
             Controls.Add(lblMsg);
             Controls.Add(panel1);
             Controls.Add(dgvBookingList);
@@ -313,5 +365,9 @@
         private Label label8;
         private Label label7;
         private Label lblMsg;
+        private Button btnCancel;
+        private Label label4;
+        private Label label5;
+        private Button btnBack;
     }
 }

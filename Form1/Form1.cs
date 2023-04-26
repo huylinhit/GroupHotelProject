@@ -27,8 +27,8 @@ namespace HotelBooking
         public User user { get; set; }
         public int UserID { get; set; }
         public string Search { get; set; }
-        public int Guest { get; set; }
-        public int Duration { get; set; }
+        public int Guest { get; set; } = 1;
+        public int Duration { get; set; } = 1;
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public int SelectedRoomTypeID { get; set; }
@@ -41,10 +41,12 @@ namespace HotelBooking
             if (user == null)
             {
                 btnHistory.Enabled = false;
+                btnLogout.Text = "Back";
             }
             else
             {
                 btnHistory.Enabled = true;
+                btnLogout.Text = "Log Out";
             }
         }
         private void UpdateCheckOutDate()
@@ -178,6 +180,9 @@ namespace HotelBooking
                 {
                     this.Show();
                 }
+            } else
+            {
+                lblMsg.Text = "You must login to continue booking";
             }
         }
     }
